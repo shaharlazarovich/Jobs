@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <GenerateAssembleyInfo>false</GenerateAssembleyInfo>
+    <UserSecretsId>6dcf6d50-7399-4665-9619-9c50b004df67</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj"/>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.0.0"/>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0"/>
+    <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="2.0.0"/>
+    <PackageReference Include="Serilog.AspNetCore" Version="3.1.0"/>
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0"/>
+  </ItemGroup>
+</Project>

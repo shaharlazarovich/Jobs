@@ -1,0 +1,11 @@
+{
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "testRegex": "((\\.|/*.)(spec))\\.(ts|tsx|js)?$",
+    "transform": {
+        "\\.(ts|tsx)$": "ts-jest"
+    },
+    "setupFilesAfterEnv": [
+        "<rootDir>/test.setup.js",
+        "<rootDir>/test-shim.js"
+    ]
+}

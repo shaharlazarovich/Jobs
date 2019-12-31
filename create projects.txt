@@ -1,0 +1,490 @@
+##############################################################################
+################### VSCODE EXTENSIONS AND SETUP ##############################
+##############################################################################
+Auto close tag
+Auto rename tag
+Bracket pair colorizer 2
+[C#] for visual studio code powered by omnisharp
+[C#] Extensions
+ES7 react/Redux/GraphQL/React-native snippets
+Material icon theme
+Nuget package manager
+Prettier - code formatter
+Powershell language support for Visual studio code
+Txt syntax
+Jira and Bitbucket (Official)
+Fold/Unfold all icons
+.NET Core Test Explorer #in vscode settings under .net core test explorer - set parameter Test Project Path to **\*Test.csproj
+SQLite
+PostgreSQL (Chris Kolkman)
+MySql (Jun Han)
+SQL Server (mssql)
+Azure App Service #tool for azure deployment
+vscode-deploy-reloaded #tool for sftp deployment to linux
+#to create a snippet go to: 
+File->Preferences->User Snippets->New Snippets file for Reactivities->handlerSnippts
+#in order to populate it - go to https://snippet-generator.app/ and copy paste the content you want to turn into a snippet (Query/Handler classes from List.cs)
+#then, set Query Handler as the description and qhanlder as the tab trigger. 
+#then we need to replace everything that the code is returning (the List<Activity>>) with a different syntax using ctrl+i which is ${1:ReturnObject}
+#then copy paste this syntax into the other places this value is returned. then remove the handle implementation and replace it with a comment "handler logic goes here"
+#then click "copy snippet" and go back to vscode - pasting this over the comments scetion inside the new snippet file. then do the same for command handler.
+#to use the snippet type in any file (a new activity) the first letters
+#of the trigger - and the snippet will "pop" into the editor. we need to bring in all the using statements (ctrl + .)
+#and the we use the reformat shortcut shift + alt + f
+##############################################################################
+################### ADD GIT ##################################################
+##############################################################################
+#for using git from the vscode terminal:
+git status #will return fatal - no git repository
+git init
+#will show an icon with the amount of files that are untracked.
+#then we should create a .gitignore file and exclude the following:
+#bin,obj,.vscode,appsettings.json,*.db,create projects.txt,Reactivities.postman_collection.json
+git add . #will add to a local git repository all the files in the current directory - could also use the stage icon in the UI
+git commit -m "Initial commit" #- could also use the commit icon in the UI
+#now create an empty repo called Reactivities on github
+git remote add origin https://github.com/shaharlazarovich/Reactivities.git
+git remote show origin #make sure remote was added successfully - first time you use it a login popup will require for user+password
+git push -u origin master
+#when connecting git from the 2nd computer (after the remote repository was already setup):
+#start with >git clone https://github.com/shaharlazarovich/Reactivities.git
+#then >git pull origin master (and receive message that already up to date)
+#then >git push origin master (and receive message that everything is up to date)
+#troubleshooting when connecting from a new computer, if the push fails (and you are sure
+#you are pusing the latest version) you can use:
+git push -u origin master --force #and it will override the remote with the local
+#if you can't pull since your'e getting "fatal: refusing to merge unrelated histories" try:
+git pull origin master --allow-unrelated-histories
+#if we would like to force pull, and override our local files with the remote ones:
+git fetch --all
+git reset --hard origin/master
+##############################################################################
+################### NUGET PACKAGES ###########################################
+##############################################################################
+#for the migration/validation/identity to work we need to add several package via
+View->Command Palette->Nuget Package Manager: Add Package-> Enter a package name
+Microsoft.EntityFrameworkCore->3.0.0 (add to Persistence)
+Microsoft.EntityFrameworkCore.Sqlite->3.0.0 (add to Persistence)
+Microsoft.EntityFrameworkCore.Design->3.0.0 (add to Persistence)
+FluentValidation->FluentValidation.AspNetCore->8.5.1 (add to Application) #validation library
+Newtonsoft.Json->12.0.3 (add to API) #json serializer library
+Microsoft.AspNetCore.Identity.EntityFrameworkCore->3.0.0 (add to Domain)
+Microsoft.AspNetCore.Identity.UI->3.0.0 (add to API)
+System.IdentityModel.Tokens.Jwt->5.5.0 (add to Infrastructure)
+Microsoft.AspNetCore.Authentication.JwtBearer->3.0.0 (add to API)
+AutoMapper.Extensions.Microsoft.DependencyInjection->6.1.1 (add to Application) #auto map domain objects to Dtos
+Microsoft.EntityFrameworkCore.Proxies->3.0.0 (add to Persistence) #package needed for lazy loading
+CloudinaryDotNet->1.9.1 (add to Infrastructure) #package needed to work with cloudinary
+Microsoft.EntityFrameworkCore.SqlServer->3.0.0 (add to Persistence) #needed package for sqlserver integratopn
+Pomelo.EntityFrameworkCore.MySql->3.0.0 (add to Persistence) #needed package for mysql integration
+Npgsql.EntityFrameworkCore.PostgreSQL->3.0.0 (add to Persistence) #needed package for postgres integration
+Serilog.Aspnetcore->3.1.0 (add to API)
+Serilog.settings.configuration->3.1.0 (add to API)
+NWebsec.AspNetCore.Middleware->2.0.0 (add to API) #needed for security purposes
+NUnit->3.12.0 (add to Test)
+NUnit3TestAdapter->3.15.0 (add to Test)
+Microsoft.NET.Test.Sdk->16.4.0 (add to Test)
+Moq->4.13.0 (add to Test) #mocking framework
+Microsoft.EntityFrameworkCore.InMemory->3.0.0 (add to Test) #for working with in memory db - for unitests
+Confluent.Kafka->1.3.0 (add to Infrastructure) #needed for kafka integration
+###############################################################################
+###################### MIGRATIONS AND DB ######################################
+###############################################################################
+#we have migrations for 4 db types - sqlite, sql server, postgres and mysql. for sqlite - the vscode extension is enough, for the other 3 we need
+#to install the db engine first. download postgres 12 + pgAdmin UI, mysql community 8 + workbench UI, sqlserver express 2019 + smss 18 UI
+#for postgres: after installing and connecting the pgAdmin (via chrome) right click Login/Group roles and add an Appuser (with Pa$$w0rd) which is a superuser.
+#then, in vscode go to:
+View->Command Pallete->Postgres:Add Connection
+localhost->Appuser->Pa$$w0rd->5432->Standard Connection->Show All databases
+#for mySql - we'll need to create a new user in the db, with admin privileges-
+#we could do it in the UI, but better in the command line with admin rights:
+CREATE USER 'appuser'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Pa$$w0rd';
+GRANT ALL PRIVILEGES ON *.* TO 'appuser'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+#then, via the vscode we do the same as in postgres - meaning:
+View->Command Pallete->MySql:Add Connection
+localhost->Appuser->Pa$$w0rd->3306->[Enter]
+#for sql server - install both the server and the ssms , note down the host name from server properties
+#and inside ssms go to Logins and create a new login for appuser with Pa$$w0rd and give it dbowner and sysadmin
+View->Command Pallete->MSSQL:Add Connection #first time it will install sql tools
+DESKTOP-8RTSGPB\SQLEXPRESS->[ENTER]->SQL Login->appuser->Pa$$w0rd->Yes->[ENTER]
+#we need to run somethig called entity framework data migration:
+#this is done using a tool called dotnet-ef which we need to install globally:
+dotnet tool install --global dotnet-ef --version 3.0.0
+#each migration should be run after the relevant DataContext was set, with Dbset and
+#configuring the builder entity. we have to run the migration from the root (Reactivities) folder
+#for each different database we use, we must re-create our migration files, so we should
+#rename the db migration folder, and run the commands again + change the line in the Startup class
+#opt.Use[Dbname] - for example - UseMySql, UseSqlite, UseSqlServer etc.
+cd .. #make sure you are in the Reactivities root
+dotnet-ef migrations add InitialCreate -p Persistence/ -s API/
+dotnet-ef migrations add SeedValues -p Persistence/ -s API/ #using our Seed.cs class
+dotnet-ef migrations add "ActivityEntityAdded" -p Persistence/ -s API/
+dotnet-ef migrations add "AddedIdentity" -p Persistence/ -s API/
+dotnet-ef migrations add "UserActivityAdded" -p Persistence/ -s API/
+dotnet-ef migrations add "PhotoEntityAdded" -p Persistence/ -s API/
+dotnet-ef migrations add "AddedCommentEntity" -p Persistence/ -s API/
+dotnet-ef migrations add "AddedFollowingEntity" -p Persistence/ -s API/
+dotnet-ef migrations add "AddedJobEntity" -p Persistence/ -s API/
+#alternate for the above line (adding job entity) troubleshooting a bug where dotnet-ef wasn't found or registered - 
+#you could run it from the tools folder of .netcore 
+cd C:\Users\User\.dotnet\tools
+.\dotnet-ef.exe migrations add "AddedJobEntity" -p D:\User\Source\Repos\Reactivities\Persistence\ -s D:\User\Source\Repos\Reactivities\API\
+#when we want to clean up our database - we could simply drop it,
+#and it will be re-created next time we run, with the original
+#seed data. the syntax to drop it in the terminal is:
+dotnet-ef database drop -p Persistence/ -s API/
+#in order to view our db data go to View->Command Palette->Sqlite
+#chose "Open Database" and select the Reactivities.db file.
+#now you will get in vscode an extra section on the left called
+#"SQLITE EXPLORER" - in which you'll see your database.
+#once the migration was created, we'll need to restart the app 
+#so the table is created within our sqlite:
+cd API
+dotnet watch run
+###############################################################################
+###################### DOTNET COMMAND LINE ####################################
+###############################################################################
+#important note if opening this project from another computer:
+#1. make sure to install .net core 3.0 SDK and only then open the vscode project (or else - it won't recognize the .net core references)
+#2. make sure to copy appsettings (since its ignored with gitignore) - for the API project
+#the below folder structure is from my home pc - but whatever the location - we should create Reactivities as the root folder of our solution.
+#after the folder was set, we'll navigate to it, and start creating our projects using the command line:
+d:
+cd D:\User\Source\Repos\Reactivities
+dotnet new sln
+dotnet new classlib -n Domain
+dotnet new classlib -n Application
+dotnet new classlib -n Persistence
+dotnet new classlib -n Infrastructure
+dotnet new classlib -n Test
+dotnet new webapi -n API
+dotnet sln add Domain/
+dotnet sln add Application/
+dotnet sln add Persistence/
+dotnet sln add Infrastructure/
+dotnet sln add Test/
+dotnet sln add API/
+cd Application
+dotnet add reference ../Domain/
+dotnet add reference ../Persistence/
+cd ..
+cd API
+dotnet add reference ../Application/
+dotnet add reference ../Infrastructure/
+cd ..
+cd Infrastructure
+dotnet add reference ../Application/
+dotnet add reference ../Domain/
+cd ..
+cd Persistence
+dotnet add reference ../Domain/
+cd ..
+cd Test
+dotnet add reference ../Application/
+dotnet add reference ../Domain/
+#use ctrl + ` to open terminal
+#in terminal type in order to run the solution for the first time:
+dotnet run -p API/
+#we use -p to indicate the startup project
+#our default web app is at http://localhost:5000/weatherforecast
+#in order to create a database (sqlite) out of our code
+#if we'd like to run the app with re-compile every change we can use:
+cd API
+dotnet watch run
+#but it only works within the startup project context - nowhere else
+#now inside the info we should see "create database" instructions each time our app starts
+#when we're writing our c# classes, we have shortcuts to build
+#properties and constructors - for creating a property:
+prop + press tab
+#for creating a constructor:
+ctor + press tab
+#when we would like to verify our token, we should go to jwt.io and paster the token we get from postman. it would show us the 3 parts of the token (header,payload,signature)
+#and would complain that the Signature is invalid. we then need to go and type our secret into the text box (bottom right corner of the screen) and it will verify the signature.
+#in order to store our secret key, while in development mode, we will use a tool called "user secrets"  
+#but in production its not available, so anything we store there, we'll need to place elsewhere (environment variables for example)
+#another thing we'll put in our user secrets is data related to our cloud photo service called "cloudinary". first we need
+#to sign up to cloudinary on their website at www.cloudinary.com and then verify our email. we will get a free tier account
+#and we can use it by providing 3 pieces of data - cloud name, cloud key and cloud secret.
+dotnet user-secrets init -p API/
+dotnet user-secrets set "TokenKey" "super secret key" -p API/
+dotnet user-secrets set "Cloudinary:CloudName" "dbpnmg9gk" #for accessing the cloudinary API
+dotnet user-secrets set "Cloudinary:ApiKey" "276481434566851"
+dotnet user-secrets set "Cloudinary:ApiSecret" "nO2CaRNBx3qOhjmnDOsQr-WEJHI"
+dotnet user-secrets list -p API/ #for viewing our existing secrets
+#for running the app in production mode, we need to go to the launchSettings.json inside
+#properties folder in the API project, and change the "profiles/API/ASPNETCORE_ENVIRONMENT": "Development" to:
+"ASPNETCORE_ENVIRONMENT": "Production"
+#next, we need to move our secrets from user-secrets which is available only on development env
+#to the appsettings file. copy carefully from the current ones using:
+"Cloudinary": {
+  "CloudName": "dbpnmg9gk",
+  "ApiSecret": "nO2CaRNBx3qOhjmnDOsQr-WEJHI",
+  "ApiKey": "276481434566851"
+},
+"TokenKey": "super secret key",
+#and now, all we need for running in production mode is:
+dotnet run
+#for running in test mode (running the Nunit) use:
+dotnet test
+#########################################################################################################################################
+###################### REACT APP ########################################################################################################
+#########################################################################################################################################
+#first, we need to make sure we have npm installed on our machine - and if not - download and install it from https://www.npmjs.com/get-npm. we can accept the
+#recommended settings, include installing all additional support tools.
+#after npm is installed on our machine - we need to update it, with the latest packages by typing in the terminal window of vscode:
+npm install
+#now, in order to create our react app, we'll use a facebook tool
+#called create-react-app - and we'll add two switches to it - 
+#one for using npm (and not yarn) and one for using typescript (and not javascript)
+npx create-react-app client-app --use-npm --typescript
+#once install finishes:
+cd client-app
+npm start
+#to create a production optimized version of react (minified, zipped etc.) use (in the client folder):
+#the output of the optimized build will be placed in a "build" folder under our client folder
+#we would also like to run our client app as part of our .net core project, so we'll use a post build
+#command in our package.json scripts section (right after the build command) which will move our entire
+#build folder and place it in a new wwwroot folder under the API (it will create the folder if not exist)
+#after this is done, we could access our dotnet url (localhost:5000 in dev env) and we'll get our react app
+"postbuild": "move build ../API/wwwroot",
+npm run build
+#for communicating with the server react doesn't have built in
+#http serivce like angular has, so we need to import external
+#library called axios
+cd client-app
+npm install axios
+#we also need a client side library to create guids - we'll use uuid
+#we will then install its types library so typescript will understand
+#the type of uuid
+npm install uuid
+npm install @types/uuid
+#we also need a css framework. we'll use one called semantic-ui-react
+npm install semantic-ui-react
+npm install semantic-ui-css
+#for managin our react state we'll use a library called mobx
+#with the addition of mobx-react-lite - which supports only functional components
+npm install mobx mobx-react-lite
+#to use the experimental decorators feature for observables in mobx
+#add this line to tsconfig.json (after jsx: preserve)
+"experimentalDecorators": true
+#now we'll add a routing library called react-router (we'll use the web version):
+#type the below under client-app folder:
+npm install react-router-dom
+npm install @types/react-router-dom
+#now we'll add a notification library, called react-toastify:
+npm install react-toastify
+#its also comes with its own css file - that we need to paste 
+#into our index.tsx:
+import 'react-toastify/dist/ReactToastify.min.css'
+#for managing our forms, we'll use a package called final-form, and a speciality version of it for React
+#we'll install both as they are dependant one on another:
+npm install react-final-form final-form
+#we will also add a widgets library that contains ui widgets
+#like date picker, and with it, a full library dedicated to
+#dates, dates format etc. called date-fns
+npm install react-widgets react-widgets-date-fns
+npm install date-fns
+npm install @types/react-widgets
+#the react-widgets also have its own css file which we need 
+#to paste into index.tsx:
+import 'react-widgets/dist/css/react-widgets.css'
+#additionally for this library, we need to set up another
+#library called 'localizer' - with localized date formats,
+#but it doesn't exist on the npm registery - so we need to 
+#add a new declaration file for it. so under client-app folder
+#we'll create a new folder called typings-custom. and inside
+#it we'll create a file called react-widgets-date-fns.d.ts
+#and inside the file write:
+declare module 'react-widgets-date-fns'
+#now we need to tell the compiler to look in that folder, so
+#inside our tsconfig.json we'll add to the "include" section, under "src,":
+"./typings-custom/**/*.ts"
+#now we can add the import to our index.tsx page:
+import dateFnsLocalizer from 'react-widgets-date-fns'
+#and just below this import, we need to call this function:
+dateFnsLocalizer();
+#now we'd like to add a form validation package called revalidate:
+npm install revalidate
+npm install @types/revalidate
+#we'd like to install a file dropping widget called react-dropzone:
+npm install react-dropzone
+#we'd also like a cropper widget for react:
+npm install react-cropper@1.2.0
+npm install @types/cropperjs@1.1.5
+#next we'll install a client side package for signalR:
+npm install @microsoft/signalr
+#next we'll install a package to support infinite scrolling:
+npm install react-infinite-scroller
+npm install @types/react-infinite-scroller
+#for adding unit testing to our app, we will use a combination of two tools - jest and enzyme
+npm install jest
+npm install raf jest ts-jest @types/jest
+# we will also add the below two lines to our package.json file under scripts section:
+"test": "jest --config ./jest.config.json",
+"test:watch": "npm run test -- --watch",
+# to run our testing on the react side, under client-app folder type:
+npm test
+#the result should be X tests passed and Y tests failed
+#the test flag is for setting config for jest in the mentioned file, 
+#and the watch flag is for running the tests continously
+#in parallel to writing our code. all we need is another open terminal 
+# (in addition to te one with the npm start) in which we type:
+npm run test:watch
+#now lets add anzyme. jest is a test runner, while enzyme have access to the dom - so we need both.
+npm install enzyme
+npm install @types/enzyme
+npm install enzyme-adapter-react-16
+npm install @types/enzyme-adapter-react-16
+npm install enzyme-to-json
+#for debugging our client side app we need react developer tools chrome extension
+#for chrome - we can get it from the chrome store
+#we also need to get the mobx developer tools chrome extension from the store
+#as for our React folder structure - we would like to have under
+#the src folder - and App and Features folders.
+#under App we'll have layout and models, and under features - each of our features.
+#we will implement React hooks and support Function components
+#that return html , instead of class components that return code.
+#to create a new component we have a snippet shortcut  
+#that will create the skeleton of our component-
+rafc + press tab
+#in order to get our UI components we'll use react.semantic-ui.com
+#we'll chose the relevant component on the right side menu (for example - Collection->Menu)
+#and then scroll to the specific element we want and click "try it"
+#so we could copy-paste the html snippet into our project (between
+# the return() and we paste it into our component between the return())
+#after you paste - if it doesn't allow to auto-import simply delete
+#the 'u' from the menu element we pasted - and suddenly the context menu
+#to auto-import will appear.
+#after our component is ready, in order to import it into app.tsx
+#all we need is start typing the name of the component - and it will
+#auto-import it.
+#the way to know to which html element in react to add a style
+#select the ui in chrome and in the developer tools click the "+"
+#icon for "new style rule" - and it will show you the generated id of the element
+################################################################################################################################################################
+########ADDING A NEW ENTITY ACROSS SERVER AND CLIENT LAYERS#####################################################################################################
+################################################################################################################################################################
+#.NET DOMAIN:
+using DDD we will have our Entities under the Domain folder, our Services under the Application folder,
+our repositories under the Persistence folder and our clients that consume the services will be under 
+the API folder.
+Add <Entity Name>.cs class to Domain project with relevant properties - no logic (this will belong in an Application service)
+#.NET PERSISTENCE and MIGRATIONS:
+In the DataContext class create a DbSet representing a set of DB tables for the entity
+Pass the entity class to the DbSet and Define a Primary key, and optional Foreign keys/Relations
+If neded add some preliminary values to the Db through the Seed.Cs class
+Now run a migration command in the Terminal for your newly created entity - this will create your new tables and Db objects
+Check the Migrations folder and check for 2 new files - one is <Entity Name>Added and the 2nd is <Entity Name>Added.Designer
+#.NET APPLICATION:
+Add folder under Application project with the entity name
+Under the folder - add relevant classes - like Add/Delete/Dto etc.
+Each of the classes is created using the code snippets for Command or Query
+Command handler - use chandler and for Query handler use qhandler (as we're using CQRS with Mediator pattern)
+qhandler is used for a Handler that runs a query and return the result
+chandler is used for a handler that make a change (Add/Update/Delete) and save it
+Since Application connects the API to PERSISTENCE - inject into the constructor context/user etc.
+The Handle methods are always async (unless specific reasons prevent this) using async-await
+For command Handlers add internal class of CommandValidator (inherit FluentValidation) and add validators
+#.NET UnitTests
+To test your application, add a NUnit class with the [TestFixtre] for the class and [Test] or [TestCase] for each method
+Use Assert.That/Assert.IsTrue/Assert.Isfalse/Assert.AreEqual/Assert.Catch to run different test scenarios
+The convention is, that for any class in the application features folder (like create, edit etc.) you will
+have a matching file with _Test under a folder with the same name in the Test project.
+The convention for a single test method is FunctionName_Scenario_ExpectedBehaviour
+for example - HandleCreateJob_MissingJobName_ThrowsException or HandleCreateJob_AllFieldsExist_ReturnsTrue or 
+The method is organized by the AAA convention - Arrange, Act and Assert.
+we will use the TDD approach - meaning - write a failing test first, then implement the code to make the test
+pass, and finally - refactor if needed.
+#.NET API:
+Add to the controller folder under API project a class with <Name of entity>Controller.cs
+The controller you create should inherit BaseController (unless rare cases when it has a UI)
+The controller should contain a method for each HTTP verb you need (GET/POST/PUT/DELETE)
+Each controller should have a routing, and each method is Async and uses the Mediator
+if in the Handlers you create in the Application project you need to inject a new class -
+you need to register the class with its intergace in the class Startup.cs under the API project
+using: services.AddScoped<interface name, entity name>();
+To Test your API, create a Postman file for each API test case - including edge cases
+#REACT MODELS AND STORES:
+Add a .ts file with the entity interfaces under models folder in the client-app
+Add a .ts file called <entity name>Store.ts under stores folder - use a rootStore instance in it
+Open rootStore.ts and add your new store to rootStore so it will be accessible everywhere
+Create a list of mobx observables for every piece of state you'd like to maintain
+Create Actions/Reactions/Computed methods to add/change state
+When an action is async (most cases) you need to add all observable interactions after it within "RunInAction"
+Add try-catch to any method (and use RunInAction in both)
+#REACT AGENT:
+Create a const declaration for your new entity
+Within the new const, declare arrow function for each server API request you have
+You need to export your const at the bottom of the file
+While in Development mode - its good practice to add one second sleep to witness loading times
+#REACT FEATURES:
+Add a folder under the features folder (under client-app)
+Under the new folder create all the .tsx components related to the new entity
+All components are functional components - using React hooks to access state and events
+Start the creation of a new component using rafc snippet - which gives basic structure
+Create an instance of rooStore to access your new entity mobx state store
+Export every component you need to observe it state as "observable(name of functional component)"
+If you need to pass properties between components - use the IProps interface and pass it to the components
+Use Semantic UI to get new UI components code / Style code - this is for most basic components
+Use npm install for adding packages with additional components (need to discuss each such addition)
+Make sure to add loading for each button / panel / route change
+#REACT APP:
+Add PrivateRoute within App.tsx for internal navigation in the SPA
+Add each new style you write (and not taken from Semantic UI) to the styles.css file under layout folder
+Place generic components within the layout folder - to be used across the app
+Place generic .ts code under the util folder
+################################################################################################################################################################
+########KAFKA SETUP AND MAIN COMMANDS###########################################################################################################################
+################################################################################################################################################################
+Download and Setup Java 8 JDK
+Download the Kafka binaries from https://kafka.apache.org/downloads
+Extract Kafka at the root of C:\
+Setup Kafka bins in the Environment variables section by editing Path
+Try Kafka commands using kafka-topics.bat (for example)
+Edit Zookeeper & Kafka configs using NotePad++ https://notepad-plus-plus.org/download/
+zookeeper.properties: dataDir=C:/kafka_2.12-2.0.0/data/zookeeper (yes the slashes are inversed)
+server.properties: log.dirs=C:/kafka_2.12-2.0.0/data/kafka (yes the slashes are inversed)
+Start Zookeeper in one command line: zookeeper-server-start.bat config\zookeeper.properties
+Start Kafka in another command line: kafka-server-start.bat config\server.properties
+kafka-topics.bat --bootstrap-server localhost:9092 --topic first_topic --create --partitions 3 --replication-factor 1
+kafka-topics.bat --bootstrap-server localhost:9092 --list
+kafka-topics.bat --bootstrap-server localhost:9092 --topic first_topic --describe
+kafka-console-producer --broker-list localhost:9092 --topic first_topic --producer-property acks=all
+kafka-console-producer --broker-list localhost:9092 --topic new_topic #we can create a topic on the fly by writing to a not yet existing topic
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning --group my_first_application
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group my_first_application
+#we can use kafka-consumer-groups to reset the reading to the beggining of a topic (or even - reset all topics) - this will restart all partitions to zero
+#there are additional options - like "shift by" which means we can move the offset forward or backwards
+kafka-consumer-groups.bat --bootstrap-server localhost:9092 --group my_first_application --reset-offset --to-eraliest --execute --topic first_topic
+################################################################################################################################################################
+########ELASTIC FILEBEAT + LOGSTASH SETUP#######################################################################################################################
+################################################################################################################################################################
+#unzip filebeat and place it under a non-space in name folder
+#in filebeat.yml, uncomment:
+output.logstash:
+  hosts: ["localhost:5044"]
+#run the below in the command line (in bin directory) to enable files and kafka:
+filebeat modules enable apache
+filebeat modules enable kafka
+#set the below in apache.yml under modules.d, to set the path to your input file:
+- module: apache
+  access:
+    enabled: true
+    var.paths: ["E:/ProgramData/filebeat-7.5.0-windows-x86_64/JobExcludList3.csv"]
+#to run filebeat use:
+filebeat.exe -e
+#unzip logstash and place it under a non-space in name folder
+#copy the pipelines_logstash folder (from .vscode folder) and place under 
+#config folder of logstash and then rename the folder to pipelines
+#add the location of the desired configuration file at the end of pipeline.yml which is located in the config folder:
+- pipeline.id: access_logs
+    path.config: "E:/ProgramData/logstash-7.5.0/config/pipelines/pipeline_beats.conf"
+#for starting logstash from the bin folder:
+logstash
+#if we would like to specify the conf on the fly - including restart on code change:
+logstash -f ../config/pipelines/pipeline_beats.conf --config.reload.automatic
+
+
+
