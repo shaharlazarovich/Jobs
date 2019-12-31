@@ -43,7 +43,7 @@ git init
 git add . #will add to a local git repository all the files in the current directory - could also use the stage icon in the UI
 git commit -m "Initial commit" #- could also use the commit icon in the UI
 #now create an empty repo called Reactivities on github
-git remote add origin https://github.com/shaharlazarovich/Reactivities.git
+git remote add origin https://github.com/shaharlazarovich/Jobs.git
 git remote show origin #make sure remote was added successfully - first time you use it a login popup will require for user+password
 git push -u origin master
 #when connecting git from the 2nd computer (after the remote repository was already setup):
