@@ -47,7 +47,7 @@ git remote add origin https://github.com/shaharlazarovich/Jobs.git
 git remote show origin #make sure remote was added successfully - first time you use it a login popup will require for user+password
 git push -u origin master
 #when connecting git from the 2nd computer (after the remote repository was already setup):
-#start with >git clone https://github.com/shaharlazarovich/Reactivities.git
+#start with >git clone https://github.com/shaharlazarovich/Jobs.git
 #then >git pull origin master (and receive message that already up to date)
 #then >git push origin master (and receive message that everything is up to date)
 #troubleshooting when connecting from a new computer, if the push fails (and you are sure
