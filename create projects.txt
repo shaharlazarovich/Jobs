@@ -35,7 +35,7 @@ File->Preferences->User Snippets->New Snippets file for Reactivities->handlerSni
 ################### ADD GIT ##################################################
 ##############################################################################
 #for using git from the vscode terminal:
-git status #will return fatal - no git repository
+git status #will return fatal - no git repository. but usually - will show us the current branch and some data
 git init
 #will show an icon with the amount of files that are untracked.
 #then we should create a .gitignore file and exclude the following:
@@ -58,14 +58,16 @@ git pull origin master --allow-unrelated-histories #THIS WILL DELETE PREVIOUS HI
 #if we would like to force pull, and override our local files with the remote ones:
 git fetch --all
 git reset --hard origin/master
-#to switch between branches, from the git menu in vscode:
-checkout to -> select [branch name]
-#to switch into a newly created branch , type in the git menu:
-checout to -> create new -> [give new name] 
-#then, to publish the new branch for the first time, from the git menu:
-publish branch
+#to switch between branches, from the git menu in vscode: checkout to -> select [branch name] or in the terminal:
+git checkout master #this will work only if you don't have un-commited changes locally that might be overriden (it works if no changes, or the branch is empty)
+#to switch into a newly created branch , type in the git menu: checout to -> create new -> [give new name] or in the terminal:
+git branch [give new name]
+git checkout [name from previous line]
+#then, to publish the new branch for the first time, from the git menu: publish branch (this is the -u flag in Push command)
 #if you forgot to publish, you will be prompted the first time you try to push this branch (after stage+commit) 
 #"the branch has no publish upstream - create one?" - click "OK"
+#for merge, we first need to checkout into the branch we want:
+
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
