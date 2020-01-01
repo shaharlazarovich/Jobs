@@ -60,6 +60,8 @@ git fetch --all
 git reset --hard origin/master
 #to switch between branches, from the git menu in vscode:
 checkout to -> select [branch name]
+#to switch into a newly created branch , type in the git menu:
+checout to -> create new -> [give new name]
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
