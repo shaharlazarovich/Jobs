@@ -54,10 +54,12 @@ git push -u origin master
 #you are pusing the latest version) you can use:
 git push -u origin master --force #and it will override the remote with the local
 #if you can't pull since your'e getting "fatal: refusing to merge unrelated histories" try:
-git pull origin master --allow-unrelated-histories
+git pull origin master --allow-unrelated-histories #THIS WILL DELETE PREVIOUS HISTORY!!! NOT RECOMMENDED!!!
 #if we would like to force pull, and override our local files with the remote ones:
 git fetch --all
 git reset --hard origin/master
+#to switch between branches, from the git menu in vscode:
+checkout to -> select [branch name]
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
