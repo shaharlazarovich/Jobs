@@ -1,10 +1,11 @@
 using Domain;
+using System.Collections.Generic;
 
 namespace Application.Interfaces
 {
     public interface ICsvAccessor
     {
-         System.Collections.Generic.IEnumerable<Job> AddCsv(string Path);
-         string DeleteCsv(string Path);
+        List<Job> ReadCsvFileToJobModel(string path);
+        void WriteNewCsvFile(string path, List<Job> jobModels);
     }
 }
