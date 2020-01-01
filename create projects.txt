@@ -61,7 +61,8 @@ git reset --hard origin/master
 #to switch between branches, from the git menu in vscode:
 checkout to -> select [branch name]
 #to switch into a newly created branch , type in the git menu:
-checout to -> create new -> [give new name]
+checout to -> create new -> [give new name] 
+#you will be prompted the first time you try to push this branch (after stage+commit) "the branch has no publish upstream - create one?" - click "OK"
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
