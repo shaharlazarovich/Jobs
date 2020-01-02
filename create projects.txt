@@ -1,4 +1,29 @@
 ##############################################################################
+################### ADD FTP ##################################################
+##############################################################################
+#on windows 10
+Add Remove Programs
+Programs and Features (upper right corner)
+Turn windows features on or off
+check and install Internet Information Services -> FTP Server and everything under it
+#Find in the search:
+Windows Administrative Tools->Internet Information Services
+#under windows setting got to 
+Accounts->Family&Other users->Add someone else to this pc->
+I don't have this person signin information->Add a user without a microsoft account->
+Type user and pass (and secret questions/answers)
+#under the left side menu click sites, and right click:
+Add FTP site
+Give name (XXX.YYY.com)
+Select path on your pc
+Assign an IP
+No SSL
+Basic (under Authentication)
+Allow access to: Specified user
+Choose the user we created
+Permissions: Read and Write
+Finish
+##############################################################################
 ################### VSCODE EXTENSIONS AND SETUP ##############################
 ##############################################################################
 Auto close tag
