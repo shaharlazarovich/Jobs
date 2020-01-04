@@ -32,7 +32,7 @@ const App: React.FC<RouteComponentProps> = ({location}) => {
   if (!appLoaded) return <LoadingComponent content='Loading app...' />
   
   return (
-    <Fragment>
+    <Fragment data-test="component-app">
       <ModalContainer />
       <ToastContainer position='bottom-right' />
       <Route exact path='/' component={HomePage} />
