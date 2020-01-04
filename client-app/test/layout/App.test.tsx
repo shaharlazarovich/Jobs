@@ -1,6 +1,6 @@
 import { shallow } from "enzyme";
 import React from "react";
-import NotFound from "../src/app/layout/NotFound";
+import NotFound from "../../src/app/layout/NotFound";
 
 describe('Hello, Enzyme!', () => {
     test('renders', () => {

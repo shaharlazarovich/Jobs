@@ -359,7 +359,6 @@ npm install jest
 npm install @types/jest 
 npm install raf #this is request-animation-frame component - for rendering animation in the browser
 npm install ts-jest #a library for using jest with typescript
-
 # we will also add the below two lines to our package.json file under scripts section:
 "test": "jest --config ./jest.config.json",
 "test:watch": "npm run test -- --watch",
@@ -395,6 +394,8 @@ npm run eject #and type "yes"
 #then we can run:
 npm run build #to create the production build
 #now when we run - the data-test attribute will be gone
+#now we'll add a package to test properties types instead of returning an error - good for our unittest:
+npm install check-prop-types
 #for debugging our client side app we need react developer tools chrome extension
 #for chrome - we can get it from the chrome store
 #we also need to get the mobx developer tools chrome extension from the store
@@ -444,16 +445,19 @@ chandler is used for a handler that make a change (Add/Update/Delete) and save i
 Since Application connects the API to PERSISTENCE - inject into the constructor context/user etc.
 The Handle methods are always async (unless specific reasons prevent this) using async-await
 For command Handlers add internal class of CommandValidator (inherit FluentValidation) and add validators
-#.NET UnitTests
-To test your application, add a NUnit class with the [TestFixtre] for the class and [Test] or [TestCase] for each method
-Use Assert.That/Assert.IsTrue/Assert.Isfalse/Assert.AreEqual/Assert.Catch to run different test scenarios
-The convention is, that for any class in the application features folder (like create, edit etc.) you will
+#.NET TDD
+1. We will use the TDD red-green testing approach - meaning - write a failing test first, then implement the code 
+to make the test pass, and finally - refactor if needed.
+2. The convention is, that for any class in the application features folder (like create, edit etc.) you will
 have a matching file with _Test under a folder with the same name in the Test project.
-The convention for a single test method is FunctionName_Scenario_ExpectedBehaviour
-for example - HandleCreateJob_MissingJobName_ThrowsException or HandleCreateJob_AllFieldsExist_ReturnsTrue or 
-The method is organized by the AAA convention - Arrange, Act and Assert.
-we will use the TDD approach - meaning - write a failing test first, then implement the code to make the test
-pass, and finally - refactor if needed.
+3. We create an empty CS class for our future application code using the Create/Query snippets
+4. To test your application, add a NUnit class with the [TestFixtre] for the class and [Test] or [TestCase] for each method
+5. Use Assert.That/Assert.IsTrue/Assert.Isfalse/Assert.AreEqual/Assert.Catch to run different test scenarios
+6. The convention for a single test method is FunctionName_Scenario_ExpectedBehaviour
+7. For example - HandleCreateJob_MissingJobName_ThrowsException or HandleCreateJob_AllFieldsExist_ReturnsTrue or 
+8. The method is organized by the AAA convention - Arrange, Act and Assert.
+9. We don't test .NET or 3rd party libraries just our code.
+10. If in our unittest code we have external dependency - we mock it using the Moq library.
 #.NET API:
 Add to the controller folder under API project a class with <Name of entity>Controller.cs
 The controller you create should inherit BaseController (unless rare cases when it has a UI)
@@ -492,6 +496,17 @@ Add PrivateRoute within App.tsx for internal navigation in the SPA
 Add each new style you write (and not taken from Semantic UI) to the styles.css file under layout folder
 Place generic components within the layout folder - to be used across the app
 Place generic .ts code under the util folder
+#REACT TDD:
+We are using the test first approach - so in order to test a new component:
+1. Write a stub of the test (only import and export of empty component)
+2. Create in the test folder a file with the same name as the component, adding .test
+3. In our new test file, import the component, and whatever you need from enzyme
+4. First - start by testing the rendering of the different parts of a component
+5. Add 'renders without error' test,'renders empty value' and 'render expected value' 
+6. Make sure your tests fail before you write the actual component (red-green testing)
+7. In order to test existence of a compoent we will use a special prop called data-test
+8. We use this special name, so it will not be used by any regular development purposes
+9. We will use babel to remove those data-test props when moving to production
 ################################################################################################################################################################
 ########KAFKA SETUP AND MAIN COMMANDS###########################################################################################################################
 ################################################################################################################################################################
