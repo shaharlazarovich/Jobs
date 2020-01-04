@@ -70,7 +70,7 @@ const handleFinalFormSubmit = (values: any) => {
     }
 }
     return (
-        <Grid>
+        <Grid data-test="component-job-form">
             <Grid.Column width={10}>
             <Segment clearing>
                 <FinalForm 

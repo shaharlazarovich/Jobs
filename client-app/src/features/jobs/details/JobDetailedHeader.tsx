@@ -23,7 +23,7 @@ const JobDetailsHeader: React.FC<{job: IJob}> = ({job}) => {
   const rootStore = useContext(RootStoreContext);
   const user = rootStore.userStore.user;
     return (
-            <Segment.Group>
+            <Segment.Group data-test="component-job-detailed-header">
               <Segment basic attached='top' style={{ padding: '0' }}>
                 <Image src={`/assets/replicationImages/${job.replication}.jpg`} fluid style={jobImageStyle} />
                 <Segment basic style={jobImageTextStyle}>

@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
     return (
         //we are using the keyword "as" to transform the component  
         //Menu.Item or Button into a Router Link while keeping the Menu.Item style.
-        <Menu fixed='top' inverted>
+        <Menu data-test="component-navbar" fixed='top' inverted>
             <Container>
                 <Menu.Item header as={NavLink} exact to='/' > 
                     <img src="/assets/logo.png" alt="logo" style={{marginRight:'10px'}} />

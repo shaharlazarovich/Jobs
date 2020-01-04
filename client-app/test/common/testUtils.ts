@@ -6,7 +6,7 @@ import checkPropTypes from 'check-prop-types';
  * @param {string} val - Value of data-test attribute for search.
  * @returns {ShallowWrapper}
  */
-export default (wrapper:any, val:any) => {
+export const findByTestAttr = (wrapper:any, val:any) => {
   return wrapper.find(`[data-test="${val}"]`);
 };
 

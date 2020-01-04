@@ -16,7 +16,7 @@ const LoginForm = () => {
     const rootStore = useContext(RootStoreContext);
     const { login } = rootStore.userStore;
     return (
-        <FinalForm 
+        <FinalForm data-test="component-login-form" 
             onSubmit={(values: IUserFormValues) => login(values).catch(error => ({
                [FORM_ERROR] : error 
             }))}

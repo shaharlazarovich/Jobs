@@ -1,34 +1,25 @@
 import { shallow } from "enzyme";
 import React from "react";
-import NotFound from "../../src/app/layout/NotFound";
+import { findByTestAttr } from '../common/testUtils';
+import App from "../../src/app/layout/App";
 
-describe('Hello, Enzyme!', () => {
-    test('renders', () => {
-        const wrapper = shallow(<div><h1>Hello, Enzyme!</h1></div>);
-        console.log(wrapper.debug());
-        expect(wrapper.find('h1').html()).toMatch(/Hello, Enzyme/);
-      })
+const setup = (props={}) => {
+    const wrapper = shallow(<App {...props} />)
+    return wrapper;
+}
 
-      test('renders', () => {
-        const wrapper = shallow(<div><h1>Hello, Enzyme!</h1></div>);
-        console.log(wrapper.debug());
-        expect(wrapper).toBeTruthy();//meaning - wrapper is not null/undefined etc/
-      })
-    
-      test('renders snapshots, too', () => {
-        const wrapper = shallow(<div><h1>Hello, Enzyme!</h1></div>);
-        expect(wrapper).toMatchSnapshot()
-      })
+describe('App UniTest', () => {
+    let wrapper:any;
+    beforeEach(() => {
+        wrapper = setup([]);
+    });
+    test('renders without error', () => {
+        const component = findByTestAttr(wrapper, 'component-app');
+        expect(component.length).toBe(1);
+    });
 
-      test('notfound snapshots, too', () => {
-        const wrapper = shallow(<NotFound />);
-        expect(wrapper).toMatchSnapshot()
-      })
-
-      test('notfound', () => {
-        const wrapper = shallow(<NotFound />);
-        expect(wrapper.find('h1').html()).toMatch(/Test/)
-      })
-
-      
-});
+    test('app snapshots test', () => {
+      const wrapper = shallow(<App />);
+      expect(wrapper).toMatchSnapshot()
+    })
+})

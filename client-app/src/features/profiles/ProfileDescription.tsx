@@ -9,7 +9,7 @@ const ProfileDescription = () => {
   const { updateProfile, profile, isCurrentUser } = rootStore.profileStore;
   const [editMode, setEditMode] = useState(false);
   return (
-    <Tab.Pane>
+    <Tab.Pane data-test="component-profile-description">
       <Grid>
         <Grid.Column width={16}>
           <Header

@@ -24,7 +24,7 @@ const JobDashboard: React.FC = () => {
     }, [loadJobs]); //now, instead of leaving this empty, we need to declare here every dependency useEffect has
 
     return (
-    <Grid>
+    <Grid data-test="component-job-dashboard">
         <Grid.Column width={10}>
             {loadingInitial && page === 0 ? (<JobListItemPlaceholder />) :
             (<InfiniteScroll

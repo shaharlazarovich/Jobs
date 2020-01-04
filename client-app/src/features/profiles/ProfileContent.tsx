@@ -16,9 +16,10 @@ const panes = [
     {menuItem: 'Followers', render: () => <ProfileFollowings />},
     {menuItem: 'Following', render: () => <ProfileFollowings />},
 ]
-export const ProfileContent: React.FC<IProps> = ({setActiveTab}) => {
+const ProfileContent: React.FC<IProps> = ({setActiveTab}) => {
     return (
         <Tab 
+            data-test="component-profile-content"
             menu={{fluid: true, vertical: true}}
             menuPosition='right'
             panes={panes}
@@ -26,3 +27,5 @@ export const ProfileContent: React.FC<IProps> = ({setActiveTab}) => {
         />
     )
 }
+
+export default ProfileContent;

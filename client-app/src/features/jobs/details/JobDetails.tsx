@@ -29,7 +29,7 @@ const JobDetails: React.FC<RouteComponentProps<DetailParams>> = ({
   if (loadingInitial) return <LoadingComponent content='Loading job...' />
   if (!job) return <h2>Job Not Found</h2>
   return (
-    <Grid>
+    <Grid data-test="component-job-details">
       <Grid.Column width={16}>
         <JobDetailedHeader job={job} />
         <JobDetailedInfo job={job} />
