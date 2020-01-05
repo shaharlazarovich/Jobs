@@ -67,9 +67,12 @@ git checkout [name from previous line]
 #if you forgot to publish, you will be prompted the first time you try to push this branch (after stage+commit) 
 #"the branch has no publish upstream - create one?" - click "OK"
 #for merge, we first need to checkout into the branch we want:
-git checkout master #and then:
-got merge [name of branch to merge into master] #this will try auto merge, or show us to conflicts to resolve. after all is done:
-git push origin master
+#for checkout to remote branch:
+git remote #should return - origin
+git fetch origin #will fetch all remote branches
+git checkout [name of remote branch we want] #and then:
+got merge [name of branch to merge into the above] #this will try auto merge, or show us to conflicts to resolve. after all is done:
+git push origin master #assuming we merged into master
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
