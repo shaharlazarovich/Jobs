@@ -9,7 +9,7 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
   const rootStore = useContext(RootStoreContext);
   const { user} = rootStore.userStore;
   return (
-    <Segment.Group>
+    <Segment.Group data-test="component-job-list-item">
       <Segment>
           <Item.Group>
           <Item>

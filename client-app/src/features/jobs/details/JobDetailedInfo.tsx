@@ -6,7 +6,7 @@ import {format} from 'date-fns'
 
 const JobDetailedInfo: React.FC<{job: IJob}> = ({job}) => {
     return (
-        <Segment.Group>
+        <Segment.Group data-test="component-job-detailed-info">
               <Segment attached='top'>
                 <Grid>
                   <Grid.Column width={1}>

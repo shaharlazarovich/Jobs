@@ -3,7 +3,7 @@ import { Segment, Button, Placeholder } from 'semantic-ui-react';
 
 const JobListItemPlaceholder = () => {
   return (
-    <Fragment>
+    <Fragment data-test="component-job-list-item-place-holder">
       <Placeholder fluid style={{ marginTop: 50 }}>
         <Segment.Group>
           <Segment style={{ minHeight: 110 }}>

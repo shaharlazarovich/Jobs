@@ -8,7 +8,7 @@ const JobFilters = () => {
   const rootStore = useContext(RootStoreContext);
   const { predicate, setPredicate } = rootStore.jobStore;
   return (
-    <Fragment>
+    <Fragment data-test="component-job-filters">
       <Menu vertical size={'large'} style={{ width: '100%', marginTop: 50 }}>
         <Header icon={'filter'} attached color={'teal'} content={'Filters'} />
         <Menu.Item

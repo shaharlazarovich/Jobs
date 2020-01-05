@@ -1,42 +1,40 @@
 using System;
 using System.Threading;
+using Application.Interfaces;
 using Confluent.Kafka;
+using Microsoft.Extensions.Options;
 
-namespace KafkaConsumer
+namespace Infrastructure.Kafka
 {
-    class Program
+    public class KafkaConsumer: IKafkaConsumerAccessor
     {
-        static CancellationTokenSource cts = new CancellationTokenSource();
-        static ConsumerConfig consumerConfig = null;
-        static void Main(string[] args)
-        {
-            CreateConfig();
-            CreateConsumerAndConsume();
-        }
+        private CancellationTokenSource cts = new CancellationTokenSource();
+        private ConsumerConfig consumerConfig = null;
 
-        static void CreateConfig()
+        public KafkaConsumer(IOptions<KafkaSettings> config)
         {
             consumerConfig = new ConsumerConfig
             {
-                BootstrapServers = "localhost:9092",
-                GroupId = "my_first_application",
+                BootstrapServers = config.Value.BootstrapServers,
+                GroupId = config.Value.GroupId,
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
         }
 
-        static void CreateConsumerAndConsume()
+        // static void Main(string[] args)
+        // {
+        //     CreateConsumerAndConsume();
+        // }
+
+        public void CreateConsumerAndConsume()
         {
 
             var cb = new ConsumerBuilder<string, string>(consumerConfig);
-
             Console.WriteLine("Press Ctrl+C to exit");
-
             Console.CancelKeyPress += new ConsoleCancelEventHandler(OnExit);
-
             using (var consumer = cb.Build())
             {
                 consumer.Subscribe("first_topic");
-
                 try
                 {
                     while (!cts.IsCancellationRequested)
@@ -54,7 +52,7 @@ namespace KafkaConsumer
             }
         }
 
-        static void OnExit(object sender, ConsoleCancelEventArgs args)
+        public void OnExit(object sender, ConsoleCancelEventArgs args)
         {
             args.Cancel = true;
             Console.WriteLine("In OnExit");

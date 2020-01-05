@@ -1,6 +1,6 @@
 {
     "moduleFileExtensions": ["ts", "tsx", "js"],
-    "testRegex": "((\\.|/*.)(spec))\\.(ts|tsx|js)?$",
+    "testRegex": "((\\.|/*.)(test))\\.(ts|tsx|js)?$",
     "transform": {
         "\\.(ts|tsx)$": "ts-jest"
     },

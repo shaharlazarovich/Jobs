@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using AutoMapper;
 using Infrastructure.Photos;
+using Infrastructure.CSV;
+using Infrastructure.Kafka;
 using API.SignalR;
 using System.Threading.Tasks;
 using Application.Profiles;
@@ -138,8 +140,12 @@ namespace API
             services.AddScoped<IUserAccessor, UserAccessor>();
             services.AddScoped<IPhotoAccessor, PhotoAccessor>();
             services.AddScoped<IProfileReader, ProfileReader>();
-            
+            services.AddScoped<ICsvAccessor, CsvAccessor>();
+            services.AddScoped<IKafkaConsumerAccessor, KafkaConsumer>();
+            services.AddScoped<IKafkaProducerAccessor, KafkaProducer>();
+
             services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
+            services.Configure<KafkaSettings>(Configuration.GetSection("Kafka"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

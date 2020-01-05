@@ -18,7 +18,7 @@ const ProfileHeader: React.FC<IProps> = ({
     unfollow
   }) => {
   return (
-    <Segment>
+    <Segment data-test="component-profile-header">
       <Grid>
         <Grid.Column width={12}>
           <Item.Group>

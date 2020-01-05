@@ -18,7 +18,7 @@ const RegisterForm = () => {
     const rootStore = useContext(RootStoreContext);
     const { register } = rootStore.userStore;
     return (
-        <FinalForm 
+        <FinalForm data-test="component-register-form"
             onSubmit={(values: IUserFormValues) => register(values).catch(error => ({
                [FORM_ERROR] : error 
             }))}

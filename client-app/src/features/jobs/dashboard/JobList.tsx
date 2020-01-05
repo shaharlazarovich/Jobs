@@ -9,7 +9,7 @@ const JobList: React.FC = () => {
     const rootStore = useContext(RootStoreContext);
     const {jobsByDate} = rootStore.jobStore; //destructure of parameters
     return ( //we want to group our jobs by date, using the method we created in jobStore
-    <Fragment>
+    <Fragment data-test="component-job-list">
         {jobsByDate.map(([group, jobs])=> (
             <Fragment key={group}>
                 <Label size='large' color='blue'>

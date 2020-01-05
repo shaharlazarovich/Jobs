@@ -18,7 +18,8 @@ interface IProps {
 
 const ProfileEditForm: React.FC<IProps> = ({ updateProfile, profile }) => {
   return (
-    <FinalForm
+    <FinalForm 
+      data-test="component-profile-edit-form"
       onSubmit={updateProfile}
       validate={validate}
       initialValues={profile!}
