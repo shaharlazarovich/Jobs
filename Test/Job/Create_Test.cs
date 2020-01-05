@@ -1,64 +1,61 @@
-using NUnit.Framework;
-using MediatR;
-using Application.Jobs;
-using Moq;
-using Persistence;
-using Microsoft.EntityFrameworkCore;
-using Domain;
-using System.Threading.Tasks;
-using System.Threading;
 using System;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
-namespace Test.Job
-{
-    [TestFixture]   
-    public class Create_Test
-    {
-        [Test]
-        public async Task HandleCreateJob_WhenAllDataExists_ReturnsValue()
-        {
-            //Arrange
-            var mediator = new Mock<IMediator>();
-            using (var factory = new SampleDbContextFactory())
-            {
-                using (var context = factory.CreateContext())
-                {
-                    Create.Command command = new Create.Command();
-                    Create.Handler handler = new Create.Handler(context);
-                    Unit x = await handler.Handle(command, new System.Threading.CancellationToken());
-                    mediator.Setup(m => m.Send(It.IsAny<Create.Command>(), It.IsAny<CancellationToken>()));
-                }
-            }
-            //var context = new Mock<DataContext>();
-            //var options = new DbContextOptionsBuilder<IdentityDbContext<AppUser>>()
-                //.UseSqlite("Data source=reactivities.db")
-                //.UseInMemoryDatabase(databaseName: "reactivities")
-              //  .UseNpgsql("Host=localhost;Port=5432;Username=Appuser;Password=Pa$$w0rd;Database=Reactivities;")
-              //  .Options;
-            //var context = new DataContext(options);
-            //var entity = context.Model.FindEntityType(typeof(Domain.Job).FullName);
-            //var mockModel = new Mock<DbModelBuilder>();
-            //context.Add(Entity Jobs);
-            //Create.Command command = new Create.Command();
-            /*command.Company = "unittest_company";
-            command.Servers = "10";
-            command.JobName = "unittest_name";
-            command.Replication = "unittest_zerto";
-            command.Id = new System.Guid();
-            command.RTA = 3;
-            command.RTONeeded = 30;
-            command.LastRun = DateTime.Now;
-            command.Key = "AAAA-BBBB-CCCC-DDDD";
-            command.Results = "All tested - server is ok";*/
-            //Create.Handler handler = new Create.Handler(context);
+using System.Linq;
+using System.Threading;
+using Application.Jobs;
+using Application.Interfaces;
+using AutoMapper;
+using Domain;
+using Moq;
+using NUnit.Framework;
  
-            //Act
-            //Unit x = await handler.Handle(command, new System.Threading.CancellationToken());
-            
-            //Assert
-            //mediator.Setup(m => m.Send(It.IsAny<Create.Command>(), It.IsAny<CancellationToken>()));
+namespace Application.Tests.Jobs
+{
+    [TestFixture]
+    public class CreateTest : TestBase
+    {
+        private readonly IMapper _mapper;
+ 
+        public CreateTest()
+        {
+            var mockMapper = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); });
+            _mapper = mockMapper.CreateMapper();
         }
-        
+ 
+        [Test]
+        public void Should_Create_Activity()
+        {
+            var userAccessor = new Mock<IUserAccessor>();
+            userAccessor.Setup(u => u.GetCurrentUsername()).Returns("test");
+            
+            var context = GetDbContext();
+ 
+            context.Users.AddAsync(new AppUser
+            {
+                Id = "1",
+                Email = "test@test.com",
+                UserName = "test"
+            });
+            context.SaveChangesAsync();
+ 
+            var jobCommand = new Create.Command
+            {
+                Id = new Guid(),
+                JobName = "TestJob1",
+                Company = "Netapp",
+                Replication = "Zerto",
+                Servers = "7",
+                LastRun = DateTime.Now,
+                RTA = 10,
+                Results = "OK",
+                Key = "AAAA-BBBB-CCCC-DDDD",
+                RTONeeded = 20,
+            };
+            
+            var sut = new Create.Handler(context);
+            var result = sut.Handle(jobCommand, CancellationToken.None).Result;
+            
+            Assert.NotNull(result);
+            Assert.That(result,Is.EqualTo("TestJob1"));
+        }
     }
 }
