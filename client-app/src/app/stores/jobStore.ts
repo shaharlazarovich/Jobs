@@ -78,6 +78,7 @@ export default class JobStore {
             (a, b) => a.lastRun.getTime() - b.lastRun.getTime()
         )
         return Object.entries(sortedJobs.reduce((jobs, job) => {
+            console.log(`job last run is${job.servers}`)
             const date = job.lastRun.toISOString().split('T')[0];
             jobs[date] = jobs[date] ? [...jobs[date], job] : [job];
             return jobs;
@@ -121,6 +122,7 @@ export default class JobStore {
             try {
                 job = await agent.Jobs.details(id);
                 runInAction('getting jobs', ()=> {
+                    console.log(`in load got ${job.lastRun}`)
                     setJobProps(job, this.rootStore.userStore.user!);//since user could be null we'll use exclamation mark to allow using it
                     this.job = job;
                     this.jobRegistry.set(job.id,job);//we do this in order to load the job from memory instead of going out to the server
