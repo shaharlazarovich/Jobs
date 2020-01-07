@@ -24,7 +24,7 @@ const JobDetailedInfo: React.FC<{job: IJob}> = ({job}) => {
                   </Grid.Column>
                   <Grid.Column width={15}>
                     <span>
-                      {format(job.date,'eeee do MMMM')} at {format(job.time,'h:mm a')}
+                      {format(job.lastRun,'eeee do MM')} at {format(job.lastRun,'h:mm')}
                     </span>
                   </Grid.Column>
                 </Grid>

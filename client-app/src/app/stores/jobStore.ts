@@ -122,7 +122,6 @@ export default class JobStore {
             try {
                 job = await agent.Jobs.details(id);
                 runInAction('getting jobs', ()=> {
-                    console.log(`in load got ${job.lastRun}`)
                     setJobProps(job, this.rootStore.userStore.user!);//since user could be null we'll use exclamation mark to allow using it
                     this.job = job;
                     this.jobRegistry.set(job.id,job);//we do this in order to load the job from memory instead of going out to the server

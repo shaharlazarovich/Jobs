@@ -121,7 +121,7 @@ const Jobs = {
     list: 
         (params: URLSearchParams): Promise<IJobsEnvelope> => 
         axios.get('/jobs', {params: params})
-        //.then(sleep(1000))
+        .then(sleep(1000))
         .then(responseBody),
     details: (id: string) => requests.get(`/jobs/${id}`),
     create: (job: IJob) => requests.post('/jobs', job),

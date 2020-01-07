@@ -22,7 +22,7 @@ const jobImageTextStyle = {
 const JobDetailsHeader: React.FC<{job: IJob}> = ({job}) => {
   const rootStore = useContext(RootStoreContext);
   const user = rootStore.userStore.user;
-    return (
+  return (
             <Segment.Group data-test="component-job-detailed-header">
               <Segment basic attached='top' style={{ padding: '0' }}>
                 <Image src={`/assets/replicationImages/${job.replication}.jpg`} fluid style={jobImageStyle} />
@@ -35,7 +35,7 @@ const JobDetailsHeader: React.FC<{job: IJob}> = ({job}) => {
                           content={job.jobName}
                           style={{ color: 'white' }}
                         />
-                        <p>{format(job.date, 'eeee do MMMM')}</p>
+                        <p>{format(job.lastRun, 'eeee do MM')}</p>
                         <p>
                           Created by <Link to={`/profile/${user!.username}`}><strong>{user!.displayName }</strong></Link>
                         </p>
