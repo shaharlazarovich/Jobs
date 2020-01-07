@@ -52,7 +52,7 @@ namespace Persistence
             if (!context.Jobs.Any())
             {
                 CultureInfo provider = CultureInfo.InvariantCulture;
-                string format = "dd/MM/yyyy h:mm:ss tt";
+                //string format = "dd/MM/yyyy h:mm:ss tt";
                 var jobs = new List<Job>
                 {
                     
