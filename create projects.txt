@@ -399,6 +399,9 @@ npm run build #to create the production build
 #now when we run - the data-test attribute will be gone
 #now we'll add a package to test properties types instead of returning an error - good for our unittest:
 npm install check-prop-types
+#now we will add a package to mock axios when we test
+npm install moxios
+npm install @types/moxios
 #for debugging our client side app we need react developer tools chrome extension
 #for chrome - we can get it from the chrome store
 #we also need to get the mobx developer tools chrome extension from the store
