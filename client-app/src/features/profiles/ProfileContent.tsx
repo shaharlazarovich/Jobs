@@ -1,20 +1,13 @@
 import React from 'react'
 import {Tab} from 'semantic-ui-react'
-import ProfilePhotos from './ProfilePhotos'
 import ProfileDescription from './ProfileDescription'
-import ProfileFollowings from './ProfileFollowings'
-import ProfileActivities from './ProfileActivities'
 
 interface IProps {
     setActiveTab: (activeIndex: any) => void;
 }
 
 const panes = [
-    {menuItem: 'About', render: () => <ProfileDescription />},
-    {menuItem: 'Photos', render: () => <ProfilePhotos />},
-    {menuItem: 'Activities', render: () => <ProfileActivities />},
-    {menuItem: 'Followers', render: () => <ProfileFollowings />},
-    {menuItem: 'Following', render: () => <ProfileFollowings />},
+    {menuItem: 'About', render: () => <ProfileDescription />}
 ]
 const ProfileContent: React.FC<IProps> = ({setActiveTab}) => {
     return (

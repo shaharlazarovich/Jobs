@@ -1,4 +1,3 @@
-import ActivityStore from "./activityStore";
 import UserStore from "./userStore";
 import CommonStore from "./commonStore";
 import { createContext } from "react";
@@ -7,12 +6,12 @@ import ModalStore from "./modalStore";
 import ProfileStore from "./profileStore";
 import JobStore from "./jobStore";
 
+
 //this enables "strict mode" on every mobx object, and enforces it to run
 //within an action - so we should use the "runInAction" method for that
-configure({enforceActions: 'always'});
+configure({enforceActions: 'observed'});
 
 export class RootStore {
-    activityStore: ActivityStore;
     jobStore: JobStore;
     userStore: UserStore;
     commonStore: CommonStore;
@@ -20,7 +19,6 @@ export class RootStore {
     profileStore: ProfileStore;
 
     constructor() {
-        this.activityStore = new ActivityStore(this);
         this.userStore = new UserStore(this);
         this.commonStore = new CommonStore(this);
         this.modalStore = new ModalStore(this);

@@ -2,7 +2,9 @@ import { observable, computed, action, runInAction } from "mobx";
 import { IUser, IUserFormValues } from "../models/users";
 import agent from "../api/agent";
 import { RootStore } from './rootStore';
-import { history } from '../../'
+import { history } from '../common/util/history';
+//import { history } from '../../'
+
 
 export default class UserStore {
     rootStore: RootStore;
@@ -24,7 +26,7 @@ export default class UserStore {
             })
             this.rootStore.commonStore.setToken(user.token);
             this.rootStore.modalStore.closeModal();
-            history.push('/activities');
+            history.push('/jobs');
         } catch (error) {
             throw(error);
         }
@@ -35,7 +37,7 @@ export default class UserStore {
             const user = await agent.User.register(values);
             this.rootStore.commonStore.setToken(user.token);
             this.rootStore.modalStore.closeModal();
-            history.push('/activities');
+            history.push('/jobs');
         } catch (error) {
             throw(error);
         }

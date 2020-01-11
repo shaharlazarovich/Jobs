@@ -1,6 +1,5 @@
 import { shallow } from "enzyme";
 import React from "react";
-import { IProfile } from '../../../src/app/models/profile'
 import { findByTestAttr } from '../../common/testUtils';
 import ProfileContent from "../../../src/features/profiles/ProfileContent";
 

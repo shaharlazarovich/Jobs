@@ -14,7 +14,7 @@ const NavBar: React.FC = () => {
             <Container>
                 <Menu.Item header as={NavLink} exact to='/' > 
                     <img src="/assets/logo.png" alt="logo" style={{marginRight:'10px'}} />
-                    Reactivities
+                    EDRM
                 </Menu.Item>
                 <Menu.Item name='Jobs' as={NavLink} to='/jobs' />
                 <Menu.Item>

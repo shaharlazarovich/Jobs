@@ -2,9 +2,10 @@ import {observable, action, computed, runInAction, reaction, toJS} from 'mobx'
 import { SyntheticEvent } from 'react'
 import { IJob } from '../models/job';
 import agent from '../api/agent';
-import { history} from '../..'
+//import { history} from '../..'
 import { toast } from 'react-toastify';
 import { RootStore } from './rootStore';
+import { history } from '../common/util/history';
 import { setJobProps } from '../common/util/util';
 
 const LIMIT = 2;

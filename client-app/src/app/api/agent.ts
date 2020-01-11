@@ -1,10 +1,12 @@
 import axios, {AxiosResponse} from 'axios';
-import { IActivity, IActivitiesEnvelope } from '../models/activity';
+//import { IActivity, IActivitiesEnvelope } from '../models/activity';
 import { IJob, IJobsEnvelope } from '../models/job';
-import { history } from '../..'; //this imports it from index.tsx - but it looks wierd because 
+import { history } from '../common/util/history'; 
+//import {createBrowserHistory} from 'history'
 import { toast } from 'react-toastify';
 import { IUser, IUserFormValues } from '../models/users';
 import { IProfile, IPhoto } from '../models/profile';
+
 
 //we don't need to explicitely name index - its the default
 
@@ -62,31 +64,27 @@ const sleep = (ms: number) => (response: AxiosResponse) =>
     new Promise<AxiosResponse>(resolve => setTimeout(() => resolve(response), ms));
 
 const requests = {
-    //get: (url: string) => axios.get(url).then(responseBody),
     //the below get request is the one with the artificial delay
     //in order to see loading times
     get: 
         (url: string) => 
         axios.get(url)
-        //.then(sleep(1000))
+        .then(sleep(1000))
         .then(responseBody),
-    //post: (url: string, body: {}) => axios.post(url, body).then(responseBody),
     post: 
         (url: string, body: {}) => 
         axios.post(url, body)
-        //.then(sleep(1000))
+        .then(sleep(1000))
         .then(responseBody),
-    //put: (url: string, body: {}) => axios.put(url, body).then(responseBody),
     put: 
         (url: string, body: {}) => 
         axios.put(url, body)
-        //.then(sleep(1000))
+        .then(sleep(1000))
         .then(responseBody),
-    //del: (url: string) => axios.delete(url).then(responseBody)
     del: 
         (url: string) => 
         axios.delete(url)
-        //.then(sleep(1000))
+        .then(sleep(1000))
         .then(responseBody),
     postForm: 
         (url: string, file: Blob) => {
@@ -96,25 +94,6 @@ const requests = {
             headers: {'Content-type': 'multipart/form-data'}
         }).then(responseBody)
     }
-}
-
-const Activities = {
-    list: 
-        (params: URLSearchParams): Promise<IActivitiesEnvelope> => 
-        axios.get('/activities', {params: params})
-        //.then(sleep(1000))
-        .then(responseBody),
-        //i am commenting out the below line, since now, instead of using the request we would
-        //like to use axios directly in order to pass a params configration object for the query
-        //string URL- so we're also adding our 1 second delay - like the other axios requests, to
-        //simulate slow browser response
-        //requests.get(`/activities?limit=${limit}&offset=${page ? page * limit! : 0}`),
-    details: (id: string) => requests.get(`/activities/${id}`),
-    create: (activity: IActivity) => requests.post('/activities', activity),
-    update: (activity: IActivity) => requests.put(`/activities/${activity.id}`, activity),
-    delete: (id: string) => requests.del(`/activities/${id}`),
-    attend: (id: string) => requests.post(`/activities/${id}/attend`, {}),
-    unattend: (id: string) => requests.del(`/activities/${id}/attend`)
 }
 
 const Jobs = {
@@ -151,7 +130,6 @@ const Profiles = {
 }
 
 export default {
-    Activities,
     User,
     Profiles,
     Jobs

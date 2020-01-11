@@ -1,11 +1,14 @@
 {
     "moduleFileExtensions": ["ts", "tsx", "js"],
-    "testRegex": "((\\.|/*.)(test))\\.(ts|tsx|js)?$",
+    "testRegex": "((\\.|/*.)(test|Test))\\.(ts|tsx|js)?$",
     "transform": {
         "\\.(ts|tsx)$": "ts-jest"
     },
     "setupFilesAfterEnv": [
         "<rootDir>/test.setup.js",
         "<rootDir>/test-shim.js"
-    ]
+    ],
+    "moduleNameMapper": {
+        "\\.(css|scss)$": "<rootDir>/styleMock.js"
+    }
 }
