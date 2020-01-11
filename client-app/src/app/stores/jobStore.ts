@@ -79,7 +79,6 @@ export default class JobStore {
             (a, b) => a.lastRun.getTime() - b.lastRun.getTime()
         )
         return Object.entries(sortedJobs.reduce((jobs, job) => {
-            console.log(`job last run is${job.servers}`)
             const date = job.lastRun.toISOString().split('T')[0];
             jobs[date] = jobs[date] ? [...jobs[date], job] : [job];
             return jobs;

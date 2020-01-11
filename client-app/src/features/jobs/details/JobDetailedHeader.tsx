@@ -22,6 +22,7 @@ const jobImageTextStyle = {
 const JobDetailsHeader: React.FC<{job: IJob}> = ({job}) => {
   const rootStore = useContext(RootStoreContext);
   const user = rootStore.userStore.user;
+  console.log(`writing job replication:${job.replication}`)
   return (
             <Segment.Group data-test="component-job-detailed-header">
               <Segment basic attached='top' style={{ padding: '0' }}>
