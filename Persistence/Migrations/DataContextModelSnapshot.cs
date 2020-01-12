@@ -142,6 +142,44 @@ namespace Persistence.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Domain.Job", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Company")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("JobName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Key")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("LastRun")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("RTA")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("RTONeeded")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Replication")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Results")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Servers")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Jobs");
+                });
+
             modelBuilder.Entity("Domain.Photo", b =>
                 {
                     b.Property<string>("Id")

@@ -1,5 +1,5 @@
 using API.Middleware;
-using Application.Activities;
+using Application.Jobs;
 using Application.Interfaces;
 using Domain;
 using FluentValidation.AspNetCore;
@@ -21,7 +21,6 @@ using AutoMapper;
 using Infrastructure.Photos;
 using Infrastructure.CSV;
 using Infrastructure.Kafka;
-using API.SignalR;
 using System.Threading.Tasks;
 using Application.Profiles;
 using System;
@@ -92,17 +91,6 @@ namespace API
             identityBuilder.AddEntityFrameworkStores<DataContext>();
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();
             
-            //adding our custom authorization policy
-            services.AddAuthorization(opt =>
-            {
-                opt.AddPolicy("IsActivityHost", policy =>
-                {
-                    policy.Requirements.Add(new IsHostRequirement());
-                });
-            });
-
-            services.AddTransient<IAuthorizationHandler, IsHostRequirementHandler>();
-
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["TokenKey"]));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt =>
@@ -115,7 +103,7 @@ namespace API
                             ValidateLifetime = true,
                             ClockSkew = TimeSpan.Zero
                         }; 
-                        //the below is our special treatment to pass on the kwt token
+                        //the below is our special treatment to pass on the jwt token
                         //via the signalR message - which is not http based
                         opt.Events = new JwtBearerEvents {
                             OnMessageReceived = context => {
@@ -199,7 +187,6 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<ChatHub>("/chat");
                 endpoints.MapFallbackToController("index", "Fallback");//this will allow .net core to pass on every route it doesn't recongnize to a new fallback controller,
                                                 //which will basically pass these routes to react to handle
             });
