@@ -34,14 +34,7 @@ public async Task<Profile> ReadProfile(string username)
                 Image = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
                 Photos = user.Photos,
                 Bio = user.Bio,
-                FollowersCount = user.Followers.Count(),
-                FollowingCount = user.Followings.Count(),
             };
-
-            if (currentUser.Followings.Any(x => x.TargetId == user.Id))
-            {
-                profile.IsFollowed = true;
-            }
 
             return profile;
         }

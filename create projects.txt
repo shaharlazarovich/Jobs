@@ -1,29 +1,4 @@
 ##############################################################################
-################### ADD FTP ##################################################
-##############################################################################
-#on windows 10
-Add Remove Programs
-Programs and Features (upper right corner)
-Turn windows features on or off
-check and install Internet Information Services -> FTP Server and everything under it
-#Find in the search:
-Windows Administrative Tools->Internet Information Services
-#under windows setting got to 
-Accounts->Family&Other users->Add someone else to this pc->
-I don't have this person signin information->Add a user without a microsoft account->
-Type user and pass (and secret questions/answers)
-#under the left side menu click sites, and right click:
-Add FTP site
-Give name (XXX.YYY.com)
-Select path on your pc
-Assign an IP
-No SSL
-Basic (under Authentication)
-Allow access to: Specified user
-Choose the user we created
-Permissions: Read and Write
-Finish
-##############################################################################
 ################### VSCODE EXTENSIONS AND SETUP ##############################
 ##############################################################################
 Auto close tag
@@ -47,7 +22,7 @@ SQL Server (mssql)
 Azure App Service #tool for azure deployment
 vscode-deploy-reloaded #tool for sftp deployment to linux
 #to create a snippet go to: 
-File->Preferences->User Snippets->New Snippets file for Reactivities->handlerSnippts
+File->Preferences->User Snippets->New Snippets file for Jobs->handlerSnippts
 #in order to populate it - go to https://snippet-generator.app/ and copy paste the content you want to turn into a snippet (Query/Handler classes from List.cs)
 #then, set Query Handler as the description and qhanlder as the tab trigger. 
 #then we need to replace everything that the code is returning (the List<Activity>>) with a different syntax using ctrl+i which is ${1:ReturnObject}
@@ -156,26 +131,22 @@ dotnet tool install --global dotnet-ef --version 3.0.0
 #for each different database we use, we must re-create our migration files, so we should
 #rename the db migration folder, and run the commands again + change the line in the Startup class
 #opt.Use[Dbname] - for example - UseMySql, UseSqlite, UseSqlServer etc.
-cd .. #make sure you are in the Reactivities root
+cd .. #make sure you are in the Jobs root
 dotnet-ef migrations add InitialCreate -p Persistence/ -s API/
 dotnet-ef migrations add SeedValues -p Persistence/ -s API/ #using our Seed.cs class
-dotnet-ef migrations add "ActivityEntityAdded" -p Persistence/ -s API/
 dotnet-ef migrations add "AddedIdentity" -p Persistence/ -s API/
-dotnet-ef migrations add "UserActivityAdded" -p Persistence/ -s API/
 dotnet-ef migrations add "PhotoEntityAdded" -p Persistence/ -s API/
-dotnet-ef migrations add "AddedCommentEntity" -p Persistence/ -s API/
-dotnet-ef migrations add "AddedFollowingEntity" -p Persistence/ -s API/
 dotnet-ef migrations add "AddedJobEntity" -p Persistence/ -s API/
 #alternate for the above line (adding job entity) troubleshooting a bug where dotnet-ef wasn't found or registered - 
 #you could run it from the tools folder of .netcore 
 cd C:\Users\User\.dotnet\tools
-.\dotnet-ef.exe migrations add "AddedJobEntity" -p D:\User\Source\Repos\Reactivities\Persistence\ -s D:\User\Source\Repos\Reactivities\API\
+.\dotnet-ef.exe migrations add "AddedJobEntity" -p D:\User\Source\Repos\Jobs\Persistence\ -s D:\User\Source\Repos\Jobs\API\
 #when we want to clean up our database - we could simply drop it,
 #and it will be re-created next time we run, with the original
 #seed data. the syntax to drop it in the terminal is:
 dotnet-ef database drop -p Persistence/ -s API/
 #in order to view our db data go to View->Command Palette->Sqlite
-#chose "Open Database" and select the Reactivities.db file.
+#chose "Open Database" and select the EDRM.db file.
 #now you will get in vscode an extra section on the left called
 #"SQLITE EXPLORER" - in which you'll see your database.
 #once the migration was created, we'll need to restart the app 
@@ -191,7 +162,7 @@ dotnet watch run
 #the below folder structure is from my home pc - but whatever the location - we should create Reactivities as the root folder of our solution.
 #after the folder was set, we'll navigate to it, and start creating our projects using the command line:
 d:
-cd D:\User\Source\Repos\Reactivities
+cd D:\User\Source\Repos\Jobs
 dotnet new sln
 dotnet new classlib -n Domain
 dotnet new classlib -n Application
@@ -352,8 +323,6 @@ npm install react-dropzone
 #we'd also like a cropper widget for react:
 npm install react-cropper@1.2.0
 npm install @types/cropperjs@1.1.5
-#next we'll install a client side package for signalR:
-npm install @microsoft/signalr
 #next we'll install a package to support infinite scrolling:
 npm install react-infinite-scroller
 npm install @types/react-infinite-scroller
