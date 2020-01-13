@@ -15,15 +15,9 @@ const panes = [
 const ProfileEvents = () => {
   const rootStore = useContext(RootStoreContext);
   const {
-    loadUserActivities,
     profile,
     loadingActivities,
-    userActivities
   } = rootStore.profileStore!;
-
-  useEffect(() => {
-    loadUserActivities(profile!.userName);
-  }, [loadUserActivities, profile]);
 
   const handleTabChange = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -41,7 +35,6 @@ const ProfileEvents = () => {
         predicate = 'future';
         break;
     }
-    loadUserActivities(profile!.userName, predicate);
   };
 
   return (
@@ -58,25 +51,6 @@ const ProfileEvents = () => {
           />
           <br />
           <Card.Group itemsPerRow={4}>
-            {userActivities.map((activity: IUserActivity) => (
-              <Card
-                as={Link}
-                to={`/activities/${activity.id}`}
-                key={activity.id}
-              >
-                <Image
-                  src={`/assets/categoryImages/${activity.category}.jpg`}
-                  style={{ minHeight: 100, objectFit: 'cover' }}
-                />
-                <Card.Content>
-                  <Card.Header textAlign='center'>{activity.title}</Card.Header>
-                  <Card.Meta textAlign='center'>
-                    <div>{format(new Date(activity.date), 'do LLL')}</div>
-                    <div>{format(new Date(activity.date), 'h:mm a')}</div>
-                  </Card.Meta>
-                </Card.Content>
-              </Card>
-            ))}
           </Card.Group>
         </Grid.Column>
       </Grid>

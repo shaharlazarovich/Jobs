@@ -31,9 +31,7 @@ public async Task<Profile> ReadProfile(string username)
             {
                 DisplayName = user.DisplayName,
                 UserName = user.UserName,
-                Image = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
-                Photos = user.Photos,
-                Bio = user.Bio,
+                Bio = user.Bio
             };
 
             return profile;

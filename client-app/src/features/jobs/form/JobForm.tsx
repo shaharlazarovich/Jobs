@@ -19,9 +19,9 @@ interface DetailParams {
 }
 
 const validate = combineValidators({
-    jobName: isRequired({message: 'the job name is required'}),
+    jobname: isRequired({message: 'the job name is required'}),
     company: isRequired('Company'),
-    repliction: composeValidators(
+    replication: composeValidators(
         isRequired('Replication'),
         hasLengthGreaterThan(4)({message: 'replication needs to be at least 5 characters'})
     )(),

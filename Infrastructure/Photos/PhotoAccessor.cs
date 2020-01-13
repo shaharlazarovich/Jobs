@@ -8,6 +8,7 @@ using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Photos
 {
+
     public class PhotoAccessor : IPhotoAccessor
     {
         private readonly Cloudinary _cloudinary;

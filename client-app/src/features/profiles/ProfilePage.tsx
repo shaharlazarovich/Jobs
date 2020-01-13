@@ -19,8 +19,6 @@ const ProfilePage: React.FC<IProps> = ({match}) => {
         loadingProfile, 
         profile, 
         loadProfile,
-        follow,
-        unfollow,
         isCurrentUser,
         loading,
         setActiveTab
@@ -39,8 +37,6 @@ const ProfilePage: React.FC<IProps> = ({match}) => {
                     profile={profile!} 
                     isCurrentUser={isCurrentUser}
                     loading={loading}
-                    follow={follow}
-                    unfollow={unfollow}
                 />
                 <ProfileContent setActiveTab={setActiveTab} />
             </Grid.Column>

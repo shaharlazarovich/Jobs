@@ -13,7 +13,6 @@ namespace Persistence
 
         public DbSet<Value> Values { get; set; }
         public DbSet<Job> Jobs { get; set; }
-        public DbSet<Photo> Photos { get; set; }
     
         protected override void OnModelCreating(ModelBuilder builder)
         {

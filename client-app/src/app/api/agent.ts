@@ -1,16 +1,13 @@
 import axios, {AxiosResponse} from 'axios';
-//import { IActivity, IActivitiesEnvelope } from '../models/activity';
 import { IJob, IJobsEnvelope } from '../models/job';
 import { history } from '../common/util/history'; 
-//import {createBrowserHistory} from 'history'
 import { toast } from 'react-toastify';
 import { IUser, IUserFormValues } from '../models/users';
-import { IProfile, IPhoto } from '../models/profile';
+import { IProfile } from '../models/profile';
 
 
 //we don't need to explicitely name index - its the default
 
-//axios.defaults.baseURL = 'http://localhost:5000/api';
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 //axios interceptors can handle the request - as well as the response
@@ -117,16 +114,7 @@ const User = {
 
 const Profiles = {
      get: (username: string): Promise<IProfile> => requests.get(`/profiles/${username}`),
-     uploadPhoto: (photo: Blob): Promise<IPhoto> => requests.postForm(`/photos`, photo) ,
-     setMainPhoto: (id: string) => requests.post(`/photos/${id}/setMain`, {}),
-     deletePhoto: (id: string) => requests.del(`/photos/${id}`),
      updateProfile: (profile: Partial<IProfile>) => requests.put(`/profiles`, profile),
-     follow: (username: string) => requests.post(`/profiles/${username}/follow`, {}),
-     unfollow: (username: string) => requests.del(`/profiles/${username}/follow`),
-     listFollowings: (username: string, predicate: string) =>
-        requests.get(`/profiles/${username}/follow?predicate=${predicate}`),
-     listActivities: (username: string, predicate: string) => 
-        requests.get(`/profiles/${username}/activities?predicate=${predicate}`),
 }
 
 export default {

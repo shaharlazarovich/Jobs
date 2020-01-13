@@ -79,7 +79,6 @@ namespace API
             });
             services.AddMediatR(typeof(List.Handler).Assembly);//we're gonna use CQRS - command/query responsibility segragation - currently with mediator pattern later with event sourcing
             services.AddAutoMapper(typeof(List.Handler));
-            services.AddSignalR();
             services.AddControllers(opt => {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 opt.Filters.Add(new AuthorizeFilter(policy));
