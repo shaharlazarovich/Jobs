@@ -73,6 +73,11 @@ git fetch origin #will fetch all remote branches
 git checkout [name of remote branch we want] #and then:
 got merge [name of branch to merge into the above] #this will try auto merge, or show us to conflicts to resolve. after all is done:
 git push origin master #assuming we merged into master
+#for tagging a version - first get the version to tag from origin (origin/master) then tag it and push back to origin:
+git checkout master
+git status #make sure you got a message that you are not behind the master - otherwise - don't tag and ix it!
+git tag -a v1.4 -m "my version 1.4"
+git push origin v1.4
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
