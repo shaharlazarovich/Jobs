@@ -78,6 +78,8 @@ git checkout master
 git status #make sure you got a message that you are not behind the master - otherwise - don't tag and ix it!
 git tag -a v1.4 -m "my version 1.4"
 git push origin v1.4
+#for detecting why files are ignored by git:
+git check-ignore -v [ignored file name with extension]
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
