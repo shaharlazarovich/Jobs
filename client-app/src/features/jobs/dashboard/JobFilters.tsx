@@ -19,29 +19,22 @@ const JobFilters = () => {
           content={'All Jobs'}
         />
         <Menu.Item
-          active={predicate.has('isGoing')}
-          onClick={() => setPredicate('isGoing', 'true')}
+          active={predicate.has('isCreatedByMe')}
+          onClick={() => setPredicate('isCreatedByMe', 'true')}
           color={'blue'}
-          name={'username'}
-          content={"I'm Going"}
-        />
-        <Menu.Item
-          active={predicate.has('isHost')}
-          onClick={() => setPredicate('isHost', 'true')}
-          color={'blue'}
-          name={'host'}
-          content={"I'm hosting"}
+          name={'myjobs'}
+          content={"Jobs I Created"}
         />
       </Menu>
       <Header
         icon={'calendar'}
         attached
         color={'teal'}
-        content={'Select Date'}
+        content={'Select Date of last job run'}
       />
       <Calendar
-        onChange={date => setPredicate('startDate', date!)}
-        value={predicate.get('startDate') || new Date()}
+        onChange={date => setPredicate('lastRun', date!)}
+        value={predicate.get('lastRun') || new Date()}
       />
     </Fragment>
   );
