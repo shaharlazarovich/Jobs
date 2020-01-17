@@ -18,13 +18,6 @@ const JobFilters = () => {
           name={'all'}
           content={'All Jobs'}
         />
-        <Menu.Item
-          active={predicate.has('isCreatedByMe')}
-          onClick={() => setPredicate('isCreatedByMe', 'true')}
-          color={'blue'}
-          name={'myjobs'}
-          content={"Jobs I Created"}
-        />
       </Menu>
       <Header
         icon={'calendar'}
