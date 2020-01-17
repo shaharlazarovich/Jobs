@@ -64,10 +64,10 @@ namespace Persistence
                         Servers = "10",
                         //LastRun = DateTime.ParseExact("12/11/2019 6:29:33 AM",format,provider),
                         LastRun = DateTime.Now,
-                        RTA = 5,
+                        RTA = "5",
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
-                        RTONeeded = 10,
+                        RTONeeded = "10",
                     },
                     new Job
                     {
@@ -77,10 +77,10 @@ namespace Persistence
                         Servers = "20",
                         //LastRun = DateTime.ParseExact("13/11/2019 9:49:22 AM",format,provider),
                         LastRun = DateTime.Now,
-                        RTA = 15,
+                        RTA = "15",
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
-                        RTONeeded = 20,
+                        RTONeeded = "20",
                     },
                     new Job
                     {
@@ -90,10 +90,10 @@ namespace Persistence
                         Servers = "300",
                         //LastRun = DateTime.ParseExact("12/11/2018 1:29:33 PM",format,provider),
                         LastRun = DateTime.Now,
-                        RTA = 55,
+                        RTA = "55",
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
-                        RTONeeded = 30,
+                        RTONeeded = "30",
                     },
                     new Job
                     {
@@ -103,10 +103,10 @@ namespace Persistence
                         Servers = "100",
                         //LastRun = DateTime.ParseExact("10/11/2019 8:19:33 AM",format,provider),
                         LastRun = DateTime.Now,
-                        RTA = 100,
+                        RTA = "100",
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
-                        RTONeeded = 10,
+                        RTONeeded = "10",
                     },
                     new Job
                     {
@@ -116,10 +116,10 @@ namespace Persistence
                         Servers = "20",
                         //LastRun = DateTime.ParseExact("12/08/2019 6:22:44 AM",format,provider),
                         LastRun = DateTime.Now,
-                        RTA = 23,
+                        RTA = "23",
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
-                        RTONeeded = 30,
+                        RTONeeded = "30",
                     },
                 };
                 await context.Jobs.AddRangeAsync(jobs);

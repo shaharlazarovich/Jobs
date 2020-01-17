@@ -45,10 +45,10 @@ namespace Application.Tests.Jobs
                 Replication = "Zerto",
                 Servers = "7",
                 LastRun = DateTime.Now,
-                RTA = 10,
+                RTA = "10",
                 Results = "OK",
                 Key = "AAAA-BBBB-CCCC-DDDD",
-                RTONeeded = 20,
+                RTONeeded = "20",
             };
             
             var sut = new Create.Handler(context);

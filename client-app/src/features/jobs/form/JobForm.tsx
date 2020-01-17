@@ -19,7 +19,7 @@ interface DetailParams {
 }
 
 const validate = combineValidators({
-    jobname: isRequired({message: 'the job name is required'}),
+    jobName: isRequired({message: 'the job name is required'}),
     company: isRequired('Company'),
     replication: composeValidators(
         isRequired('Replication'),
@@ -62,7 +62,10 @@ const handleFinalFormSubmit = (values: any) => {
     if (!job.id){
         let newJob = {
             ...job,
-            id: uuid()
+            id: uuid(),
+            rta: '10',
+            results: 'OK',
+            key: 'aaaa-bbbb-cccc-dddd'
         }
         createJob(newJob);
     } else {
@@ -81,7 +84,7 @@ const handleFinalFormSubmit = (values: any) => {
                         <Form onSubmit={handleSubmit} loading={loading} >
                         <Field 
                             component={TextInput}
-                            name='jobname'
+                            name='jobName'
                             placeholder='Job Name' 
                             value={job.jobName} 
                         />

@@ -15,10 +15,10 @@ export interface IJob {
     lastRun: Date;
     date: Date;
     time: Date;
-    rta: number;
+    rta: string;
     results: string;
     key: string;
-    rtoNeeded: number
+    rtoNeeded: string
 }
 
 
@@ -35,10 +35,10 @@ export class JobFormValues implements IJobFormValues {
     lastRun?:Date = undefined;
     date?:Date = undefined;
     time?:Date = undefined;
-    rta?: number = 0;
+    rta?: string = '';
     results: string = '';
     key: string = '';
-    rtoNeeded: number = 0;
+    rtoNeeded: string = '';
 
     constructor(init?: IJobFormValues) {
         Object.assign(this, init); //this will initialize our object of class JobFormValues

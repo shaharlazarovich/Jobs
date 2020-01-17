@@ -18,10 +18,10 @@ namespace Application.Jobs
             public string Replication { get; set; }
             public string Servers { get; set; }
             public DateTime LastRun { get; set; }
-            public int RTA { get; set; }
+            public string RTA { get; set; }
             public string Results { get; set; }
             public string Key { get; set; }
-            public int RTONeeded { get; set; }
+            public string RTONeeded { get; set; }
         
         }
 
@@ -54,6 +54,7 @@ namespace Application.Jobs
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+
                 var job = new Job
                 {
                     Id = request.Id,
@@ -67,11 +68,12 @@ namespace Application.Jobs
                     Key = request.Key,
                     RTONeeded = request.RTONeeded,
                 };
-
+                
                 _context.Jobs.Add(job);
 
                 var success = await _context.SaveChangesAsync() > 0;
-
+                //throw new Exception($"problem saving changes: id: {request.Id} jobname {request.JobName} company {request.Company} rep {request.Replication} servers {request.Servers} lastrun {request.LastRun} rta {request.RTA} results {request.Results} key{request.Key} rto {request.RTONeeded}");
+                
                 if (success) return Unit.Value;
 
                 throw new Exception("problem saving changes");
