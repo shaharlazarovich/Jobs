@@ -7,7 +7,7 @@ import { RootStore } from './rootStore';
 import { history } from '../common/util/history';
 import { setJobProps } from '../common/util/util';
 
-const LIMIT = 2; //this is the amount of records per page for the paging methods
+const LIMIT = 6; //this is the amount of records per page for the paging methods
 
 //to avoid error about decorators (the @ sign before the observable)
 //being expermintal - add this line to the tsconfig.json

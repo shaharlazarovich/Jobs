@@ -28,7 +28,7 @@ namespace Application.Jobs
             {
                 Limit = limit;
                 Offset = offset;
-                LastRun = lastRun ?? DateTime.Now;
+                LastRun = lastRun ?? new DateTime(1900,1,1);//we'll set 1/1/1900 as default date in case no lastRun was sent
             }
             public int? Limit { get; set; }
             public int? Offset { get; set; }
@@ -49,18 +49,18 @@ namespace Application.Jobs
             public async Task<JobsEnvelope> Handle(Query request, CancellationToken cancellationToken)
             {
                 var queryable = _context.Jobs
+                    .Where(x => x.LastRun >= request.LastRun)
                     .OrderBy(x => x.LastRun) //this is our way to get a sorting by date functionality
                     .AsQueryable();
 
-                //we now want to narrow our where clause to only event the user is going to
-                
                 //the below two parameters effect our paging - from where do we begin to page (offset)
                 //while default is 0 , but we can decide to page after X records, and how many records
                 //do we take for each page (limit) - so for example, we start paging after 20 records,
                 //and page every 5 from that point on
+                //maximum records with no supplied limit is 6
                 var jobs = await queryable
                     .Skip(request.Offset ?? 0)
-                    .Take(request.Limit ?? 3).ToListAsync();
+                    .Take(request.Limit ?? 6).ToListAsync();
 
                 return new JobsEnvelope
                 {

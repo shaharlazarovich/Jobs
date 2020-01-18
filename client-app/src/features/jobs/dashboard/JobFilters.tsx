@@ -23,11 +23,11 @@ const JobFilters = () => {
         icon={'calendar'}
         attached
         color={'teal'}
-        content={'Select Date of last job run'}
+        content={'Show jobs after selected date'}
       />
       <Calendar
         onChange={date => setPredicate('lastRun', date!)}
-        value={predicate.get('lastRun') || new Date()}
+        value={predicate.get('lastRun')}
       />
     </Fragment>
   );

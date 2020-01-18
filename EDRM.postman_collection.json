@@ -102,7 +102,7 @@
 								"exec": [
 									"var moment = require(\"moment\");\r",
 									"\r",
-									"pm.environment.set('jobDate', moment().add(14, 'days').toISOString());"
+									"pm.environment.set('lastRun', moment().add(14, 'days').toISOString());"
 								],
 								"type": "text/javascript"
 							}
@@ -120,7 +120,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": \"{{$guid}}\",\n\t\"JobName\": \"TestJob13\",\n\t\"Company\": \"Amdocs\",\n\t\"Replication\": \"VMWARE SRM\",\n\t\"date\": \"{{activityDate}}\",\n\t\"city\": \"London\",\n\t\"venue\": \"Tower of London\"\n}"
+							"raw": "{\n\t\"id\": \"{{$guid}}\",\n\t\"JobName\": \"TestJob13\",\n\t\"Company\": \"Amdocs\",\n\t\"Replication\": \"VMWARE SRM\",\n\t\"Servers\": \"10\",\n\t\"LastRun\": \"{{jobDate}}\",\n\t\"RTA\": 5,\n\t\"Results\": \"All tested - server is ok\",\n\t\"Key\": \"AAAA-BBBB-CCCC-DDDD\",\n    \"RTONeeded\": 10\n\t\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/jobs/",
@@ -146,7 +146,7 @@
 								"exec": [
 									"var moment = require(\"moment\");\r",
 									"\r",
-									"pm.environment.set('activityDate', moment().add(14, 'days').toISOString());"
+									"pm.environment.set('lastRun', moment().add(14, 'days').toISOString());"
 								],
 								"type": "text/javascript"
 							}
@@ -167,13 +167,13 @@
 							"raw": "{\n\t\"title\": \"Test Create Activity updated again\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/activities/7f6c4b9c-96be-499a-9115-7f789c0f8896",
+							"raw": "{{url}}/api/jobs/7f6c4b9c-96be-499a-9115-7f789c0f8896",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities",
+								"jobs",
 								"7f6c4b9c-96be-499a-9115-7f789c0f8896"
 							]
 						}
@@ -297,7 +297,7 @@
 								"exec": [
 									"var moment = require(\"moment\");\r",
 									"\r",
-									"pm.environment.set('activityDate', moment().add(14, 'days').toISOString());"
+									"pm.environment.set('lastRun', moment().add(14, 'days').toISOString());"
 								],
 								"type": "text/javascript"
 							}
@@ -318,13 +318,13 @@
 							"raw": "{\n\t\"title\": \"Test Create Activity updated\",\n\t\"description\": \"Description of the test event\",\n\t\"category\": \"Culture\",\n\t\"date\": \"{{activityDate}}\",\n\t\"city\": \"London\",\n\t\"venue\": \"Tower of London\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}/api/activities/2",
+							"raw": "{{url}}/api/job/2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities",
+								"job",
 								"2"
 							]
 						}
@@ -872,17 +872,17 @@
 									"});",
 									"",
 									"pm.test(\"has all properties\", function() {",
-									"    pm.expect(data.activities[0]).to.have.property('id');",
-									"    pm.expect(data.activities[0]).to.have.property('title');",
-									"    pm.expect(data.activities[0]).to.have.property('description');",
-									"    pm.expect(data.activities[0]).to.have.property('date');",
-									"    pm.expect(data.activities[0]).to.have.property('city');",
-									"    pm.expect(data.activities[0]).to.have.property('venue');",
-									"    pm.expect(data.activities[0]).to.have.property('attendees');",
+									"    pm.expect(data.jobs[0]).to.have.property('id');",
+									"    pm.expect(data.jobs[0]).to.have.property('jobName');",
+									"    pm.expect(data.jobs[0]).to.have.property('replication');",
+									"    pm.expect(data.jobs[0]).to.have.property('lastRun');",
+									"    pm.expect(data.jobs[0]).to.have.property('servers');",
+									"    pm.expect(data.jobs[0]).to.have.property('company');",
+									"    pm.expect(data.jobs[0]).to.have.property('rtoNeeded');",
 									"});",
 									"",
-									"pm.test(\"activity count greater than zero\", function(){",
-									"    pm.expect(data.activityCount).to.be.above(0);",
+									"pm.test(\"job count greater than zero\", function(){",
+									"    pm.expect(data.jobsCount).to.be.above(0);",
 									"})"
 								],
 								"type": "text/javascript"
@@ -890,7 +890,7 @@
 						}
 					],
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
@@ -899,13 +899,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/activities",
+							"raw": "{{url}}/api/jobs",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities"
+								"jobs"
 							]
 						}
 					},
@@ -927,13 +927,13 @@
 									"});",
 									"",
 									"pm.test(\"has all properties\", function() {",
-									"    pm.expect(data).to.have.property('id');",
-									"    pm.expect(data).to.have.property('title');",
-									"    pm.expect(data).to.have.property('description');",
-									"    pm.expect(data).to.have.property('date');",
-									"    pm.expect(data).to.have.property('city');",
-									"    pm.expect(data).to.have.property('venue');",
-									"    pm.expect(data).to.have.property('attendees');",
+									"    pm.expect(data.jobs[0]).to.have.property('id');",
+									"    pm.expect(data.jobs[0]).to.have.property('jobName');",
+									"    pm.expect(data.jobs[0]).to.have.property('replication');",
+									"    pm.expect(data.jobs[0]).to.have.property('lastRun');",
+									"    pm.expect(data.jobs[0]).to.have.property('servers');",
+									"    pm.expect(data.jobs[0]).to.have.property('company');",
+									"    pm.expect(data.jobs[0]).to.have.property('rtoNeeded');",
 									"});"
 								],
 								"type": "text/javascript"
@@ -1675,17 +1675,17 @@
 									"});",
 									"",
 									"pm.test(\"has all properties\", function() {",
-									"    pm.expect(data.activities[0]).to.have.property('id');",
-									"    pm.expect(data.activities[0]).to.have.property('title');",
-									"    pm.expect(data.activities[0]).to.have.property('description');",
-									"    pm.expect(data.activities[0]).to.have.property('date');",
-									"    pm.expect(data.activities[0]).to.have.property('city');",
-									"    pm.expect(data.activities[0]).to.have.property('venue');",
-									"    pm.expect(data.activities[0]).to.have.property('attendees');",
+									"    pm.expect(data.jobs[0]).to.have.property('id');",
+									"    pm.expect(data.jobs[0]).to.have.property('jobName');",
+									"    pm.expect(data.jobs[0]).to.have.property('replication');",
+									"    pm.expect(data.jobs[0]).to.have.property('lastRun');",
+									"    pm.expect(data.jobs[0]).to.have.property('servers');",
+									"    pm.expect(data.jobs[0]).to.have.property('company');",
+									"    pm.expect(data.jobs[0]).to.have.property('rtoNeeded');",
 									"});",
 									"",
-									"pm.test(\"activity count greater than zero\", function(){",
-									"    pm.expect(data.activityCount).to.be.above(0);",
+									"pm.test(\"job count greater than zero\", function(){",
+									"    pm.expect(data.jobsCount).to.be.above(0);",
 									"})"
 								],
 								"type": "text/javascript"
@@ -1702,13 +1702,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/activities",
+							"raw": "{{url}}/api/jobs",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities"
+								"jobs"
 							]
 						}
 					},
@@ -1730,17 +1730,17 @@
 									"});",
 									"",
 									"pm.test(\"has all properties\", function() {",
-									"    pm.expect(data.activities[0]).to.have.property('id');",
-									"    pm.expect(data.activities[0]).to.have.property('title');",
-									"    pm.expect(data.activities[0]).to.have.property('description');",
-									"    pm.expect(data.activities[0]).to.have.property('date');",
-									"    pm.expect(data.activities[0]).to.have.property('city');",
-									"    pm.expect(data.activities[0]).to.have.property('venue');",
-									"    pm.expect(data.activities[0]).to.have.property('attendees');",
+									"    pm.expect(data.jobs[0]).to.have.property('id');",
+									"    pm.expect(data.jobs[0]).to.have.property('jobName');",
+									"    pm.expect(data.jobs[0]).to.have.property('replication');",
+									"    pm.expect(data.jobs[0]).to.have.property('lastRun');",
+									"    pm.expect(data.jobs[0]).to.have.property('servers');",
+									"    pm.expect(data.jobs[0]).to.have.property('company');",
+									"    pm.expect(data.jobs[0]).to.have.property('rtoNeeded');",
 									"});",
 									"",
-									"pm.test(\"activity count greater than zero\", function(){",
-									"    pm.expect(data.activityCount).to.be.above(0);",
+									"pm.test(\"job count greater than zero\", function(){",
+									"    pm.expect(data.jobsCount).to.be.above(0);",
 									"})"
 								],
 								"type": "text/javascript"
@@ -1757,13 +1757,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/activities?limit=5",
+							"raw": "{{url}}/api/jobs?limit=5",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities"
+								"jobs"
 							],
 							"query": [
 								{
@@ -1791,17 +1791,17 @@
 									"});",
 									"",
 									"pm.test(\"has all properties\", function() {",
-									"    pm.expect(data.activities[0]).to.have.property('id');",
-									"    pm.expect(data.activities[0]).to.have.property('title');",
-									"    pm.expect(data.activities[0]).to.have.property('description');",
-									"    pm.expect(data.activities[0]).to.have.property('date');",
-									"    pm.expect(data.activities[0]).to.have.property('city');",
-									"    pm.expect(data.activities[0]).to.have.property('venue');",
-									"    pm.expect(data.activities[0]).to.have.property('attendees');",
+									"    pm.expect(data.jobs[0]).to.have.property('id');",
+									"    pm.expect(data.jobs[0]).to.have.property('jobName');",
+									"    pm.expect(data.jobs[0]).to.have.property('replication');",
+									"    pm.expect(data.jobs[0]).to.have.property('lastRun');",
+									"    pm.expect(data.jobs[0]).to.have.property('servers');",
+									"    pm.expect(data.jobs[0]).to.have.property('company');",
+									"    pm.expect(data.jobs[0]).to.have.property('rtoNeeded');",
 									"});",
 									"",
-									"pm.test(\"activity count greater than zero\", function(){",
-									"    pm.expect(data.activityCount).to.be.above(0);",
+									"pm.test(\"job count greater than zero\", function(){",
+									"    pm.expect(data.jobsCount).to.be.above(0);",
 									"})"
 								],
 								"type": "text/javascript"
@@ -1818,13 +1818,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/activities?limit=2&offset=2",
+							"raw": "{{url}}/api/jobs?limit=2&offset=2",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities"
+								"jobs"
 							],
 							"query": [
 								{
@@ -1841,7 +1841,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Jobs  starting in 2 months time",
+					"name": "Get Jobs  scheduled for 2 months time",
 					"event": [
 						{
 							"listen": "test",
@@ -1856,17 +1856,17 @@
 									"});",
 									"",
 									"pm.test(\"has all properties\", function() {",
-									"    pm.expect(data.activities[0]).to.have.property('id');",
-									"    pm.expect(data.activities[0]).to.have.property('title');",
-									"    pm.expect(data.activities[0]).to.have.property('description');",
-									"    pm.expect(data.activities[0]).to.have.property('date');",
-									"    pm.expect(data.activities[0]).to.have.property('city');",
-									"    pm.expect(data.activities[0]).to.have.property('venue');",
-									"    pm.expect(data.activities[0]).to.have.property('attendees');",
+									"    pm.expect(data.jobs[0]).to.have.property('id');",
+									"    pm.expect(data.jobs[0]).to.have.property('jobName');",
+									"    pm.expect(data.jobs[0]).to.have.property('replication');",
+									"    pm.expect(data.jobs[0]).to.have.property('lastRun');",
+									"    pm.expect(data.jobs[0]).to.have.property('servers');",
+									"    pm.expect(data.jobs[0]).to.have.property('company');",
+									"    pm.expect(data.jobs[0]).to.have.property('rtoNeeded');",
 									"});",
 									"",
-									"pm.test(\"activity count greater than zero\", function(){",
-									"    pm.expect(data.activityCount).to.be.above(0);",
+									"pm.test(\"job count greater than zero\", function(){",
+									"    pm.expect(data.jobsCount).to.be.above(0);",
 									"})"
 								],
 								"type": "text/javascript"
@@ -1879,7 +1879,7 @@
 								"exec": [
 									"var moment = require(\"moment\");\r",
 									"\r",
-									"pm.environment.set('activityDate', moment().add(4, 'months').toISOString());"
+									"pm.environment.set('lastRun', moment().add(2, 'months').toISOString());"
 								],
 								"type": "text/javascript"
 							}
@@ -1895,18 +1895,18 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/activities?startDate={{activityDate}}",
+							"raw": "{{url}}/api/jobs?lastRun={{lastRun}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities"
+								"jobs"
 							],
 							"query": [
 								{
-									"key": "startDate",
-									"value": "{{activityDate}}"
+									"key": "lastRun",
+									"value": "{{lastRun}}"
 								}
 							]
 						}
@@ -1914,7 +1914,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Jobs starting 3 months ago",
+					"name": "Get Jobs that run 3 months ago",
 					"event": [
 						{
 							"listen": "test",
@@ -1929,17 +1929,17 @@
 									"});",
 									"",
 									"pm.test(\"has all properties\", function() {",
-									"    pm.expect(data.activities[0]).to.have.property('id');",
-									"    pm.expect(data.activities[0]).to.have.property('title');",
-									"    pm.expect(data.activities[0]).to.have.property('description');",
-									"    pm.expect(data.activities[0]).to.have.property('date');",
-									"    pm.expect(data.activities[0]).to.have.property('city');",
-									"    pm.expect(data.activities[0]).to.have.property('venue');",
-									"    pm.expect(data.activities[0]).to.have.property('attendees');",
+									"    pm.expect(data.jobs[0]).to.have.property('id');",
+									"    pm.expect(data.jobs[0]).to.have.property('jobName');",
+									"    pm.expect(data.jobs[0]).to.have.property('replication');",
+									"    pm.expect(data.jobs[0]).to.have.property('lastRun');",
+									"    pm.expect(data.jobs[0]).to.have.property('servers');",
+									"    pm.expect(data.jobs[0]).to.have.property('company');",
+									"    pm.expect(data.jobs[0]).to.have.property('rtoNeeded');",
 									"});",
 									"",
-									"pm.test(\"activity count greater than zero\", function(){",
-									"    pm.expect(data.activityCount).to.be.above(0);",
+									"pm.test(\"job count greater than zero\", function(){",
+									"    pm.expect(data.jobsCount).to.be.above(0);",
 									"})"
 								],
 								"type": "text/javascript"
@@ -1952,7 +1952,7 @@
 								"exec": [
 									"var moment = require(\"moment\");\r",
 									"\r",
-									"pm.environment.set('activityDate', moment().add(-3, 'months').toISOString());"
+									"pm.environment.set('lastRun', moment().add(-3, 'months').toISOString());"
 								],
 								"type": "text/javascript"
 							}
@@ -1968,22 +1968,18 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/activities?startDate={{activityDate}}&isGoing=true",
+							"raw": "{{url}}/api/jobs?startDate={{lastRun}}",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
 								"api",
-								"activities"
+								"jobs"
 							],
 							"query": [
 								{
 									"key": "startDate",
-									"value": "{{activityDate}}"
-								},
-								{
-									"key": "isGoing",
-									"value": "true"
+									"value": "{{lastRun}}"
 								}
 							]
 						}
