@@ -2,13 +2,13 @@ import {observable, action, computed, runInAction, reaction, toJS} from 'mobx'
 import { SyntheticEvent } from 'react'
 import { IJob } from '../models/job';
 import agent from '../api/agent';
-//import { history} from '../..'
 import { toast } from 'react-toastify';
 import { RootStore } from './rootStore';
 import { history } from '../common/util/history';
 import { setJobProps } from '../common/util/util';
 
-const LIMIT = 2;
+const LIMIT = 2; //this is the amount of records per page for the paging methods
+
 //to avoid error about decorators (the @ sign before the observable)
 //being expermintal - add this line to the tsconfig.json
 //"experimentalDecorators": true
@@ -28,7 +28,6 @@ export default class JobStore {
         )
     }
     @observable jobRegistry = new Map(); //this is called an observable map - which has more functionality than a simple array
-   // @observable activities: IActivity[] = [];
     @observable job: IJob | null = null; //the | operator indicates a unition type - either IActivity or null
     @observable loadingInitial = false;
    // @observable editMode = false;
@@ -37,8 +36,7 @@ export default class JobStore {
     @observable loading = false;
     @observable jobCount = 0;
     @observable page = 0;
-    @observable predicate = new Map(); //this will be used as configuration to do our filters 
-                                //(we have several such as filter by date, by isGoing, by isHost etc.)
+    @observable predicate = new Map(); //this will be used as configuration to do our filters (we have several such as filter by date)
 
     @action setPredicate = (predicate: string, value: string | Date) => {
         this.predicate.clear();
@@ -47,6 +45,9 @@ export default class JobStore {
         }
     }
     
+    //this method handles querystring params - which are passed as state
+    //for example - how many recrods to show on a page with paging, what is the 
+    //offset to begin the paging from, or handling the date format
     @computed get axiosParams() {
       const params = new URLSearchParams();
       params.append('limit', String(LIMIT));
@@ -89,13 +90,13 @@ export default class JobStore {
         this.loadingInitial = true;
         try {
             const jobsEnvelope = await agent.Jobs.list(this.axiosParams);
-            const {jobs, jobCount} = jobsEnvelope;
+            const {jobs, jobsCount} = jobsEnvelope;
             runInAction('loading jobs', () => { //we use runInaction because everything after the await is considered out of the action - so strict mode fails us
                 jobs.forEach(job => {
                   setJobProps(job, this.rootStore.userStore.user!);//since user could be null we'll use exclamation mark to allow using it
                   this.jobRegistry.set(job.id,job);
                 })
-                this.jobCount = jobCount;
+                this.jobCount = jobsCount;
                 this.loadingInitial = false;
             })
         } catch(error) {

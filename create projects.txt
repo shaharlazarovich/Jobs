@@ -7,6 +7,9 @@ Bracket pair colorizer 2
 [C#] for visual studio code powered by omnisharp
 [C#] Extensions
 ES7 react/Redux/GraphQL/React-native snippets
+Debugger for chrome
+Debugger for Microsoft Edge
+Debugger for Firefox
 Material icon theme
 Nuget package manager
 Prettier - code formatter

@@ -3,7 +3,7 @@
 //of activities - which then, we could device in the number of pages
 export interface IJobsEnvelope {
     jobs: IJob[];
-    jobCount: number
+    jobsCount: number
 }
 
 export interface IJob {
