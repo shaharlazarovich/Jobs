@@ -32,6 +32,14 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
             <span>{job.results}</span>
             <Button
                 as={Link}
+                to={`/jobs/run/${job.id}`}
+                floated="right"
+                content="Run"
+                color="blue"
+            />
+            
+            <Button
+                as={Link}
                 to={`/jobs/${job.id}`}
                 floated="right"
                 content="View"
