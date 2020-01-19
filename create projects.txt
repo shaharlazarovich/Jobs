@@ -83,6 +83,14 @@ git tag -a v1.4 -m "my version 1.4"
 git push origin v1.4
 #for detecting why files are ignored by git:
 git check-ignore -v [ignored file name with extension]
+#to rename a local git branch
+git branch -m new-name
+#to rename a remote git branch
+git push origin -u new-name
+#to delete local git branch
+git branch -d localBranchName
+#to delete remote git branch
+git push origin --delete remoteBranchName
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
