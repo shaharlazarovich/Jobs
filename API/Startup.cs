@@ -25,6 +25,7 @@ using System.Threading.Tasks;
 using Application.Profiles;
 using System;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace API
 {
@@ -123,6 +124,8 @@ namespace API
             //Transient objects are always different; a new instance is provided to every controller and every service.
             //Scoped objects are the same within a request, but different across different requests.
             //Singleton objects are the same for every object and every request.
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserAccessor, UserAccessor>();
             services.AddScoped<IPhotoAccessor, PhotoAccessor>();

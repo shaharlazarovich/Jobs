@@ -1,5 +1,6 @@
 using System;
 using System.Data.Common;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace Persistence
     public class SampleDbContextFactory : IDisposable
     {
         private DbConnection _connection;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private DbContextOptions<DataContext> CreateOptions()
         {
             return new DbContextOptionsBuilder<DataContext>()
@@ -22,13 +24,13 @@ namespace Persistence
                 _connection.Open();
 
                 var options = CreateOptions();
-                using (var context = new DataContext(options))
+                using (var context = new DataContext(options,_httpContextAccessor))
                 {
                     context.Database.EnsureCreated();
                 }
             }
 
-            return new DataContext(CreateOptions());
+            return new DataContext(CreateOptions(),_httpContextAccessor);
         }
 
         public void Dispose()

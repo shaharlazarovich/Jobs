@@ -17,10 +17,10 @@ namespace Persistence.Migrations
                     Replication = table.Column<string>(nullable: true),
                     Servers = table.Column<string>(nullable: true),
                     LastRun = table.Column<DateTime>(nullable: false),
-                    RTA = table.Column<int>(nullable: false),
+                    RTA = table.Column<string>(nullable: false),
                     Results = table.Column<string>(nullable: true),
                     Key = table.Column<string>(nullable: true),
-                    RTONeeded = table.Column<int>(nullable: false)
+                    RTONeeded = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

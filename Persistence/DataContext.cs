@@ -1,18 +1,23 @@
 ﻿using Domain;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence
 {
 
-    public class DataContext : IdentityDbContext<AppUser>
+    public partial class DataContext : IdentityDbContext<AppUser>
     {
-        public DataContext(DbContextOptions options) : base(options)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public DataContext(DbContextOptions options,IHttpContextAccessor httpContextAccessor) : base(options)
         {
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public DbSet<Value> Values { get; set; }
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Audit> Audits { get; set; }
     
         protected override void OnModelCreating(ModelBuilder builder)
         {

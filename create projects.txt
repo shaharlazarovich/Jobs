@@ -155,6 +155,7 @@ dotnet-ef migrations add SeedValues -p Persistence/ -s API/ #using our Seed.cs c
 dotnet-ef migrations add "AddedIdentity" -p Persistence/ -s API/
 dotnet-ef migrations add "PhotoEntityAdded" -p Persistence/ -s API/
 dotnet-ef migrations add "AddedJobEntity" -p Persistence/ -s API/
+dotnet-ef migrations add "AddedAuditEntity" -p Persistence/ -s API/
 #alternate for the above line (adding job entity) troubleshooting a bug where dotnet-ef wasn't found or registered - 
 #you could run it from the tools folder of .netcore 
 cd C:\Users\User\.dotnet\tools
