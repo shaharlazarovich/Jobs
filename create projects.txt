@@ -74,7 +74,7 @@ git checkout [name from previous line]
 git remote #should return - origin
 git fetch origin #will fetch all remote branches
 git checkout [name of remote branch we want] #and then:
-got merge [name of branch to merge into the above] #this will try auto merge, or show us to conflicts to resolve. after all is done:
+git merge [name of branch to merge into the above] #this will try auto merge, or show us to conflicts to resolve. after all is done:
 git push origin master #assuming we merged into master
 #for tagging a version - first get the version to tag from origin (origin/master) then tag it and push back to origin:
 git checkout master
@@ -91,6 +91,14 @@ git push origin -u new-name
 git branch -d localBranchName
 #to delete remote git branch
 git push origin --delete remoteBranchName
+#process to override development / maser with a specific commit:
+git checkout <sha1> #the result will be "detached head" meaning - changes can't be directly commited or pushed to solve that:
+git checkout -b <new brnach name that will hold our changes> #add to the commit specific things that happened since then
+#now - you stage and commit the new temp branch. in order to override your local Development with this branch type:
+git checkout Development #remember! at this point your local Development is "dirty" - since you want to override it with the new temp branch
+git reset --hard <name of temp branch> #this will override our local Development - remember! merge is not possible (since Development is dirty)
+#now we want to override the remote Development (you need to enable the permission in BitBucket for Revriting branch history - since your overriding with a detached branch):
+git push -f origin Development #now we are done! we can remove the permission from previous line since its dangerous...
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
