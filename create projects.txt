@@ -106,6 +106,8 @@ git push origin :refs/tags/[old tag name] #deleting the old tag remotely (otherw
 git push [new tag name] #pushing the new tag to origin
 #cloning a git repo - point the terminal to where the root folder of the repo will be (not the internal folders) and type:
 git clone [link to repo - for example: https://shaharlazarovich@bitbucket.org/ensuredr/edr_dashboard-service.git ]
+#changing a remote URL link (if repo name was changed for example):
+git remote set-url origin [name of remote repo for example https://shaharlazarovich@bitbucket.org/ensuredr/edrms.git]
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
