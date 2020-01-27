@@ -99,6 +99,11 @@ git checkout Development #remember! at this point your local Development is "dir
 git reset --hard <name of temp branch> #this will override our local Development - remember! merge is not possible (since Development is dirty)
 #now we want to override the remote Development (you need to enable the permission in BitBucket for Revriting branch history - since your overriding with a detached branch):
 git push -f origin Development #now we are done! we can remove the permission from previous line since its dangerous...
+#to rename a tag:
+git tag [new tag name] [old tag name] #renaming the tag locally
+git tag -d [old tag name] #to delete the old tag locally
+git push origin :refs/tags/[old tag name] #deleting the old tag remotely (otherwise - we'll keep getting it when we pull)
+git push [new tag name] #pushing the new tag to origin
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
