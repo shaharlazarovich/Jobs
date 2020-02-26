@@ -26,6 +26,7 @@ using Application.Profiles;
 using System;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
+using Infrastructure.Remote;
 
 namespace API
 {
@@ -133,9 +134,18 @@ namespace API
             services.AddScoped<ICsvAccessor, CsvAccessor>();
             services.AddScoped<IKafkaConsumerAccessor, KafkaConsumer>();
             services.AddScoped<IKafkaProducerAccessor, KafkaProducer>();
+            services.AddScoped<IRemoteJobAccessor, RemoteJobAccessor>();
 
             services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
             services.Configure<KafkaSettings>(Configuration.GetSection("Kafka"));
+
+            services.AddHttpClient("HTTPJobs", c =>
+            {
+                c.BaseAddress = new Uri("https://localhost:8081/api");
+                c.DefaultRequestHeaders.Add("Accept", "application/jobs");
+                c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

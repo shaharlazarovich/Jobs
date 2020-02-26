@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { RootStore } from './rootStore';
 import { history } from '../common/util/history';
 import { setJobProps } from '../common/util/util';
+import { IJobAction } from '../models/jobaction';
 
 const LIMIT = 6; //this is the amount of records per page for the paging methods
 
@@ -37,6 +38,26 @@ export default class JobStore {
     @observable jobCount = 0;
     @observable page = 0;
     @observable predicate = new Map(); //this will be used as configuration to do our filters (we have several such as filter by date)
+    
+    @observable remoteRunning = false; //handles loading of remote run button
+
+    @action runRemoteJob = async (jobaction: IJobAction) => {
+        this.remoteRunning = true;
+        try {
+            await agent.RemoteJob.run(jobaction);
+            runInAction('running job', () => {
+                this.remoteRunning = false;
+            })
+            toast.info('run job request sent')
+        }
+        catch(error) {
+            runInAction('run job error', () => {
+                this.remoteRunning = false;
+            }) 
+            toast.error('problem running job')
+            console.log(error.response); 
+        }
+    }
 
     @action setPredicate = (predicate: string, value: string | Date) => {
         this.predicate.clear();

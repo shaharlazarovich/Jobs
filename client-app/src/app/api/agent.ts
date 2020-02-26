@@ -4,6 +4,7 @@ import { history } from '../common/util/history';
 import { toast } from 'react-toastify';
 import { IUser, IUserFormValues } from '../models/users';
 import { IProfile } from '../models/profile';
+import { IJobAction } from '../models/jobaction';
 
 
 //we don't need to explicitely name index - its the default
@@ -73,6 +74,12 @@ const requests = {
         axios.post(url, body)
         .then(sleep(1000))
         .then(responseBody),
+    postRemote: 
+        (url: string, body: {}) => {
+        axios.post(url, body)
+        .then(sleep(1000))
+        .then(responseBody);
+    },
     put: 
         (url: string, body: {}) => 
         axios.put(url, body)
@@ -90,6 +97,12 @@ const requests = {
         return axios.post(url, formData, {
             headers: {'Content-type': 'multipart/form-data'}
         }).then(responseBody)
+    }
+}
+
+const RemoteJob = {
+    run: (jobaction: IJobAction) => {
+        requests.postRemote('/jobactions?jobname=Job1',jobaction);
     }
 }
 
@@ -120,5 +133,6 @@ const Profiles = {
 export default {
     User,
     Profiles,
-    Jobs
+    Jobs,
+    RemoteJob
 }
