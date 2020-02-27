@@ -27,6 +27,11 @@ using System;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using Infrastructure.Remote;
+using System.Net.Http;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Polly;
+using Polly.Extensions.Http;
+using Microsoft.Extensions.Http;
 
 namespace API
 {
@@ -138,13 +143,32 @@ namespace API
 
             services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
             services.Configure<KafkaSettings>(Configuration.GetSection("Kafka"));
+            services.Configure<RemoteJobSettings>(Configuration.GetSection("RemoteJob"));
+
+            var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(10));
+
+            services.AddTransient<TimingHandler>();
+            services.AddTransient<ValidateHeaderHandler>();
+
+            //This is our retry policy - we can apply it always or only to some HTTP verbs
+            var retryPolicy = HttpPolicyExtensions
+                .HandleTransientHttpError()
+                .RetryAsync(3);
+
+            var noOp = Policy.NoOpAsync().AsAsyncPolicy<HttpResponseMessage>();
+
 
             services.AddHttpClient("HTTPJobs", c =>
             {
                 c.BaseAddress = new Uri("https://localhost:8081/api");
-                c.DefaultRequestHeaders.Add("Accept", "application/jobs");
-                c.DefaultRequestHeaders.Add("User-Agent", "HttpClientFactory-Sample");
-            });
+            })
+            .AddHttpMessageHandler<TimingHandler>() // This handler is on the outside and executes first on the way out and last on the way in.
+            .AddHttpMessageHandler<ValidateHeaderHandler>() // This handler is on the inside, closest to the request.
+            .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(10)))
+            .AddTransientHttpErrorPolicy(p => p.RetryAsync(3))
+            .AddPolicyHandler(request => request.Method == HttpMethod.Get ? retryPolicy : noOp);
+
+            services.Replace(ServiceDescriptor.Singleton<IHttpMessageHandlerBuilderFilter, HTTPLoggingFilter>());
 
         }
 
