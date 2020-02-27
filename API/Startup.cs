@@ -26,6 +26,8 @@ using Application.Profiles;
 using System;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
+using Polly;
+using System.Net.Http;
 
 namespace API
 {
@@ -125,6 +127,8 @@ namespace API
             //Scoped objects are the same within a request, but different across different requests.
             //Singleton objects are the same for every object and every request.
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(10));
 
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserAccessor, UserAccessor>();
