@@ -22,7 +22,8 @@ describe('Job Detailed Header UniTest', () => {
             servers: '10',
             results: 'OK',
             key: 'AAAA-BBBB-CCCC-DDDD',
-            rtoNeeded: "10"
+            rtoNeeded: "10",
+            jobIP: "http://localhost:8081/api/"
       }
       wrapper = setup({ testJob });
     });

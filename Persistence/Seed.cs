@@ -58,7 +58,7 @@ namespace Persistence
                     
                     new Job
                     {
-                        JobName = "TestJob1",
+                        JobName = "Job1",
                         Company = "Shomera",
                         Replication = "VMWARE SRM",
                         Servers = "10",
@@ -68,6 +68,7 @@ namespace Persistence
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
                         RTONeeded = "10",
+                        JobIP = "http://localhost:8081/api/"
                     },
                     new Job
                     {
@@ -81,6 +82,7 @@ namespace Persistence
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
                         RTONeeded = "20",
+                        JobIP = "http://localhost:8081/api/"
                     },
                     new Job
                     {
@@ -94,6 +96,7 @@ namespace Persistence
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
                         RTONeeded = "30",
+                        JobIP = "http://localhost:8081/api/"
                     },
                     new Job
                     {
@@ -107,6 +110,7 @@ namespace Persistence
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
                         RTONeeded = "10",
+                        JobIP = "http://localhost:8081/api/"
                     },
                     new Job
                     {
@@ -120,6 +124,7 @@ namespace Persistence
                         Results = "All tested - server is ok",
                         Key = "AAAA-BBBB-CCCC-DDDD",
                         RTONeeded = "30",
+                        JobIP = "http://localhost:8081/api/"
                     },
                 };
                 await context.Jobs.AddRangeAsync(jobs);

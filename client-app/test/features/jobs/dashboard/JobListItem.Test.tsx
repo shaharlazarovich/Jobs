@@ -16,13 +16,14 @@ describe('Job List Item UniTest', () => {
         testJob = { 
             id:"4", 
             replication:"VMware SRM",
-            jobName:"test1",
+            jobName:"Job1",
             company: 'Shomera',  
             lastRun: new Date('2020-01-06 23:00:05'),  
             servers: '10',
             results: 'OK',
             key: 'AAAA-BBBB-CCCC-DDDD',
-            rtoNeeded: "10"
+            rtoNeeded: "10",
+            jobIP: "http://localhost:8081/api/"
         }
         wrapper = setup({ testJob });
     });

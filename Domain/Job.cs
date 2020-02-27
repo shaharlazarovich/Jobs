@@ -14,5 +14,6 @@ namespace Domain
         public string Results { get; set; }
         public string Key { get; set; }
         public string RTONeeded { get; set; }
+        public string JobIP { get; set; }
     }
 }

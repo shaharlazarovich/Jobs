@@ -20,7 +20,8 @@ namespace Persistence.Migrations
                     RTA = table.Column<string>(nullable: false),
                     Results = table.Column<string>(nullable: true),
                     Key = table.Column<string>(nullable: true),
-                    RTONeeded = table.Column<string>(nullable: false)
+                    RTONeeded = table.Column<string>(nullable: false),
+                    JobIP = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

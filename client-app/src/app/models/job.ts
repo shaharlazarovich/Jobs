@@ -18,7 +18,8 @@ export interface IJob {
     rta: string;
     results: string;
     key: string;
-    rtoNeeded: string
+    rtoNeeded: string;
+    jobIP: string;
 }
 
 
@@ -39,6 +40,7 @@ export class JobFormValues implements IJobFormValues {
     results: string = '';
     key: string = '';
     rtoNeeded: string = '';
+    jobIP: string = '';
 
     constructor(init?: IJobFormValues) {
         Object.assign(this, init); //this will initialize our object of class JobFormValues

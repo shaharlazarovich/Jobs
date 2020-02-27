@@ -61,7 +61,13 @@ namespace Persistence
 
             //the below line is risky - it introduces state into context - might impac the connection pooling mechnism - need
             //to check in case of performance impact
-            var user = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value ?? "system";
+            //var user = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value ?? "system";
+            var user = "system";
+            if (_httpContextAccessor!=null)
+                if (_httpContextAccessor.HttpContext!=null)
+                    if (_httpContextAccessor.HttpContext.User!=null)
+                        if (_httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)!= null)
+                            user = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value ?? "system";
             foreach (var item in audits)
             {
                 id = GetIdentity(item.EntityEntry);
