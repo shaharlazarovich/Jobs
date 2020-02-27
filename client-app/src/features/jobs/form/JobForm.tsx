@@ -65,7 +65,8 @@ const handleFinalFormSubmit = (values: any) => {
             id: uuid(),
             rta: '10',
             results: 'OK',
-            key: 'aaaa-bbbb-cccc-dddd'
+            key: 'aaaa-bbbb-cccc-dddd',
+            jobIP: 'http://localhost:8081/api/'
         }
         createJob(newJob);
     } else {
