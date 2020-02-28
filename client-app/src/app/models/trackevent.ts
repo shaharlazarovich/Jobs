@@ -8,26 +8,26 @@ export interface ITrackEventsEnvelope {
 
 export interface ITrackEvent {
     id: string;
-    jobId: string;
-    jobName: string;
-    userId: string;
+    jobId?: string;
+    jobName?: string;
+    userId?: string;
     actionDate: Date;
-    remoteIP: string;
-    remoteResponse: string;
-    requestProperties: string;
+    remoteIP?: string;
+    remoteResponse?: string;
+    requestProperties?: string;
     source: string;
     event: string;
 }
 
 export class TrackEvent implements ITrackEvent {
     id: string = '';
-    jobId: string = '';
-    jobName: string = '';
-    userId: string = '';
+    jobId?: string = '';
+    jobName?: string = '';
+    userId?: string = '';
     actionDate: Date = new Date();
-    remoteIP: string = '';
-    remoteResponse: string = '';
-    requestProperties: string = '';
+    remoteIP?: string = '';
+    remoteResponse?: string = '';
+    requestProperties?: string = '';
     source: string = '';
     event: string = '';
 

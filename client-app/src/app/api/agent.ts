@@ -134,5 +134,9 @@ export default {
     User,
     Profiles,
     Jobs,
-    RemoteJob
+    RemoteJob,
+    requests,
+    sleep,
+    axios,
+    responseBody
 }

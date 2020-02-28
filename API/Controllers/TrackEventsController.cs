@@ -10,7 +10,7 @@ namespace API.Controllers
     public class TrackEventsController : BaseController
     {  
         [HttpPost]
-        public async Task<ActionResult<Unit>> Run(Run.Command command)
+        public async Task<ActionResult<Unit>> Track(Run.Command command)
         {
             return await Mediator.Send(command);
         }

@@ -6,10 +6,14 @@ import { RootStoreContext } from '../../../app/stores/rootStore';
 import InfiniteScroll from 'react-infinite-scroller';
 import JobFilters from './JobFilters';
 import JobListItemPlaceholder from './JobListItemPlaceHolder';
+import { TrackEvent } from '../../../app/models/trackevent'
+import uuid from 'uuid';
+import moment from 'moment';
 
 const JobDashboard: React.FC = () => {
     const rootStore = useContext(RootStoreContext); //this is called global state from our state store of mobx
     const { loadJobs, loadingInitial, setPage, page, totalPages} = rootStore.jobStore;
+    const { trackService } = rootStore.trackStore;
     const [loadingNext, setLoadingNext] = useState(false); //this is called local state which we take from useContext
     
     const handleGetNext = () => {
@@ -18,8 +22,18 @@ const JobDashboard: React.FC = () => {
         loadJobs().then(() => setLoadingNext(false));
     }
 
+    let trackEvent = new TrackEvent();
+    trackEvent = {
+        id: uuid(),
+        actionDate: moment().toDate(),
+        source: "JobDashboard",
+        event: "loadcomponent",
+    }
+
+
     //useEffect is a React hook that build our jobs list
     useEffect(() => {
+      trackService(trackEvent);
       loadJobs();
     }, [loadJobs]); //now, instead of leaving this empty, we need to declare here every dependency useEffect has
 

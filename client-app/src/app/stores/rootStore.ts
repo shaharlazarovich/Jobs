@@ -5,6 +5,7 @@ import { configure } from "mobx";
 import ModalStore from "./modalStore";
 import ProfileStore from "./profileStore";
 import JobStore from "./jobStore";
+import TrackStore from "./trackStore";
 
 
 //this enables "strict mode" on every mobx object, and enforces it to run
@@ -17,6 +18,7 @@ export class RootStore {
     commonStore: CommonStore;
     modalStore: ModalStore;
     profileStore: ProfileStore;
+    trackStore: TrackStore;
 
     constructor() {
         this.userStore = new UserStore(this);
@@ -24,6 +26,7 @@ export class RootStore {
         this.modalStore = new ModalStore(this);
         this.profileStore = new ProfileStore(this);
         this.jobStore = new JobStore(this);
+        this.trackStore = new TrackStore(this);
     }
 }
 

@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { RootStore } from './rootStore';
 import { history } from '../common/util/history';
 import { setJobProps } from '../common/util/util';
-import { TrackEvent } from '../models/trackevent';
+import { ITrackEvent } from '../models/trackevent';
 
 const LIMIT = 6; //this is the amount of records per page for the paging methods
 
@@ -41,7 +41,7 @@ export default class JobStore {
     
     @observable remoteRunning = false; //handles loading of remote run button
 
-    @action runRemoteJob = async (trackevent: TrackEvent) => {
+    @action runRemoteJob = async (trackevent: ITrackEvent) => {
         this.remoteRunning = true;
         try {
             await agent.RemoteJob.run(trackevent);
