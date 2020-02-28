@@ -102,7 +102,7 @@ const requests = {
 
 const RemoteJob = {
     run: (trackevent: TrackEvent) => {
-        requests.postRemote('/trackactions?jobname=Job1',trackevent);
+        requests.postRemote('/remote?jobname=Job1',trackevent);
     }
 }
 

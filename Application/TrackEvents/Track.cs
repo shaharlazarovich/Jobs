@@ -6,12 +6,10 @@ using FluentValidation;
 using MediatR;
 using Persistence;
 using Application.Interfaces;
-using System.Net;
-using Application.Errors;
 
 namespace Application.TrackEvents
 {
-    public class Run
+    public class Track
     {
         public class Command : IRequest
         {
@@ -31,23 +29,17 @@ namespace Application.TrackEvents
             public CommandValidator()
             {
                 RuleFor(x => x.Id).NotEmpty();
-                RuleFor(x => x.jobId).NotEmpty();
-                RuleFor(x => x.jobName).NotEmpty();
-                RuleFor(x => x.userId).NotEmpty();
                 RuleFor(x => x.eventTracked).NotEmpty();
                 RuleFor(x => x.source).NotEmpty();
-                RuleFor(x => x.remoteIP).NotEmpty();
                 RuleFor(x => x.actionDate).NotEmpty(); 
             }   
         }
         public class Handler : IRequestHandler<Command>
         {
             private readonly DataContext _context;
-            private readonly IRemoteJobAccessor _remote;
             public Handler(DataContext context, IRemoteJobAccessor remote)
             {
                 _context = context;
-                _remote = remote;
             } 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
@@ -70,27 +62,10 @@ namespace Application.TrackEvents
                 //handler logic
                 var success = await _context.SaveChangesAsync(false) > 0;
         
-                if (success) {
-                    var runJob = await _remote.PostRemote(request.remoteIP,request.eventTracked,request.jobName);
-                    if (!runJob.Contains("successfully")) {
-                        throw new Exception("Failed Running Remote Job");
-                    }
-                    else {
-                        //return Unit.Value;
-                        var response = await _context.TrackEvents.FindAsync(request.Id);
-                        if (response==null)
-                            throw new RestException(HttpStatusCode.NotFound, new {TrackEvent= "Not Found"});
-                        else {
-                            response.RemoteResponse = runJob;
-                            var responseSuccess = await _context.SaveChangesAsync(false) > 0;
-                            if (success) return Unit.Value;
-                                throw new Exception("problem updating response");
-                        }
-                    }
-                }
-                else
-                    throw new Exception("problem saving changes");
-            }
-        }  
+                if (success) return Unit.Value;
+
+                throw new Exception("problem saving changes");        
+            }  
+        }
     }
 }
