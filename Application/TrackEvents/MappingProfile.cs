@@ -1,13 +1,13 @@
 using AutoMapper;
 using Domain;
 
-namespace Application.JobActions
+namespace Application.TrackEvents
 {
     public class MappingProfile : Profile
     {
         public MappingProfile()
         {
-            CreateMap<JobAction, JobActionDto>();
+            CreateMap<TrackEvent, TrackEventDto>();
         }
     }
 }

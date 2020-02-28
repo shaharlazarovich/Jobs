@@ -1,10 +1,10 @@
-namespace Application.JobActions
+namespace Application.TrackEvents
 {
-    public class JobActionDto
+    public class TrackEventDto
     {   
         public string JobId { get; set; }
         public string UserId { get; set; }
-        public string Action { get; set; }
+        public string Event { get; set; }
         public string RemoteIP { get; set; }
 
     }

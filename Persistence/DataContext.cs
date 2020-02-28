@@ -18,7 +18,7 @@ namespace Persistence
         public DbSet<Value> Values { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Audit> Audits { get; set; }
-        public DbSet<JobAction> JobActions { get; set; }
+        public DbSet<TrackEvent> TrackEvents { get; set; }
     
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -31,7 +31,7 @@ namespace Persistence
                     new Value { Id = 3, Name = "Value 103" }
                 );
 
-            builder.Entity<JobAction>() //auto increment id
+            builder.Entity<TrackEvent>() //auto increment id
                 .Property(ja => ja.Id)
                 .ValueGeneratedOnAdd();
             

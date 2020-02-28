@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Item, Button, Segment, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { IJob } from '../../../app/models/job'
-import { JobAction } from '../../../app/models/jobaction'
+import { TrackEvent } from '../../../app/models/trackevent'
 import {format} from 'date-fns'
 import { RootStoreContext } from '../../../app/stores/rootStore'
 import moment from 'moment'
@@ -13,9 +13,9 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
   const { user} = rootStore.userStore;
   const { runRemoteJob } = rootStore.jobStore;
 
-  const handleRunJob = () => {
-    let jobaction = new JobAction();
-    jobaction = {
+  const track = () => {
+    let trackEvent = new TrackEvent();
+    trackEvent = {
       id: uuid(),
       jobId: job.id,
       jobName: job.jobName,
@@ -25,9 +25,9 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
       remoteResponse: "",
       requestProperties: "",
       source: "Jobs_List",
-      action: "runjob",
+      event: "runjob",
     }
-    runRemoteJob(jobaction);
+    runRemoteJob(trackEvent);
   }
 
   return (
@@ -60,7 +60,7 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
                 color="blue"
             />
             <Button
-                onClick={ handleRunJob }
+                onClick={ track }
                 floated="right"
                 content="Run"
                 color="blue"

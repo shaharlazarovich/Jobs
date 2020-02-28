@@ -10,19 +10,19 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
-namespace Application.JobActions
+namespace Application.TrackEvents
 {
     public class List
     {
-        public class JobActionsEnvelope
+        public class TrackEventsEnvelope
         {
             //we refactored this class for paging purposes - instead of returning
             //the JobDto itself, we use the envelope to be able to add a count
             //of Jobs, and use this count to break the list into pages
-            public List<JobActionDto> JobActions { get; set; }
-            public int JobActionsCount { get; set; }
+            public List<TrackEventDto> TrackEvents { get; set; }
+            public int TrackEventsCount { get; set; }
         }
-        public class Query : IRequest<JobActionsEnvelope>
+        public class Query : IRequest<TrackEventsEnvelope>
         {
             public Query(int? limit, int? offset, DateTime? actionDate)
             {
@@ -34,7 +34,7 @@ namespace Application.JobActions
             public int? Offset { get; set; }
             public DateTime? actionDate { get; set; }
         }
-        public class Handler : IRequestHandler<Query, JobActionsEnvelope>
+        public class Handler : IRequestHandler<Query, TrackEventsEnvelope>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -46,9 +46,9 @@ namespace Application.JobActions
                 _context = context;
             }
 
-            public async Task<JobActionsEnvelope> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<TrackEventsEnvelope> Handle(Query request, CancellationToken cancellationToken)
             {
-                var queryable = _context.JobActions
+                var queryable = _context.TrackEvents
                     .OrderBy(x => x.ActionDate) //this is our way to get a sorting by date functionality
                     .AsQueryable();
 
@@ -57,14 +57,14 @@ namespace Application.JobActions
                 //do we take for each page (limit) - so for example, we start paging after 20 records,
                 //and page every 5 from that point on
                 //maximum records with no supplied limit is 6
-                var jobActions = await queryable
+                var trackEvents = await queryable
                     .Skip(request.Offset ?? 0)
                     .Take(request.Limit ?? 6).ToListAsync();
 
-                return new JobActionsEnvelope
+                return new TrackEventsEnvelope
                 {
-                    JobActions = _mapper.Map<List<JobAction>, List<JobActionDto>>(jobActions),
-                    JobActionsCount = jobActions.Count()
+                    TrackEvents = _mapper.Map<List<TrackEvent>, List<TrackEventDto>>(trackEvents),
+                    TrackEventsCount = trackEvents.Count()
                 };
             }
         }

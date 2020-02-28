@@ -4,7 +4,7 @@ import { history } from '../common/util/history';
 import { toast } from 'react-toastify';
 import { IUser, IUserFormValues } from '../models/users';
 import { IProfile } from '../models/profile';
-import { IJobAction } from '../models/jobaction';
+import { TrackEvent } from '../models/trackevent';
 
 
 //we don't need to explicitely name index - its the default
@@ -101,8 +101,8 @@ const requests = {
 }
 
 const RemoteJob = {
-    run: (jobaction: IJobAction) => {
-        requests.postRemote('/jobactions?jobname=Job1',jobaction);
+    run: (trackevent: TrackEvent) => {
+        requests.postRemote('/trackactions?jobname=Job1',trackevent);
     }
 }
 

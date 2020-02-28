@@ -3,14 +3,12 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Persistence;
 
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20200226105740_AddedJobActionEntity")]
-    partial class AddedJobActionEntity
+    partial class AddedTrackEventEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -155,13 +153,13 @@ namespace Persistence.Migrations
                     b.ToTable("Jobs");
                 });
 
-            modelBuilder.Entity("Domain.JobAction", b =>
+            modelBuilder.Entity("Domain.TrackEvent", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Action")
+                    b.Property<string>("Event")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ActionDate")
@@ -190,7 +188,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("JobActions");
+                    b.ToTable("TrackEvent");
                 });
 
             modelBuilder.Entity("Domain.Value", b =>

@@ -1,12 +1,12 @@
 //we are adding this interface to mimic what we do on the server for paging -
 //which is to have an entity around our jobs array, in order to add a count
 //of jobs - which then, we could device in the number of pages
-export interface IJobActionsEnvelope {
-    jobActions: IJobAction[];
-    jobActionsCount: number
+export interface ITrackEventsEnvelope {
+    trackEvents: ITrackEvent[];
+    trackEventsCount: number
 }
 
-export interface IJobAction {
+export interface ITrackEvent {
     id: string;
     jobId: string;
     jobName: string;
@@ -16,10 +16,10 @@ export interface IJobAction {
     remoteResponse: string;
     requestProperties: string;
     source: string;
-    action: string;
+    event: string;
 }
 
-export class JobAction implements IJobAction {
+export class TrackEvent implements ITrackEvent {
     id: string = '';
     jobId: string = '';
     jobName: string = '';
@@ -29,9 +29,9 @@ export class JobAction implements IJobAction {
     remoteResponse: string = '';
     requestProperties: string = '';
     source: string = '';
-    action: string = '';
+    event: string = '';
 
-    constructor(init?: IJobAction) {
+    constructor(init?: ITrackEvent) {
         Object.assign(this, init); //this will initialize our object of class JobActions
                                   // with the above values
     }

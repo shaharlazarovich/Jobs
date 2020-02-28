@@ -9,7 +9,7 @@ using Application.Interfaces;
 using System.Net;
 using Application.Errors;
 
-namespace Application.JobActions
+namespace Application.TrackEvents
 {
     public class Run
     {
@@ -24,7 +24,7 @@ namespace Application.JobActions
             public string requestProperties { get; set; }
             public DateTime actionDate { get; set; }
             public string source { get; set; }
-            public string action { get; set; }
+            public string eventTracked { get; set; }
         }
         public class CommandValidator : AbstractValidator<Command>
         {
@@ -34,7 +34,7 @@ namespace Application.JobActions
                 RuleFor(x => x.jobId).NotEmpty();
                 RuleFor(x => x.jobName).NotEmpty();
                 RuleFor(x => x.userId).NotEmpty();
-                RuleFor(x => x.action).NotEmpty();
+                RuleFor(x => x.eventTracked).NotEmpty();
                 RuleFor(x => x.source).NotEmpty();
                 RuleFor(x => x.remoteIP).NotEmpty();
                 RuleFor(x => x.actionDate).NotEmpty(); 
@@ -51,13 +51,13 @@ namespace Application.JobActions
             } 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var jobAction = new JobAction
+                var trackEvent = new TrackEvent
                 {
                     Id = request.Id,
                     JobId = request.jobId,
                     JobName = request.jobName,
                     UserId = request.userId,
-                    Action = request.action,
+                    Event = request.eventTracked,
                     Source = request.source,
                     ActionDate = request.actionDate,
                     RemoteIP = request.remoteIP,
@@ -65,24 +65,24 @@ namespace Application.JobActions
                     RemoteResponse = ""
                 };
                 
-                _context.JobActions.Add(jobAction);
+                _context.TrackEvents.Add(trackEvent);
         
                 //handler logic
-                var success = await _context.SaveChangesAsync() > 0;
+                var success = await _context.SaveChangesAsync(false) > 0;
         
                 if (success) {
-                    var runJob = await _remote.PostRemote(request.remoteIP,request.action,request.jobName);
+                    var runJob = await _remote.PostRemote(request.remoteIP,request.eventTracked,request.jobName);
                     if (!runJob.Contains("successfully")) {
                         throw new Exception("Failed Running Remote Job");
                     }
                     else {
                         //return Unit.Value;
-                        var editJobAction = await _context.JobActions.FindAsync(request.Id);
-                        if (editJobAction==null)
-                            throw new RestException(HttpStatusCode.NotFound, new {JobAction= "Not Found"});
+                        var response = await _context.TrackEvents.FindAsync(request.Id);
+                        if (response==null)
+                            throw new RestException(HttpStatusCode.NotFound, new {TrackEvent= "Not Found"});
                         else {
-                            editJobAction.RemoteResponse = runJob;
-                            var responseSuccess = await _context.SaveChangesAsync() > 0;
+                            response.RemoteResponse = runJob;
+                            var responseSuccess = await _context.SaveChangesAsync(false) > 0;
                             if (success) return Unit.Value;
                                 throw new Exception("problem updating response");
                         }

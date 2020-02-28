@@ -7,16 +7,16 @@ using Domain;
 using MediatR;
 using Persistence;
 
-namespace Application.JobActions
+namespace Application.TrackEvents
 {
     public class Details
     {
-        public class Query : IRequest<JobActionDto>
+        public class Query : IRequest<TrackEventDto>
         {
             public Guid Id { get; set; }
         }
 
-        public class Handler : IRequestHandler<Query, JobActionDto>
+        public class Handler : IRequestHandler<Query, TrackEventDto>
         {
             private readonly DataContext _context;
             private readonly IMapper _mapper;
@@ -26,17 +26,17 @@ namespace Application.JobActions
                 _context = context;
             }
 
-            public async Task<JobActionDto> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<TrackEventDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var jobAction = await _context.JobActions
+                var trackEvent = await _context.TrackEvents
                     .FindAsync(request.Id); 
                     
-                if (jobAction == null)
-                    throw new RestException(System.Net.HttpStatusCode.NotFound, new { job = "Not Found" });
+                if (trackEvent == null)
+                    throw new RestException(System.Net.HttpStatusCode.NotFound, new { trackevent = "Not Found" });
 
-                var jobActionToReturn = _mapper.Map<JobAction, JobActionDto>(jobAction);
+                var trackEventToReturn = _mapper.Map<TrackEvent, TrackEventDto>(trackEvent);
 
-                return jobActionToReturn;
+                return trackEventToReturn;
             }
         }
     }

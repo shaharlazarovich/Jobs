@@ -2,7 +2,7 @@ using System;
 
 namespace Domain
 {
-    public class JobAction
+    public class TrackEvent
     {
         public Guid Id { get; set; }
         public string JobId { get; set; }
@@ -13,7 +13,7 @@ namespace Domain
         public string RemoteResponse { get; set; }
         public string RequestProperties { get; set; }
         public string Source { get; set; }
-        public string Action { get; set; }
+        public string Event { get; set; }
         
     }
 

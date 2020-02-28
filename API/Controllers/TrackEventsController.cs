@@ -7,7 +7,7 @@ using Application.JobActions;
 
 namespace API.Controllers
 {
-    public class JobActionsController : BaseController
+    public class TrackEventsController : BaseController
     {  
         [HttpPost]
         public async Task<ActionResult<Unit>> Run(Run.Command command)
@@ -16,7 +16,7 @@ namespace API.Controllers
         }
         
         [HttpGet]
-        public async Task<ActionResult<List.JobActionsEnvelope>> List(
+        public async Task<ActionResult<List.TrackEventsEnvelope>> List(
             int? limit,int? offset, DateTime? actionDate)
         {
             return await Mediator.Send(new List.Query(limit,offset,actionDate));
@@ -24,7 +24,7 @@ namespace API.Controllers
 
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<JobActionDto>> Details(Guid id){
+        public async Task<ActionResult<TrackEventDto>> Details(Guid id){
             return await Mediator.Send(new Details.Query{Id = id});
         } 
 
