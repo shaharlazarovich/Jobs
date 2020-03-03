@@ -26,17 +26,12 @@ using Application.Profiles;
 using System;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
-<<<<<<< HEAD
-using Polly;
-using System.Net.Http;
-=======
 using Infrastructure.Remote;
 using System.Net.Http;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Polly;
 using Polly.Extensions.Http;
 using Microsoft.Extensions.Http;
->>>>>>> 5f103f5bf44100cf3b6a95ce4ef303a75925a4d1
 
 namespace API
 {
@@ -151,8 +146,6 @@ namespace API
             services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
             services.Configure<KafkaSettings>(Configuration.GetSection("Kafka"));
             services.Configure<RemoteJobSettings>(Configuration.GetSection("RemoteJob"));
-
-            var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(10));
 
             services.AddTransient<TimingHandler>();
             services.AddTransient<ValidateHeaderHandler>();
