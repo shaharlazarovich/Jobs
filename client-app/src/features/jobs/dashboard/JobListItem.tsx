@@ -25,7 +25,7 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
       remoteResponse: "",
       requestProperties: "",
       source: "Jobs_List",
-      event: "runjob",
+      eventTracked: "runjob",
     }
     runRemoteJob(trackEvent);
   }

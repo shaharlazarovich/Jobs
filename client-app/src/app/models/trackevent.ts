@@ -16,7 +16,7 @@ export interface ITrackEvent {
     remoteResponse?: string;
     requestProperties?: string;
     source: string;
-    event: string;
+    eventTracked: string;
 }
 
 export class TrackEvent implements ITrackEvent {
@@ -29,7 +29,7 @@ export class TrackEvent implements ITrackEvent {
     remoteResponse?: string = '';
     requestProperties?: string = '';
     source: string = '';
-    event: string = '';
+    eventTracked: string = '';
 
     constructor(init?: ITrackEvent) {
         Object.assign(this, init); //this will initialize our object of class JobActions

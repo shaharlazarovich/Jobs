@@ -1,5 +1,4 @@
-import {observable, action, computed, runInAction, reaction, toJS} from 'mobx'
-import agent from '../api/agent';
+import { action } from 'mobx'
 import { toast } from 'react-toastify';
 import { RootStore } from './rootStore';
 import { ITrackEvent } from '../models/trackevent';

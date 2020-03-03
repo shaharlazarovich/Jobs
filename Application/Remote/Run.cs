@@ -68,7 +68,7 @@ namespace Application.Remote
                 _context.TrackEvents.Add(trackEvent);
         
                 //handler logic
-                var success = await _context.SaveChangesAsync(false) > 0;
+                var success = await _context.SaveChangesAsync(true) > 0;
         
                 if (success) {
                     var runJob = await _remote.PostRemote(request.remoteIP,request.eventTracked,request.jobName);
@@ -82,7 +82,7 @@ namespace Application.Remote
                             throw new RestException(HttpStatusCode.NotFound, new {TrackEvent= "Not Found"});
                         else {
                             response.RemoteResponse = runJob;
-                            var responseSuccess = await _context.SaveChangesAsync(false) > 0;
+                            var responseSuccess = await _context.SaveChangesAsync(true) > 0;
                             if (success) return Unit.Value;
                                 throw new Exception("problem updating response");
                         }
