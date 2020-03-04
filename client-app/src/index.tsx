@@ -10,13 +10,23 @@ import { history } from '../src/app/common/util/history'
 import * as serviceWorker from './serviceWorker';
 import ScrollToTop from './app/layout/ScrollToTop';
 import dateFnsLocalizer from 'react-widgets-date-fns'
+import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react'
 
 dateFnsLocalizer();
+
+const instance = createInstance({
+  urlBase: "http://localhost/Matomo",
+  siteId: 1, 
+  trackerUrl: "http://localhost/Matomo/matomo.php", 
+  srcUrl: "http://localhost/Matomo/matomo.js" 
+});
 
 ReactDOM.render(
     <Router history={history}>
     <ScrollToTop>
-        <App />    
+          <MatomoProvider value={instance}>
+            <App />
+          </MatomoProvider>    
     </ScrollToTop>
     </Router>,
   document.getElementById('root'));
