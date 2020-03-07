@@ -7,11 +7,13 @@ import {format} from 'date-fns'
 import { RootStoreContext } from '../../../app/stores/rootStore'
 import moment from 'moment'
 import {v4 as uuid} from 'uuid'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 
 const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
   const rootStore = useContext(RootStoreContext);
   const { user} = rootStore.userStore;
   const { runRemoteJob } = rootStore.jobStore;
+  const { trackPageView, trackEvent } = useMatomo();
 
   const track = () => {
     let trackEvent = new TrackEvent();
@@ -29,6 +31,23 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
     }
     runRemoteJob(trackEvent);
   }
+
+  const handleOnClick = () => {
+    trackEvent({
+      category: 'Button clicks',
+      action: 'joblistitem-event',
+      name: 'trackJob', 
+      value: 234, 
+      documentTitle: 'JobListItem', 
+      href: 'http://localhost:3000', 
+      customDimensions: [
+        {
+          id: 1,
+          value: 'loggedIn',
+        },
+      ],  
+    });
+}
 
   return (
     <Segment.Group data-test="component-job-list-item">
@@ -63,6 +82,12 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
                 onClick={ track }
                 floated="right"
                 content="Run"
+                color="blue"
+            />
+            <Button
+                onClick={ handleOnClick }
+                floated="right"
+                content="Track"
                 color="blue"
             />
       </Segment>

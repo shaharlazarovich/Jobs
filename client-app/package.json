@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.1",
     "@material-ui/icons": "^4.9.1",
+    "@datapunt/matomo-tracker-react": "^0.1.1",
     "@microsoft/signalr": "^3.1.0",
     "@types/cropperjs": "^1.1.5",
     "@types/enzyme": "^3.10.4",

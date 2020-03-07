@@ -9,12 +9,14 @@ import JobListItemPlaceholder from './JobListItemPlaceHolder';
 import { TrackEvent } from '../../../app/models/trackevent'
 import uuid from 'uuid';
 import moment from 'moment';
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 
 const JobDashboard: React.FC = () => {
     const rootStore = useContext(RootStoreContext); //this is called global state from our state store of mobx
     const { loadJobs, loadingInitial, setPage, page, totalPages} = rootStore.jobStore;
     //const { trackService } = rootStore.trackStore;
     const [loadingNext, setLoadingNext] = useState(false); //this is called local state which we take from useContext
+    const { trackPageView } = useMatomo();
     
     const handleGetNext = () => {
         setLoadingNext(true);
@@ -34,6 +36,16 @@ const JobDashboard: React.FC = () => {
     //useEffect is a React hook that build our jobs list
     useEffect(() => {
       //trackService(trackEvent);
+      trackPageView({
+        documentTitle: 'JobDashboard', 
+        href: 'https://localhost/jobs', 
+        customDimensions: [
+          {
+            id: 1,
+            value: 'loggedIn',
+          },
+        ], 
+      })
       loadJobs();
     }, [loadJobs]); //now, instead of leaving this empty, we need to declare here every dependency useEffect has
 
