@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form UniTest should match the snapshot 1`] = `
+<ReactFinalForm
+  data-test="component-login-form"
+  onSubmit={[Function]}
+  render={[Function]}
+  validate={[Function]}
+>
+  <Form
+    as="form"
+    error={true}
+    onSubmit={[Function]}
+  >
+    <form
+      className="ui error form"
+      onSubmit={[Function]}
+    >
+      <Header
+        as="h2"
+        color="teal"
+        content="Login to Reactivities"
+        textAlign="center"
+      >
+        <h2
+          className="ui teal center aligned header"
+        >
+          Login to Reactivities
+        </h2>
+      </Header>
+      <Field
+        component={[Function]}
+        name="email"
+        placeholder="Email"
+      >
+        <TextInput
+          input={
+            Object {
+              "name": "email",
+              "onBlur": [Function],
+              "onChange": [Function],
+              "onFocus": [Function],
+              "type": undefined,
+              "value": "",
+            }
+          }
+          meta={
+            Object {
+              "active": false,
+              "data": Object {},
+              "dirty": false,
+              "dirtySinceLastSubmit": false,
+              "error": "email is required",
+              "initial": undefined,
+              "invalid": true,
+              "length": undefined,
+              "modified": false,
+              "pristine": true,
+              "submitError": undefined,
+              "submitFailed": false,
+              "submitSucceeded": false,
+              "submitting": false,
+              "touched": false,
+              "valid": false,
+              "validating": false,
+              "visited": false,
+            }
+          }
+          placeholder="Email"
+        >
+          <FormField
+            error={false}
+          >
+            <div
+              className="field"
+            >
+              <input
+                name="email"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Email"
+                value=""
+              />
+            </div>
+          </FormField>
+        </TextInput>
+      </Field>
+      <Field
+        component={[Function]}
+        name="password"
+        placeholder="Password"
+        type="password"
+      >
+        <TextInput
+          input={
+            Object {
+              "name": "password",
+              "onBlur": [Function],
+              "onChange": [Function],
+              "onFocus": [Function],
+              "type": "password",
+              "value": "",
+            }
+          }
+          meta={
+            Object {
+              "active": false,
+              "data": Object {},
+              "dirty": false,
+              "dirtySinceLastSubmit": false,
+              "error": "password is required",
+              "initial": undefined,
+              "invalid": true,
+              "length": undefined,
+              "modified": false,
+              "pristine": true,
+              "submitError": undefined,
+              "submitFailed": false,
+              "submitSucceeded": false,
+              "submitting": false,
+              "touched": false,
+              "valid": false,
+              "validating": false,
+              "visited": false,
+            }
+          }
+          placeholder="Password"
+        >
+          <FormField
+            error={false}
+          >
+            <div
+              className="field"
+            >
+              <input
+                name="password"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Password"
+                type="password"
+                value=""
+              />
+            </div>
+          </FormField>
+        </TextInput>
+      </Field>
+      <Button
+        as="button"
+        color="teal"
+        content="Login"
+        disabled={true}
+        fluid={true}
+        loading={false}
+      >
+        <Ref
+          innerRef={
+            Object {
+              "current": <button
+                class="ui teal fluid disabled button"
+                disabled=""
+                tabindex="-1"
+              >
+                Login
+              </button>,
+            }
+          }
+        >
+          <RefFindNode
+            innerRef={
+              Object {
+                "current": <button
+                  class="ui teal fluid disabled button"
+                  disabled=""
+                  tabindex="-1"
+                >
+                  Login
+                </button>,
+              }
+            }
+          >
+            <button
+              className="ui teal fluid disabled button"
+              disabled={true}
+              onClick={[Function]}
+              tabIndex={-1}
+            >
+              Login
+            </button>
+          </RefFindNode>
+        </Ref>
+      </Button>
+    </form>
+  </Form>
+</ReactFinalForm>
+`;

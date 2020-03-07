@@ -1,25 +1,22 @@
-import { shallow } from "enzyme";
+import { ReactWrapper } from "enzyme";
 import React from "react";
+import { setupWrapper } from '../common/wrapper';
 import { findByTestAttr } from '../common/testUtils';
 import App from "../../src/app/layout/App";
-
-const setup = (props={}) => {
-    const wrapper = shallow(<App {...props} />)
-    return wrapper;
-}
+import { Route } from "react-router-dom";
 
 describe('App UniTest', () => {
-    let wrapper:any;
-    beforeEach(() => {
-        wrapper = setup([]);
+    let wrapper: ReactWrapper;
+    beforeEach(async () => {
+        wrapper = await setupWrapper(<Route component={App} />);
     });
     test('renders without error', () => {
         const component = findByTestAttr(wrapper, 'component-app');
         expect(component.length).toBe(1);
     });
 
-    test('app snapshots test', () => {
-      const wrapper = shallow(<App />);
-      expect(wrapper).toMatchSnapshot()
-    })
+    test('should match the snapshot', () => {
+        const component = findByTestAttr(wrapper, 'component-job-list-item');
+        expect(component).toMatchSnapshot();
+    });
 })

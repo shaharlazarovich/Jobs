@@ -6,12 +6,12 @@ import { observer } from 'mobx-react-lite';
 interface IProps {
     profile: IProfile,
     isCurrentUser: boolean,
-    loading: boolean
+    //loading: boolean
 }
 const ProfileHeader: React.FC<IProps> = ({
     profile,
     isCurrentUser,
-    loading
+    //loading
   }) => {
   return (
     <Segment data-test="component-profile-header">

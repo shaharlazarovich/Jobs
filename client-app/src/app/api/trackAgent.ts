@@ -1,4 +1,4 @@
-import agent from './agent';
+import agent from './agentBase';
 import { ITrackEvent } from '../models/trackevent';
 
 const requests = agent.requests;

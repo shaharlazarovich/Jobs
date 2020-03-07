@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Content UniTest should match the snapshot 1`] = `
+<Tab
+  data-test="component-profile-content"
+  grid={
+    Object {
+      "paneWidth": 12,
+      "tabWidth": 4,
+    }
+  }
+  menu={
+    Object {
+      "fluid": true,
+      "vertical": true,
+    }
+  }
+  menuPosition="right"
+  onTabChange={[Function]}
+  panes={
+    Array [
+      Object {
+        "menuItem": "About",
+        "render": [Function],
+      },
+    ]
+  }
+  renderActiveOnly={true}
+>
+  <div
+    data-test="component-profile-content"
+  >
+    <Grid>
+      <div
+        className="ui grid"
+      >
+        <GridColumn
+          stretched={true}
+          width={12}
+        >
+          <div
+            className="stretched twelve wide column"
+          >
+            <ProfileDescription>
+              <TabPane
+                active={true}
+                as={[Function]}
+                data-test="component-profile-description"
+              >
+                <Segment
+                  attached="bottom"
+                  className="active tab"
+                  data-test="component-profile-description"
+                >
+                  <div
+                    className="ui bottom attached segment active tab"
+                    data-test="component-profile-description"
+                  >
+                    <Grid>
+                      <div
+                        className="ui grid"
+                      >
+                        <GridColumn
+                          width={16}
+                        >
+                          <div
+                            className="sixteen wide column"
+                          >
+                            <Header
+                              content="About Fake Username"
+                              floated="left"
+                              icon="user"
+                            >
+                              <div
+                                className="ui left floated header"
+                              >
+                                <Icon
+                                  as="i"
+                                  name="user"
+                                >
+                                  <i
+                                    aria-hidden="true"
+                                    className="user icon"
+                                    onClick={[Function]}
+                                  />
+                                </Icon>
+                                <HeaderContent>
+                                  <div
+                                    className="content"
+                                  >
+                                    About Fake Username
+                                  </div>
+                                </HeaderContent>
+                              </div>
+                            </Header>
+                          </div>
+                        </GridColumn>
+                        <GridColumn
+                          width={16}
+                        >
+                          <div
+                            className="sixteen wide column"
+                          >
+                            <span />
+                          </div>
+                        </GridColumn>
+                      </div>
+                    </Grid>
+                  </div>
+                </Segment>
+              </TabPane>
+            </ProfileDescription>
+          </div>
+        </GridColumn>
+        <GridColumn
+          width={4}
+        >
+          <div
+            className="four wide column"
+          >
+            <Menu
+              activeIndex={0}
+              fluid={true}
+              items={
+                Array [
+                  "About",
+                ]
+              }
+              onItemClick={[Function]}
+              vertical={true}
+            >
+              <div
+                className="ui fluid vertical menu"
+              >
+                <MenuItem
+                  active={true}
+                  content="About"
+                  index={0}
+                  key="About"
+                  name="About"
+                  onClick={[Function]}
+                >
+                  <a
+                    className="active item"
+                    onClick={[Function]}
+                  >
+                    About
+                  </a>
+                </MenuItem>
+              </div>
+            </Menu>
+          </div>
+        </GridColumn>
+      </div>
+    </Grid>
+  </div>
+</Tab>
+`;

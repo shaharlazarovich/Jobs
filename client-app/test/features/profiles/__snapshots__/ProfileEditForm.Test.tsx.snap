@@ -1,0 +1,200 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Edit Form UniTest should match the snapshot 1`] = `
+<ReactFinalForm
+  data-test="component-profile-edit-form"
+  initialValues={
+    Object {
+      "bio": "fakeBIO",
+      "displayName": "fakeName",
+      "followersCount": 1,
+      "following": true,
+      "followingCount": 1,
+      "image": "",
+      "photos": null,
+      "userName": "fakeUserName",
+    }
+  }
+  onSubmit={[Function]}
+  render={[Function]}
+  validate={[Function]}
+>
+  <Form
+    as="form"
+    error={true}
+    onSubmit={[Function]}
+  >
+    <form
+      className="ui error form"
+      onSubmit={[Function]}
+    >
+      <Field
+        component={[Function]}
+        name="displayName"
+        placeholder="Display Name"
+        value="fakeName"
+      >
+        <TextInput
+          input={
+            Object {
+              "name": "displayName",
+              "onBlur": [Function],
+              "onChange": [Function],
+              "onFocus": [Function],
+              "type": undefined,
+              "value": "fakeName",
+            }
+          }
+          meta={
+            Object {
+              "active": false,
+              "data": Object {},
+              "dirty": false,
+              "dirtySinceLastSubmit": false,
+              "error": undefined,
+              "initial": "fakeName",
+              "invalid": false,
+              "length": undefined,
+              "modified": false,
+              "pristine": true,
+              "submitError": undefined,
+              "submitFailed": false,
+              "submitSucceeded": false,
+              "submitting": false,
+              "touched": false,
+              "valid": true,
+              "validating": false,
+              "visited": false,
+            }
+          }
+          placeholder="Display Name"
+        >
+          <FormField
+            error={false}
+          >
+            <div
+              className="field"
+            >
+              <input
+                name="displayName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Display Name"
+                value="fakeName"
+              />
+            </div>
+          </FormField>
+        </TextInput>
+      </Field>
+      <Field
+        component={[Function]}
+        name="bio"
+        placeholder="Bio"
+        rows={3}
+        value="fakeBIO"
+      >
+        <TextAreaInput
+          input={
+            Object {
+              "name": "bio",
+              "onBlur": [Function],
+              "onChange": [Function],
+              "onFocus": [Function],
+              "type": undefined,
+              "value": "fakeBIO",
+            }
+          }
+          meta={
+            Object {
+              "active": false,
+              "data": Object {},
+              "dirty": false,
+              "dirtySinceLastSubmit": false,
+              "error": undefined,
+              "initial": "fakeBIO",
+              "invalid": false,
+              "length": undefined,
+              "modified": false,
+              "pristine": true,
+              "submitError": undefined,
+              "submitFailed": false,
+              "submitSucceeded": false,
+              "submitting": false,
+              "touched": false,
+              "valid": true,
+              "validating": false,
+              "visited": false,
+            }
+          }
+          placeholder="Bio"
+          rows={3}
+        >
+          <FormField
+            error={false}
+          >
+            <div
+              className="field"
+            >
+              <textarea
+                name="bio"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Bio"
+                rows={3}
+                value="fakeBIO"
+              />
+            </div>
+          </FormField>
+        </TextAreaInput>
+      </Field>
+      <Button
+        as="button"
+        content="Update profile"
+        disabled={true}
+        floated="right"
+        loading={false}
+        positive={true}
+      >
+        <Ref
+          innerRef={
+            Object {
+              "current": <button
+                class="ui positive disabled right floated button"
+                disabled=""
+                tabindex="-1"
+              >
+                Update profile
+              </button>,
+            }
+          }
+        >
+          <RefFindNode
+            innerRef={
+              Object {
+                "current": <button
+                  class="ui positive disabled right floated button"
+                  disabled=""
+                  tabindex="-1"
+                >
+                  Update profile
+                </button>,
+              }
+            }
+          >
+            <button
+              className="ui positive disabled right floated button"
+              disabled={true}
+              onClick={[Function]}
+              tabIndex={-1}
+            >
+              Update profile
+            </button>
+          </RefFindNode>
+        </Ref>
+      </Button>
+    </form>
+  </Form>
+</ReactFinalForm>
+`;

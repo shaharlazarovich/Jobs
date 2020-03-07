@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Job Detailed Header UniTest should match the snapshot 1`] = `
+<SegmentGroup
+  data-test="component-job-detailed-header"
+>
+  <div
+    className="ui segments"
+    data-test="component-job-detailed-header"
+  >
+    <Segment
+      attached="top"
+      basic={true}
+      style={
+        Object {
+          "padding": "0",
+        }
+      }
+    >
+      <div
+        className="ui basic top attached segment"
+        style={
+          Object {
+            "padding": "0",
+          }
+        }
+      >
+        <Image
+          as="img"
+          fluid={true}
+          src="/assets/replicationImages/VMware SRM.jpg"
+          style={
+            Object {
+              "filter": "brightness(30%)",
+            }
+          }
+          ui={true}
+        >
+          <img
+            className="ui fluid image"
+            src="/assets/replicationImages/VMware SRM.jpg"
+            style={
+              Object {
+                "filter": "brightness(30%)",
+              }
+            }
+          />
+        </Image>
+        <Segment
+          basic={true}
+          style={
+            Object {
+              "bottom": "5%",
+              "color": "white",
+              "height": "auto",
+              "left": "5%",
+              "position": "absolute",
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            className="ui basic segment"
+            style={
+              Object {
+                "bottom": "5%",
+                "color": "white",
+                "height": "auto",
+                "left": "5%",
+                "position": "absolute",
+                "width": "100%",
+              }
+            }
+          >
+            <ItemGroup>
+              <div
+                className="ui items"
+              >
+                <Item>
+                  <div
+                    className="item"
+                  >
+                    <ItemContent>
+                      <div
+                        className="content"
+                      >
+                        <Header
+                          content="test1"
+                          size="huge"
+                          style={
+                            Object {
+                              "color": "white",
+                            }
+                          }
+                        >
+                          <div
+                            className="ui huge header"
+                            style={
+                              Object {
+                                "color": "white",
+                              }
+                            }
+                          >
+                            test1
+                          </div>
+                        </Header>
+                        <p>
+                          Monday 6th 01
+                        </p>
+                        <p>
+                          Created by 
+                          <Link
+                            to="/profile/Fake Username"
+                          >
+                            <LinkAnchor
+                              href="/profile/Fake Username"
+                              navigate={[Function]}
+                            >
+                              <a
+                                href="/profile/Fake Username"
+                                onClick={[Function]}
+                              >
+                                <strong>
+                                  Fake Username
+                                </strong>
+                              </a>
+                            </LinkAnchor>
+                          </Link>
+                        </p>
+                      </div>
+                    </ItemContent>
+                  </div>
+                </Item>
+              </div>
+            </ItemGroup>
+          </div>
+        </Segment>
+      </div>
+    </Segment>
+    <Segment
+      attached="bottom"
+      clearing={true}
+    >
+      <div
+        className="ui clearing bottom attached segment"
+      >
+        <Button
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "Link",
+              "propTypes": Object {
+                "innerRef": [Function],
+                "onClick": [Function],
+                "replace": [Function],
+                "target": [Function],
+                "to": [Function],
+              },
+              "render": [Function],
+            }
+          }
+          color="orange"
+          floated="right"
+          to="/manage/4"
+        >
+          <Ref
+            innerRef={
+              Object {
+                "current": <a
+                  class="ui orange right floated button"
+                  href="/manage/4"
+                  role="button"
+                >
+                  Edit Job
+                </a>,
+              }
+            }
+          >
+            <RefForward
+              innerRef={
+                Object {
+                  "current": <a
+                    class="ui orange right floated button"
+                    href="/manage/4"
+                    role="button"
+                  >
+                    Edit Job
+                  </a>,
+                }
+              }
+            >
+              <Link
+                className="ui orange right floated button"
+                onClick={[Function]}
+                role="button"
+                to="/manage/4"
+              >
+                <LinkAnchor
+                  className="ui orange right floated button"
+                  href="/manage/4"
+                  navigate={[Function]}
+                  onClick={[Function]}
+                  role="button"
+                >
+                  <a
+                    className="ui orange right floated button"
+                    href="/manage/4"
+                    onClick={[Function]}
+                    role="button"
+                  >
+                    Edit Job
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </RefForward>
+          </Ref>
+        </Button>
+      </div>
+    </Segment>
+  </div>
+</SegmentGroup>
+`;

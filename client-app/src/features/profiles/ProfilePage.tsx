@@ -20,7 +20,7 @@ const ProfilePage: React.FC<IProps> = ({match}) => {
         profile, 
         loadProfile,
         isCurrentUser,
-        loading,
+        //loading,
         setActiveTab
     } = rootStore.profileStore;
 
@@ -36,7 +36,7 @@ const ProfilePage: React.FC<IProps> = ({match}) => {
                 <ProfileHeader 
                     profile={profile!} 
                     isCurrentUser={isCurrentUser}
-                    loading={loading}
+                    //loading={loading}
                 />
                 <ProfileContent setActiveTab={setActiveTab} />
             </Grid.Column>

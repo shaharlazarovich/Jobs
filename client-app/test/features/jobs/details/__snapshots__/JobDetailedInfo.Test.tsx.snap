@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Job Detailed Info UniTest should match the snapshot 1`] = `
+<SegmentGroup
+  data-test="component-job-detailed-info"
+>
+  <div
+    className="ui segments"
+    data-test="component-job-detailed-info"
+  >
+    <Segment
+      attached="top"
+    >
+      <div
+        className="ui top attached segment"
+      >
+        <Grid>
+          <div
+            className="ui grid"
+          >
+            <GridColumn
+              width={1}
+            >
+              <div
+                className="one wide column"
+              >
+                <Icon
+                  as="i"
+                  color="teal"
+                  name="info"
+                  size="large"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="teal info large icon"
+                    onClick={[Function]}
+                  />
+                </Icon>
+              </div>
+            </GridColumn>
+            <GridColumn
+              width={15}
+            >
+              <div
+                className="fifteen wide column"
+              >
+                <p>
+                  Shomera
+                </p>
+              </div>
+            </GridColumn>
+          </div>
+        </Grid>
+      </div>
+    </Segment>
+    <Segment
+      attached={true}
+    >
+      <div
+        className="ui attached segment"
+      >
+        <Grid
+          verticalAlign="middle"
+        >
+          <div
+            className="ui middle aligned grid"
+          >
+            <GridColumn
+              width={1}
+            >
+              <div
+                className="one wide column"
+              >
+                <Icon
+                  as="i"
+                  color="teal"
+                  name="calendar"
+                  size="large"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="teal calendar large icon"
+                    onClick={[Function]}
+                  />
+                </Icon>
+              </div>
+            </GridColumn>
+            <GridColumn
+              width={15}
+            >
+              <div
+                className="fifteen wide column"
+              >
+                <span>
+                  Monday 6th 01
+                   at 
+                  11:00
+                </span>
+              </div>
+            </GridColumn>
+          </div>
+        </Grid>
+      </div>
+    </Segment>
+    <Segment
+      attached={true}
+    >
+      <div
+        className="ui attached segment"
+      >
+        <Grid
+          verticalAlign="middle"
+        >
+          <div
+            className="ui middle aligned grid"
+          >
+            <GridColumn
+              width={1}
+            >
+              <div
+                className="one wide column"
+              >
+                <Icon
+                  as="i"
+                  color="teal"
+                  name="marker"
+                  size="large"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="teal marker large icon"
+                    onClick={[Function]}
+                  />
+                </Icon>
+              </div>
+            </GridColumn>
+            <GridColumn
+              width={11}
+            >
+              <div
+                className="eleven wide column"
+              >
+                <span>
+                  10
+                  , 
+                  10
+                </span>
+              </div>
+            </GridColumn>
+          </div>
+        </Grid>
+      </div>
+    </Segment>
+  </div>
+</SegmentGroup>
+`;

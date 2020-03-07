@@ -1,6 +1,6 @@
 import { observable, computed, action, runInAction } from "mobx";
 import { IUser, IUserFormValues } from "../models/users";
-import agent from "../api/agent";
+import agent from "../api/agentBase";
 import { RootStore } from './rootStore';
 import { history } from '../common/util/history';
 //import { history } from '../../'

@@ -1,0 +1,549 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar UniTest should match the snapshot 1`] = `
+<Menu
+  data-test="component-navbar"
+  fixed="top"
+  inverted={true}
+>
+  <div
+    className="ui inverted top fixed menu"
+    data-test="component-navbar"
+  >
+    <Container>
+      <div
+        className="ui container"
+      >
+        <MenuItem
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "NavLink",
+              "propTypes": Object {
+                "activeClassName": [Function],
+                "activeStyle": [Function],
+                "aria-current": [Function],
+                "className": [Function],
+                "exact": [Function],
+                "innerRef": [Function],
+                "isActive": [Function],
+                "location": [Function],
+                "onClick": [Function],
+                "replace": [Function],
+                "strict": [Function],
+                "style": [Function],
+                "target": [Function],
+                "to": [Function],
+              },
+              "render": [Function],
+            }
+          }
+          exact={true}
+          header={true}
+          to="/"
+        >
+          <NavLink
+            className="header item"
+            exact={true}
+            onClick={[Function]}
+            to="/"
+          >
+            <Link
+              aria-current="page"
+              className="header item active"
+              onClick={[Function]}
+              style={Object {}}
+              to={
+                Object {
+                  "hash": "",
+                  "pathname": "/",
+                  "search": "",
+                  "state": null,
+                }
+              }
+            >
+              <LinkAnchor
+                aria-current="page"
+                className="header item active"
+                href="/"
+                navigate={[Function]}
+                onClick={[Function]}
+                style={Object {}}
+              >
+                <a
+                  aria-current="page"
+                  className="header item active"
+                  href="/"
+                  onClick={[Function]}
+                  style={Object {}}
+                >
+                  <img
+                    alt="logo"
+                    src="/assets/logo.png"
+                    style={
+                      Object {
+                        "marginRight": "10px",
+                      }
+                    }
+                  />
+                  EDRM
+                </a>
+              </LinkAnchor>
+            </Link>
+          </NavLink>
+        </MenuItem>
+        <MenuItem
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "NavLink",
+              "propTypes": Object {
+                "activeClassName": [Function],
+                "activeStyle": [Function],
+                "aria-current": [Function],
+                "className": [Function],
+                "exact": [Function],
+                "innerRef": [Function],
+                "isActive": [Function],
+                "location": [Function],
+                "onClick": [Function],
+                "replace": [Function],
+                "strict": [Function],
+                "style": [Function],
+                "target": [Function],
+                "to": [Function],
+              },
+              "render": [Function],
+            }
+          }
+          name="Jobs"
+          to="/jobs"
+        >
+          <NavLink
+            className="item"
+            onClick={[Function]}
+            to="/jobs"
+          >
+            <Link
+              aria-current={null}
+              className="item"
+              onClick={[Function]}
+              to={
+                Object {
+                  "hash": "",
+                  "pathname": "/jobs",
+                  "search": "",
+                  "state": null,
+                }
+              }
+            >
+              <LinkAnchor
+                aria-current={null}
+                className="item"
+                href="/jobs"
+                navigate={[Function]}
+                onClick={[Function]}
+              >
+                <a
+                  aria-current={null}
+                  className="item"
+                  href="/jobs"
+                  onClick={[Function]}
+                >
+                  Jobs
+                </a>
+              </LinkAnchor>
+            </Link>
+          </NavLink>
+        </MenuItem>
+        <MenuItem>
+          <div
+            className="item"
+            onClick={[Function]}
+          >
+            <Button
+              as={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "displayName": "NavLink",
+                  "propTypes": Object {
+                    "activeClassName": [Function],
+                    "activeStyle": [Function],
+                    "aria-current": [Function],
+                    "className": [Function],
+                    "exact": [Function],
+                    "innerRef": [Function],
+                    "isActive": [Function],
+                    "location": [Function],
+                    "onClick": [Function],
+                    "replace": [Function],
+                    "strict": [Function],
+                    "style": [Function],
+                    "target": [Function],
+                    "to": [Function],
+                  },
+                  "render": [Function],
+                }
+              }
+              content="Create Job"
+              positive={true}
+              to="/createjob"
+            >
+              <Ref
+                innerRef={
+                  Object {
+                    "current": <a
+                      class="ui positive button"
+                      href="/createjob"
+                      role="button"
+                    >
+                      Create Job
+                    </a>,
+                  }
+                }
+              >
+                <RefForward
+                  innerRef={
+                    Object {
+                      "current": <a
+                        class="ui positive button"
+                        href="/createjob"
+                        role="button"
+                      >
+                        Create Job
+                      </a>,
+                    }
+                  }
+                >
+                  <NavLink
+                    className="ui positive button"
+                    onClick={[Function]}
+                    role="button"
+                    to="/createjob"
+                  >
+                    <Link
+                      aria-current={null}
+                      className="ui positive button"
+                      onClick={[Function]}
+                      role="button"
+                      to={
+                        Object {
+                          "hash": "",
+                          "pathname": "/createjob",
+                          "search": "",
+                          "state": null,
+                        }
+                      }
+                    >
+                      <LinkAnchor
+                        aria-current={null}
+                        className="ui positive button"
+                        href="/createjob"
+                        navigate={[Function]}
+                        onClick={[Function]}
+                        role="button"
+                      >
+                        <a
+                          aria-current={null}
+                          className="ui positive button"
+                          href="/createjob"
+                          onClick={[Function]}
+                          role="button"
+                        >
+                          Create Job
+                        </a>
+                      </LinkAnchor>
+                    </Link>
+                  </NavLink>
+                </RefForward>
+              </Ref>
+            </Button>
+          </div>
+        </MenuItem>
+        <MenuItem
+          position="right"
+        >
+          <div
+            className="right item"
+            onClick={[Function]}
+          >
+            <Image
+              as="img"
+              avatar={true}
+              spaced="right"
+              src="/assets/user.png"
+              ui={true}
+            >
+              <img
+                className="ui avatar right spaced image"
+                src="/assets/user.png"
+              />
+            </Image>
+            <Dropdown
+              additionLabel="Add "
+              additionPosition="top"
+              closeOnBlur={true}
+              closeOnEscape={true}
+              deburr={false}
+              icon="dropdown"
+              minCharacters={1}
+              noResultsMessage="No results found."
+              openOnFocus={true}
+              pointing="top left"
+              renderLabel={[Function]}
+              searchInput="text"
+              selectOnBlur={true}
+              selectOnNavigation={true}
+              text="Fake Username"
+              wrapSelection={true}
+            >
+              <Ref
+                innerRef={
+                  Object {
+                    "current": <div
+                      aria-expanded="false"
+                      class="ui top left pointing dropdown"
+                      role="listbox"
+                      tabindex="0"
+                    >
+                      <div
+                        aria-atomic="true"
+                        aria-live="polite"
+                        class="text"
+                        role="alert"
+                      >
+                        Fake Username
+                      </div>
+                      <i
+                        aria-hidden="true"
+                        class="dropdown icon"
+                      />
+                      <div
+                        class="menu transition"
+                      >
+                        <a
+                          class="item"
+                          href="/profile/Fake Username"
+                          role="option"
+                        >
+                          <i
+                            aria-hidden="true"
+                            class="user icon"
+                          />
+                          <span
+                            class="text"
+                          >
+                            My profile
+                          </span>
+                        </a>
+                        <div
+                          class="item"
+                          role="option"
+                        >
+                          <i
+                            aria-hidden="true"
+                            class="power icon"
+                          />
+                          <span
+                            class="text"
+                          >
+                            Logout
+                          </span>
+                        </div>
+                      </div>
+                    </div>,
+                  }
+                }
+              >
+                <RefFindNode
+                  innerRef={
+                    Object {
+                      "current": <div
+                        aria-expanded="false"
+                        class="ui top left pointing dropdown"
+                        role="listbox"
+                        tabindex="0"
+                      >
+                        <div
+                          aria-atomic="true"
+                          aria-live="polite"
+                          class="text"
+                          role="alert"
+                        >
+                          Fake Username
+                        </div>
+                        <i
+                          aria-hidden="true"
+                          class="dropdown icon"
+                        />
+                        <div
+                          class="menu transition"
+                        >
+                          <a
+                            class="item"
+                            href="/profile/Fake Username"
+                            role="option"
+                          >
+                            <i
+                              aria-hidden="true"
+                              class="user icon"
+                            />
+                            <span
+                              class="text"
+                            >
+                              My profile
+                            </span>
+                          </a>
+                          <div
+                            class="item"
+                            role="option"
+                          >
+                            <i
+                              aria-hidden="true"
+                              class="power icon"
+                            />
+                            <span
+                              class="text"
+                            >
+                              Logout
+                            </span>
+                          </div>
+                        </div>
+                      </div>,
+                    }
+                  }
+                >
+                  <div
+                    aria-expanded={false}
+                    className="ui top left pointing dropdown"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClick={[Function]}
+                    onFocus={[Function]}
+                    onMouseDown={[Function]}
+                    role="listbox"
+                    tabIndex={0}
+                  >
+                    <div
+                      aria-atomic={true}
+                      aria-live="polite"
+                      className="text"
+                      role="alert"
+                    >
+                      Fake Username
+                    </div>
+                    <Icon
+                      as="i"
+                      className=""
+                      name="dropdown"
+                      onClick={[Function]}
+                    >
+                      <i
+                        aria-hidden="true"
+                        className="dropdown icon"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                    <DropdownMenu
+                      className=""
+                    >
+                      <div
+                        className="menu transition"
+                      >
+                        <DropdownItem
+                          as={
+                            Object {
+                              "$$typeof": Symbol(react.forward_ref),
+                              "displayName": "Link",
+                              "propTypes": Object {
+                                "innerRef": [Function],
+                                "onClick": [Function],
+                                "replace": [Function],
+                                "target": [Function],
+                                "to": [Function],
+                              },
+                              "render": [Function],
+                            }
+                          }
+                          icon="user"
+                          text="My profile"
+                          to="/profile/Fake Username"
+                        >
+                          <Link
+                            className="item"
+                            onClick={[Function]}
+                            role="option"
+                            to="/profile/Fake Username"
+                          >
+                            <LinkAnchor
+                              className="item"
+                              href="/profile/Fake Username"
+                              navigate={[Function]}
+                              onClick={[Function]}
+                              role="option"
+                            >
+                              <a
+                                className="item"
+                                href="/profile/Fake Username"
+                                onClick={[Function]}
+                                role="option"
+                              >
+                                <Icon
+                                  as="i"
+                                  name="user"
+                                >
+                                  <i
+                                    aria-hidden="true"
+                                    className="user icon"
+                                    onClick={[Function]}
+                                  />
+                                </Icon>
+                                <span
+                                  className="text"
+                                >
+                                  My profile
+                                </span>
+                              </a>
+                            </LinkAnchor>
+                          </Link>
+                        </DropdownItem>
+                        <DropdownItem
+                          icon="power"
+                          onClick={[Function]}
+                          text="Logout"
+                        >
+                          <div
+                            className="item"
+                            onClick={[Function]}
+                            role="option"
+                          >
+                            <Icon
+                              as="i"
+                              name="power"
+                            >
+                              <i
+                                aria-hidden="true"
+                                className="power icon"
+                                onClick={[Function]}
+                              />
+                            </Icon>
+                            <span
+                              className="text"
+                            >
+                              Logout
+                            </span>
+                          </div>
+                        </DropdownItem>
+                      </div>
+                    </DropdownMenu>
+                  </div>
+                </RefFindNode>
+              </Ref>
+            </Dropdown>
+          </div>
+        </MenuItem>
+      </div>
+    </Container>
+  </div>
+</Menu>
+`;
