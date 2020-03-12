@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Header UniTest should match the snapshot 1`] = `
+<Segment
+  data-test="component-profile-header"
+>
+  <div
+    className="ui segment"
+    data-test="component-profile-header"
+  >
+    <Grid>
+      <div
+        className="ui grid"
+      >
+        <GridColumn
+          width={12}
+        >
+          <div
+            className="twelve wide column"
+          >
+            <ItemGroup>
+              <div
+                className="ui items"
+              >
+                <Item>
+                  <div
+                    className="item"
+                  >
+                    <ItemImage
+                      avatar={true}
+                      size="small"
+                      src="/assets/user.png"
+                    >
+                      <Image
+                        as="img"
+                        avatar={true}
+                        size="small"
+                        src="/assets/user.png"
+                        ui={true}
+                        wrapped={true}
+                      >
+                        <div
+                          className="ui small avatar image"
+                        >
+                          <img
+                            src="/assets/user.png"
+                          />
+                        </div>
+                      </Image>
+                    </ItemImage>
+                    <ItemContent
+                      verticalAlign="middle"
+                    >
+                      <div
+                        className="middle aligned content"
+                      >
+                        <Header
+                          as="h1"
+                        >
+                          <h1
+                            className="ui header"
+                          >
+                            fakeName
+                          </h1>
+                        </Header>
+                      </div>
+                    </ItemContent>
+                  </div>
+                </Item>
+              </div>
+            </ItemGroup>
+          </div>
+        </GridColumn>
+        <GridColumn
+          width={4}
+        >
+          <div
+            className="four wide column"
+          >
+            <Divider>
+              <div
+                className="ui divider"
+              />
+            </Divider>
+          </div>
+        </GridColumn>
+      </div>
+    </Grid>
+  </div>
+</Segment>
+`;

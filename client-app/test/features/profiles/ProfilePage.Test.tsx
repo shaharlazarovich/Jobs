@@ -1,27 +1,22 @@
-import { shallow } from "enzyme";
+import { ReactWrapper } from "enzyme";
 import React from "react";
-import { RouteComponentProps } from 'react-router'
 import { findByTestAttr } from '../../common/testUtils';
 import ProfilePage from "../../../src/features/profiles/ProfilePage";
-
-interface RouteParams {
-    username: string
-}
-
-interface IProps extends RouteComponentProps<RouteParams>{}
-
-const setup = (props:any) => {
-    const wrapper = shallow<IProps>(<ProfilePage {...props} />)
-    return wrapper;
-}
+import { setupWrapper } from "../../common/wrapper";
+import { Route } from "react-router-dom";
+import { match } from '../../common/mocks';
 
 describe('Profile Page UniTest', () => {
-    let wrapper:any;
-    beforeEach(() => {
-        wrapper = setup([]);
+    let wrapper: ReactWrapper;
+    beforeEach(async () => {
+        wrapper = await setupWrapper(<Route component={ProfilePage} />);
     });
     test('renders without error', () => {
         const component = findByTestAttr(wrapper, 'component-profile-page');
         expect(component.length).toBe(1);
+    });
+    test('should match the snapshot', () => {
+        const component = findByTestAttr(wrapper, 'component-profile-page');
+        expect(component).toMatchSnapshot();
     });
 })

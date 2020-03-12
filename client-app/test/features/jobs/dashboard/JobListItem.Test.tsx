@@ -1,34 +1,44 @@
-import { shallow } from "enzyme";
+import { ReactWrapper } from "enzyme";
 import React from "react";
 import { findByTestAttr } from '../../../common/testUtils';
-import { IJob, JobFormValues } from '../../../../src/app/models/job'
+import { IJob } from '../../../../src/app/models/job'
 import JobListItem from "../../../../src/features/jobs/dashboard/JobListItem";
-
-const setup = (job:any) => {
-    const wrapper = shallow<IJob>(<JobListItem job={job} />)
-    return wrapper;
-}
+import { setupWrapper } from '../../../common/wrapper';
+import { act } from 'react-dom/test-utils';
+import flushPromises from 'flush-promises';
+import { toast } from 'react-toastify';
+import { jobMock } from '../../../common/mocks';
 
 describe('Job List Item UniTest', () => {
-    let wrapper:any;
-    let testJob = new JobFormValues();
-    beforeEach(() => {
-        testJob = { 
-            id:"4", 
-            replication:"VMware SRM",
-            jobName:"Job1",
-            company: 'Shomera',  
-            lastRun: new Date('2020-01-06 23:00:05'),  
-            servers: '10',
-            results: 'OK',
-            key: 'AAAA-BBBB-CCCC-DDDD',
-            rtoNeeded: "10",
-            jobIP: "http://localhost:8081/api/"
-        }
-        wrapper = setup({ testJob });
+    let wrapper: ReactWrapper;
+    let testJob: IJob;
+    beforeEach(async () => {
+        testJob = { ...jobMock };
+        wrapper = await setupWrapper(<JobListItem job={testJob} />);
     });
+
     test('renders without error', () => {
         const component = findByTestAttr(wrapper, 'component-job-list-item');
         expect(component.length).toBe(1);
+    });
+
+    test('should match the snapshot', () => {
+        const component = findByTestAttr(wrapper, 'component-job-list-item');
+        expect(component).toMatchSnapshot();
+    });
+
+    test('run button', async () => {
+        const component = findByTestAttr(wrapper, 'component-job-list-item');
+        const button = component.find('[data-test="run-button"]').at(0);
+        const errorSpy = jest.spyOn(toast, 'error');
+        const infoSpy = jest.spyOn(toast, 'info');
+
+        act(() => {
+            button.simulate('click');
+        });
+        await flushPromises();
+
+        expect(infoSpy).toHaveBeenCalledWith('run job request sent');
+        expect(errorSpy).not.toHaveBeenCalled();
     });
 })

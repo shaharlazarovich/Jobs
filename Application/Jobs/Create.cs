@@ -22,7 +22,8 @@ namespace Application.Jobs
             public string Results { get; set; }
             public string Key { get; set; }
             public string RTONeeded { get; set; }
-        
+            public string JobIP { get; set; }
+            
         }
 
         public class CommandValidator : AbstractValidator<Command>
@@ -39,6 +40,7 @@ namespace Application.Jobs
                 RuleFor(x => x.Results).NotEmpty();
                 RuleFor(x => x.Key).NotEmpty();
                 RuleFor(x => x.JobName).NotEmpty();
+                RuleFor(x => x.JobIP).NotEmpty();
 
             }
         }
@@ -67,6 +69,7 @@ namespace Application.Jobs
                     Results = request.Results,
                     Key = request.Key,
                     RTONeeded = request.RTONeeded,
+                    JobIP = request.JobIP,
                 };
                 
                 _context.Jobs.Add(job);

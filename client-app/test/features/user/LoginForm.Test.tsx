@@ -1,20 +1,20 @@
 import { ReactWrapper } from "enzyme";
 import React from "react";
 import { findByTestAttr } from '../../common/testUtils';
-import ProfileContent from "../../../src/features/profiles/ProfileContent";
+import LoginForm from "../../../src/features/user/LoginForm";
 import { setupWrapper } from "../../common/wrapper";
 
-describe('Profile Content UniTest', () => {
+describe('Login Form UniTest', () => {
     let wrapper: ReactWrapper;
     beforeEach(async () => {
-        wrapper = await setupWrapper(<ProfileContent setActiveTab={()=>true} />);
+        wrapper = await setupWrapper(<LoginForm  />);
     });
     test('renders without error', () => {
-        const component = findByTestAttr(wrapper, 'component-profile-content');
+        const component = findByTestAttr(wrapper, 'component-login-form');
         expect(component.length).toBe(1);
     });
     test('should match the snapshot', () => {
-        const component = findByTestAttr(wrapper, 'component-profile-content');
+        const component = findByTestAttr(wrapper, 'component-login-form');
         expect(component).toMatchSnapshot();
     });
 })

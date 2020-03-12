@@ -1,0 +1,1582 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Job Dashboard UniTest should match the snapshot 1`] = `
+<Grid
+  data-test="component-job-dashboard"
+>
+  <div
+    className="ui grid"
+    data-test="component-job-dashboard"
+  >
+    <GridColumn
+      width={10}
+    >
+      <div
+        className="ten wide column"
+      >
+        <JobListItemPlaceholder>
+          <Placeholder
+            fluid={true}
+            style={
+              Object {
+                "marginTop": 50,
+              }
+            }
+          >
+            <div
+              className="ui fluid placeholder"
+              style={
+                Object {
+                  "marginTop": 50,
+                }
+              }
+            >
+              <SegmentGroup>
+                <div
+                  className="ui segments"
+                >
+                  <Segment
+                    style={
+                      Object {
+                        "minHeight": 110,
+                      }
+                    }
+                  >
+                    <div
+                      className="ui segment"
+                      style={
+                        Object {
+                          "minHeight": 110,
+                        }
+                      }
+                    >
+                      <Placeholder>
+                        <div
+                          className="ui placeholder"
+                        >
+                          <PlaceholderHeader
+                            image={true}
+                          >
+                            <div
+                              className="image header"
+                            >
+                              <PlaceholderLine>
+                                <div
+                                  className="line"
+                                />
+                              </PlaceholderLine>
+                              <PlaceholderLine>
+                                <div
+                                  className="line"
+                                />
+                              </PlaceholderLine>
+                            </div>
+                          </PlaceholderHeader>
+                          <PlaceholderParagraph>
+                            <div
+                              className="paragraph"
+                            >
+                              <PlaceholderLine>
+                                <div
+                                  className="line"
+                                />
+                              </PlaceholderLine>
+                            </div>
+                          </PlaceholderParagraph>
+                        </div>
+                      </Placeholder>
+                    </div>
+                  </Segment>
+                  <Segment>
+                    <div
+                      className="ui segment"
+                    >
+                      <Placeholder>
+                        <div
+                          className="ui placeholder"
+                        >
+                          <PlaceholderLine>
+                            <div
+                              className="line"
+                            />
+                          </PlaceholderLine>
+                          <PlaceholderLine>
+                            <div
+                              className="line"
+                            />
+                          </PlaceholderLine>
+                        </div>
+                      </Placeholder>
+                    </div>
+                  </Segment>
+                  <Segment
+                    secondary={true}
+                    style={
+                      Object {
+                        "minHeight": 70,
+                      }
+                    }
+                  >
+                    <div
+                      className="ui secondary segment"
+                      style={
+                        Object {
+                          "minHeight": 70,
+                        }
+                      }
+                    />
+                  </Segment>
+                  <Segment
+                    clearing={true}
+                  >
+                    <div
+                      className="ui clearing segment"
+                    >
+                      <Button
+                        as="button"
+                        color="blue"
+                        content="View"
+                        disabled={true}
+                        floated="right"
+                      >
+                        <Ref
+                          innerRef={
+                            Object {
+                              "current": <button
+                                class="ui blue disabled right floated button"
+                                disabled=""
+                                tabindex="-1"
+                              >
+                                View
+                              </button>,
+                            }
+                          }
+                        >
+                          <RefFindNode
+                            innerRef={
+                              Object {
+                                "current": <button
+                                  class="ui blue disabled right floated button"
+                                  disabled=""
+                                  tabindex="-1"
+                                >
+                                  View
+                                </button>,
+                              }
+                            }
+                          >
+                            <button
+                              className="ui blue disabled right floated button"
+                              disabled={true}
+                              onClick={[Function]}
+                              tabIndex={-1}
+                            >
+                              View
+                            </button>
+                          </RefFindNode>
+                        </Ref>
+                      </Button>
+                    </div>
+                  </Segment>
+                </div>
+              </SegmentGroup>
+            </div>
+          </Placeholder>
+        </JobListItemPlaceholder>
+      </div>
+    </GridColumn>
+    <GridColumn
+      width={6}
+    >
+      <div
+        className="six wide column"
+      >
+        <JobFilters>
+          <Menu
+            size="large"
+            style={
+              Object {
+                "marginTop": 50,
+                "width": "100%",
+              }
+            }
+            vertical={true}
+          >
+            <div
+              className="ui large vertical menu"
+              style={
+                Object {
+                  "marginTop": 50,
+                  "width": "100%",
+                }
+              }
+            >
+              <Header
+                attached={true}
+                color="teal"
+                content="Filters"
+                icon="filter"
+              >
+                <div
+                  className="ui teal attached header"
+                >
+                  <Icon
+                    as="i"
+                    name="filter"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="filter icon"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                  <HeaderContent>
+                    <div
+                      className="content"
+                    >
+                      Filters
+                    </div>
+                  </HeaderContent>
+                </div>
+              </Header>
+              <MenuItem
+                active={true}
+                color="blue"
+                content="All Jobs"
+                name="all"
+                onClick={[Function]}
+              >
+                <a
+                  className="blue active item"
+                  onClick={[Function]}
+                >
+                  All Jobs
+                </a>
+              </MenuItem>
+            </div>
+          </Menu>
+          <Header
+            attached={true}
+            color="teal"
+            content="Show jobs after selected date"
+            icon="calendar"
+          >
+            <div
+              className="ui teal attached header"
+            >
+              <Icon
+                as="i"
+                name="calendar"
+              >
+                <i
+                  aria-hidden="true"
+                  className="calendar icon"
+                  onClick={[Function]}
+                />
+              </Icon>
+              <HeaderContent>
+                <div
+                  className="content"
+                >
+                  Show jobs after selected date
+                </div>
+              </HeaderContent>
+            </div>
+          </Header>
+          <Uncontrolled(Calendar)
+            onChange={[Function]}
+          >
+            <Calendar
+              footer={true}
+              max={2099-12-30T22:00:00.000Z}
+              min={1899-12-31T21:39:20.000Z}
+              onChange={[Function]}
+              onCurrentDateChange={[Function]}
+              onViewChange={[Function]}
+              tabIndex="0"
+              value={null}
+              views={
+                Array [
+                  "month",
+                  "year",
+                  "decade",
+                  "century",
+                ]
+              }
+            >
+              <Widget
+                aria-activedescendant="rw_2_calendar_active_cell"
+                className="rw-calendar rw-widget-container"
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="group"
+                tabIndex="0"
+              >
+                <div
+                  aria-activedescendant="rw_2_calendar_active_cell"
+                  className="rw-calendar rw-widget-container rw-widget"
+                  onBlur={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="group"
+                  tabIndex="0"
+                >
+                  <Header
+                    isRtl={false}
+                    label="March 2020"
+                    labelId="rw_2_calendar_label"
+                    messages={
+                      Object {
+                        "createOption": [Function],
+                        "dateButton": [Function],
+                        "decrement": [Function],
+                        "emptyFilter": [Function],
+                        "emptyList": [Function],
+                        "filterPlaceholder": [Function],
+                        "increment": [Function],
+                        "moveBack": [Function],
+                        "moveForward": [Function],
+                        "noneSelected": [Function],
+                        "openCombobox": [Function],
+                        "openDropdown": [Function],
+                        "placeholder": [Function],
+                        "removeLabel": [Function],
+                        "selectedItems": [Function],
+                        "tagsLabel": [Function],
+                        "timeButton": [Function],
+                      }
+                    }
+                    nextDisabled={false}
+                    onMoveLeft={[Function]}
+                    onMoveRight={[Function]}
+                    onViewChange={[Function]}
+                    prevDisabled={false}
+                    upDisabled={false}
+                  >
+                    <div
+                      className="rw-calendar-header"
+                    >
+                      <Button
+                        className="rw-calendar-btn-left"
+                        disabled={false}
+                        icon={
+                          <Icon
+                            icon="chevron-left"
+                          />
+                        }
+                        label="Navigate back"
+                        onClick={[Function]}
+                      >
+                        <button
+                          aria-disabled={false}
+                          aria-label="Navigate back"
+                          className="rw-calendar-btn-left rw-btn rw-btn-primary"
+                          disabled={false}
+                          onClick={[Function]}
+                          tabIndex="-1"
+                          title="Navigate back"
+                          type="button"
+                        >
+                          <Icon
+                            icon="chevron-left"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="rw-i rw-i-chevron-left"
+                            />
+                          </Icon>
+                        </button>
+                      </Button>
+                      <Button
+                        aria-atomic="true"
+                        aria-live="polite"
+                        className="rw-calendar-btn-view"
+                        disabled={false}
+                        id="rw_2_calendar_label"
+                        onClick={[Function]}
+                      >
+                        <button
+                          aria-atomic="true"
+                          aria-disabled={false}
+                          aria-live="polite"
+                          className="rw-calendar-btn-view rw-btn rw-btn-primary"
+                          disabled={false}
+                          id="rw_2_calendar_label"
+                          onClick={[Function]}
+                          tabIndex="-1"
+                          type="button"
+                        >
+                          March 2020
+                        </button>
+                      </Button>
+                      <Button
+                        className="rw-calendar-btn-right"
+                        disabled={false}
+                        icon={
+                          <Icon
+                            icon="chevron-right"
+                          />
+                        }
+                        label="Navigate forward"
+                        onClick={[Function]}
+                      >
+                        <button
+                          aria-disabled={false}
+                          aria-label="Navigate forward"
+                          className="rw-calendar-btn-right rw-btn rw-btn-primary"
+                          disabled={false}
+                          onClick={[Function]}
+                          tabIndex="-1"
+                          title="Navigate forward"
+                          type="button"
+                        >
+                          <Icon
+                            icon="chevron-right"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="rw-i rw-i-chevron-right"
+                            />
+                          </Icon>
+                        </button>
+                      </Button>
+                    </div>
+                  </Header>
+                  <SlideTransitionGroup
+                    direction="left"
+                  >
+                    <TransitionGroup
+                      childFactory={[Function]}
+                      className="rw-calendar-transition-group"
+                      component="div"
+                    >
+                      <div
+                        className="rw-calendar-transition-group"
+                      >
+                        <SlideTransition
+                          direction="left"
+                          in={true}
+                          key=".$month_2"
+                          onEnter={[Function]}
+                          onExited={[Function]}
+                        >
+                          <Transition
+                            addEndListener={[Function]}
+                            appear={false}
+                            direction="left"
+                            enter={true}
+                            exit={true}
+                            in={true}
+                            mountOnEnter={false}
+                            onEnter={[Function]}
+                            onEntered={[Function]}
+                            onEntering={[Function]}
+                            onExit={[Function]}
+                            onExited={[Function]}
+                            onExiting={[Function]}
+                            timeout={5000}
+                            unmountOnExit={false}
+                          >
+                            <MonthView
+                              activeId="rw_2_calendar_active_cell"
+                              aria-labelledby="rw_2_calendar_label"
+                              className="rw-calendar-transition rw-calendar-transition-left rw-calendar-transition-entered"
+                              direction="left"
+                              focused={2020-03-07T14:55:28.914Z}
+                              id="rw_2_calendar"
+                              key="month_2"
+                              max={2099-12-30T22:00:00.000Z}
+                              min={1899-12-31T21:39:20.000Z}
+                              onChange={[Function]}
+                              onKeyDown={[Function]}
+                              today={2020-03-07T14:55:28.914Z}
+                              value={null}
+                            >
+                              <CalendarView
+                                activeId="rw_2_calendar_active_cell"
+                                aria-labelledby="rw_2_calendar_label"
+                                className="rw-calendar-transition rw-calendar-transition-left rw-calendar-transition-entered rw-calendar-month"
+                                direction="left"
+                                id="rw_2_calendar"
+                                onKeyDown={[Function]}
+                              >
+                                <table
+                                  aria-activedescendant="rw_2_calendar_active_cell"
+                                  aria-labelledby="rw_2_calendar_label"
+                                  className="rw-calendar-transition rw-calendar-transition-left rw-calendar-transition-entered rw-calendar-month rw-nav-view rw-calendar-grid"
+                                  direction="left"
+                                  id="rw_2_calendar"
+                                  onKeyDown={[Function]}
+                                  role="grid"
+                                  tabIndex="-1"
+                                >
+                                  <thead
+                                    className="rw-calendar-head"
+                                  >
+                                    <tr
+                                      className="rw-calendar-row"
+                                    >
+                                      <th
+                                        className="rw-head-cell"
+                                        key="header_0"
+                                      >
+                                        Su
+                                      </th>
+                                      <th
+                                        className="rw-head-cell"
+                                        key="header_1"
+                                      >
+                                        Mo
+                                      </th>
+                                      <th
+                                        className="rw-head-cell"
+                                        key="header_2"
+                                      >
+                                        Tu
+                                      </th>
+                                      <th
+                                        className="rw-head-cell"
+                                        key="header_3"
+                                      >
+                                        We
+                                      </th>
+                                      <th
+                                        className="rw-head-cell"
+                                        key="header_4"
+                                      >
+                                        Th
+                                      </th>
+                                      <th
+                                        className="rw-head-cell"
+                                        key="header_5"
+                                      >
+                                        Fr
+                                      </th>
+                                      <th
+                                        className="rw-head-cell"
+                                        key="header_6"
+                                      >
+                                        Sa
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <Component>
+                                    <tbody
+                                      className="rw-calendar-body"
+                                    >
+                                      <Component
+                                        key="0"
+                                      >
+                                        <tr
+                                          className="rw-calendar-row"
+                                          role="row"
+                                        >
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-02-29T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="0"
+                                            label="Sunday, March 1st, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Sunday, March 1st, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Sunday, March 1st, 2020"
+                                            >
+                                              01
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-01T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="1"
+                                            label="Monday, March 2nd, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Monday, March 2nd, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Monday, March 2nd, 2020"
+                                            >
+                                              02
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-02T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="2"
+                                            label="Tuesday, March 3rd, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Tuesday, March 3rd, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Tuesday, March 3rd, 2020"
+                                            >
+                                              03
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-03T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="3"
+                                            label="Wednesday, March 4th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Wednesday, March 4th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Wednesday, March 4th, 2020"
+                                            >
+                                              04
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-04T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="4"
+                                            label="Thursday, March 5th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Thursday, March 5th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Thursday, March 5th, 2020"
+                                            >
+                                              05
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-05T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="5"
+                                            label="Friday, March 6th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Friday, March 6th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Friday, March 6th, 2020"
+                                            >
+                                              06
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-06T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="6"
+                                            label="Saturday, March 7th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Saturday, March 7th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell rw-now rw-state-focus"
+                                              id="rw_2_calendar_active_cell"
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Saturday, March 7th, 2020"
+                                            >
+                                              07
+                                            </td>
+                                          </CalendarViewCell>
+                                        </tr>
+                                      </Component>
+                                      <Component
+                                        key="1"
+                                      >
+                                        <tr
+                                          className="rw-calendar-row"
+                                          role="row"
+                                        >
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-07T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="0"
+                                            label="Sunday, March 8th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Sunday, March 8th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Sunday, March 8th, 2020"
+                                            >
+                                              08
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-08T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="1"
+                                            label="Monday, March 9th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Monday, March 9th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Monday, March 9th, 2020"
+                                            >
+                                              09
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-09T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="2"
+                                            label="Tuesday, March 10th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Tuesday, March 10th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Tuesday, March 10th, 2020"
+                                            >
+                                              10
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-10T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="3"
+                                            label="Wednesday, March 11th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Wednesday, March 11th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Wednesday, March 11th, 2020"
+                                            >
+                                              11
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-11T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="4"
+                                            label="Thursday, March 12th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Thursday, March 12th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Thursday, March 12th, 2020"
+                                            >
+                                              12
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-12T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="5"
+                                            label="Friday, March 13th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Friday, March 13th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Friday, March 13th, 2020"
+                                            >
+                                              13
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-13T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="6"
+                                            label="Saturday, March 14th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Saturday, March 14th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Saturday, March 14th, 2020"
+                                            >
+                                              14
+                                            </td>
+                                          </CalendarViewCell>
+                                        </tr>
+                                      </Component>
+                                      <Component
+                                        key="2"
+                                      >
+                                        <tr
+                                          className="rw-calendar-row"
+                                          role="row"
+                                        >
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-14T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="0"
+                                            label="Sunday, March 15th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Sunday, March 15th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Sunday, March 15th, 2020"
+                                            >
+                                              15
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-15T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="1"
+                                            label="Monday, March 16th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Monday, March 16th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Monday, March 16th, 2020"
+                                            >
+                                              16
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-16T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="2"
+                                            label="Tuesday, March 17th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Tuesday, March 17th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Tuesday, March 17th, 2020"
+                                            >
+                                              17
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-17T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="3"
+                                            label="Wednesday, March 18th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Wednesday, March 18th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Wednesday, March 18th, 2020"
+                                            >
+                                              18
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-18T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="4"
+                                            label="Thursday, March 19th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Thursday, March 19th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Thursday, March 19th, 2020"
+                                            >
+                                              19
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-19T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="5"
+                                            label="Friday, March 20th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Friday, March 20th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Friday, March 20th, 2020"
+                                            >
+                                              20
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-20T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="6"
+                                            label="Saturday, March 21st, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Saturday, March 21st, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Saturday, March 21st, 2020"
+                                            >
+                                              21
+                                            </td>
+                                          </CalendarViewCell>
+                                        </tr>
+                                      </Component>
+                                      <Component
+                                        key="3"
+                                      >
+                                        <tr
+                                          className="rw-calendar-row"
+                                          role="row"
+                                        >
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-21T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="0"
+                                            label="Sunday, March 22nd, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Sunday, March 22nd, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Sunday, March 22nd, 2020"
+                                            >
+                                              22
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-22T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="1"
+                                            label="Monday, March 23rd, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Monday, March 23rd, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Monday, March 23rd, 2020"
+                                            >
+                                              23
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-23T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="2"
+                                            label="Tuesday, March 24th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Tuesday, March 24th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Tuesday, March 24th, 2020"
+                                            >
+                                              24
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-24T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="3"
+                                            label="Wednesday, March 25th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Wednesday, March 25th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Wednesday, March 25th, 2020"
+                                            >
+                                              25
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-25T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="4"
+                                            label="Thursday, March 26th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Thursday, March 26th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Thursday, March 26th, 2020"
+                                            >
+                                              26
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-26T22:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="5"
+                                            label="Friday, March 27th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Friday, March 27th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Friday, March 27th, 2020"
+                                            >
+                                              27
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-27T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="6"
+                                            label="Saturday, March 28th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Saturday, March 28th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Saturday, March 28th, 2020"
+                                            >
+                                              28
+                                            </td>
+                                          </CalendarViewCell>
+                                        </tr>
+                                      </Component>
+                                      <Component
+                                        key="4"
+                                      >
+                                        <tr
+                                          className="rw-calendar-row"
+                                          role="row"
+                                        >
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-28T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="0"
+                                            label="Sunday, March 29th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Sunday, March 29th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Sunday, March 29th, 2020"
+                                            >
+                                              29
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-29T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="1"
+                                            label="Monday, March 30th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Monday, March 30th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Monday, March 30th, 2020"
+                                            >
+                                              30
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-30T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="2"
+                                            label="Tuesday, March 31st, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Tuesday, March 31st, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Tuesday, March 31st, 2020"
+                                            >
+                                              31
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-03-31T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="3"
+                                            label="Wednesday, April 1st, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Wednesday, April 1st, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell rw-cell-off-range"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Wednesday, April 1st, 2020"
+                                            >
+                                              01
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-04-01T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="4"
+                                            label="Thursday, April 2nd, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Thursday, April 2nd, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell rw-cell-off-range"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Thursday, April 2nd, 2020"
+                                            >
+                                              02
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-04-02T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="5"
+                                            label="Friday, April 3rd, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Friday, April 3rd, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell rw-cell-off-range"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Friday, April 3rd, 2020"
+                                            >
+                                              03
+                                            </td>
+                                          </CalendarViewCell>
+                                          <CalendarViewCell
+                                            activeId="rw_2_calendar_active_cell"
+                                            date={2020-04-03T21:00:00.000Z}
+                                            focused={2020-03-07T14:55:28.914Z}
+                                            key="6"
+                                            label="Saturday, April 4th, 2020"
+                                            max={2099-12-30T22:00:00.000Z}
+                                            min={1899-12-31T21:39:20.000Z}
+                                            now={2020-03-07T14:55:28.914Z}
+                                            onChange={[Function]}
+                                            selected={null}
+                                            unit="day"
+                                            viewUnit="month"
+                                          >
+                                            <td
+                                              aria-label="Saturday, April 4th, 2020"
+                                              aria-selected={null}
+                                              className="rw-cell rw-cell-off-range"
+                                              id={null}
+                                              onClick={[Function]}
+                                              role="gridcell"
+                                              title="Saturday, April 4th, 2020"
+                                            >
+                                              04
+                                            </td>
+                                          </CalendarViewCell>
+                                        </tr>
+                                      </Component>
+                                    </tbody>
+                                  </Component>
+                                </table>
+                              </CalendarView>
+                            </MonthView>
+                          </Transition>
+                        </SlideTransition>
+                      </div>
+                    </TransitionGroup>
+                  </SlideTransitionGroup>
+                  <Footer
+                    disabled={false}
+                    onClick={[Function]}
+                    value={2020-03-07T14:55:28.914Z}
+                  >
+                    <div
+                      className="rw-calendar-footer"
+                    >
+                      <Button
+                        disabled={false}
+                        onClick={[Function]}
+                      >
+                        <button
+                          aria-disabled={false}
+                          className="rw-btn rw-btn-primary"
+                          disabled={false}
+                          onClick={[Function]}
+                          tabIndex="-1"
+                          type="button"
+                        >
+                          Saturday, March 7th, 2020
+                        </button>
+                      </Button>
+                    </div>
+                  </Footer>
+                </div>
+              </Widget>
+            </Calendar>
+          </Uncontrolled(Calendar)>
+        </JobFilters>
+      </div>
+    </GridColumn>
+    <GridColumn
+      width={10}
+    >
+      <div
+        className="ten wide column"
+      >
+        <Loader
+          active={false}
+        >
+          <div
+            className="ui loader"
+          />
+        </Loader>
+      </div>
+    </GridColumn>
+  </div>
+</Grid>
+`;

@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Card UniTest should match the snapshot 1`] = `
+<Card
+  as={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "displayName": "Link",
+      "propTypes": Object {
+        "innerRef": [Function],
+        "onClick": [Function],
+        "replace": [Function],
+        "target": [Function],
+        "to": [Function],
+      },
+      "render": [Function],
+    }
+  }
+  data-test="component-profile-card"
+  to="/profile/fakeUserName"
+>
+  <Link
+    className="ui card"
+    data-test="component-profile-card"
+    onClick={[Function]}
+    to="/profile/fakeUserName"
+  >
+    <LinkAnchor
+      className="ui card"
+      data-test="component-profile-card"
+      href="/profile/fakeUserName"
+      navigate={[Function]}
+      onClick={[Function]}
+    >
+      <a
+        className="ui card"
+        data-test="component-profile-card"
+        href="/profile/fakeUserName"
+        onClick={[Function]}
+      >
+        <Image
+          as="img"
+          src="/assets/user.png"
+          ui={true}
+        >
+          <img
+            className="ui image"
+            src="/assets/user.png"
+          />
+        </Image>
+        <CardContent>
+          <div
+            className="content"
+          >
+            <CardHeader>
+              <div
+                className="header"
+              >
+                fakeName
+              </div>
+            </CardHeader>
+          </div>
+        </CardContent>
+        <CardContent
+          extra={true}
+        >
+          <div
+            className="extra content"
+          >
+            <div>
+              <Icon
+                as="i"
+                name="user"
+              >
+                <i
+                  aria-hidden="true"
+                  className="user icon"
+                  onClick={[Function]}
+                />
+              </Icon>
+              1
+               Followers
+            </div>
+          </div>
+        </CardContent>
+      </a>
+    </LinkAnchor>
+  </Link>
+</Card>
+`;

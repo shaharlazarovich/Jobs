@@ -1,0 +1,1478 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Job Form UniTest should match the snapshot 1`] = `
+<Grid
+  data-test="component-job-form"
+>
+  <div
+    className="ui grid"
+    data-test="component-job-form"
+  >
+    <GridColumn
+      width={10}
+    >
+      <div
+        className="ten wide column"
+      >
+        <Segment
+          clearing={true}
+        >
+          <div
+            className="ui clearing segment"
+          >
+            <ReactFinalForm
+              initialValues={
+                JobFormValues {
+                  "company": "",
+                  "date": undefined,
+                  "id": undefined,
+                  "jobIP": "",
+                  "jobName": "",
+                  "key": "",
+                  "lastRun": undefined,
+                  "replication": "",
+                  "results": "",
+                  "rta": "",
+                  "rtoNeeded": "",
+                  "servers": "",
+                  "time": undefined,
+                }
+              }
+              onSubmit={[Function]}
+              render={[Function]}
+              validate={[Function]}
+            >
+              <Form
+                as="form"
+                loading={false}
+                onSubmit={[Function]}
+              >
+                <form
+                  className="ui form"
+                  onSubmit={[Function]}
+                >
+                  <Field
+                    component={[Function]}
+                    name="jobName"
+                    placeholder="Job Name"
+                    value=""
+                  >
+                    <TextInput
+                      input={
+                        Object {
+                          "name": "jobName",
+                          "onBlur": [Function],
+                          "onChange": [Function],
+                          "onFocus": [Function],
+                          "type": undefined,
+                          "value": "",
+                        }
+                      }
+                      meta={
+                        Object {
+                          "active": false,
+                          "data": Object {},
+                          "dirty": false,
+                          "dirtySinceLastSubmit": false,
+                          "error": "the job name is required",
+                          "initial": "",
+                          "invalid": true,
+                          "length": undefined,
+                          "modified": false,
+                          "pristine": true,
+                          "submitError": undefined,
+                          "submitFailed": false,
+                          "submitSucceeded": false,
+                          "submitting": false,
+                          "touched": false,
+                          "valid": false,
+                          "validating": false,
+                          "visited": false,
+                        }
+                      }
+                      placeholder="Job Name"
+                    >
+                      <FormField
+                        error={false}
+                      >
+                        <div
+                          className="field"
+                        >
+                          <input
+                            name="jobName"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="Job Name"
+                            value=""
+                          />
+                        </div>
+                      </FormField>
+                    </TextInput>
+                  </Field>
+                  <Field
+                    component={[Function]}
+                    name="company"
+                    placeholder="Company"
+                    rows={3}
+                    value=""
+                  >
+                    <TextAreaInput
+                      input={
+                        Object {
+                          "name": "company",
+                          "onBlur": [Function],
+                          "onChange": [Function],
+                          "onFocus": [Function],
+                          "type": undefined,
+                          "value": "",
+                        }
+                      }
+                      meta={
+                        Object {
+                          "active": false,
+                          "data": Object {},
+                          "dirty": false,
+                          "dirtySinceLastSubmit": false,
+                          "error": "Company is required",
+                          "initial": "",
+                          "invalid": true,
+                          "length": undefined,
+                          "modified": false,
+                          "pristine": true,
+                          "submitError": undefined,
+                          "submitFailed": false,
+                          "submitSucceeded": false,
+                          "submitting": false,
+                          "touched": false,
+                          "valid": false,
+                          "validating": false,
+                          "visited": false,
+                        }
+                      }
+                      placeholder="Company"
+                      rows={3}
+                    >
+                      <FormField
+                        error={false}
+                      >
+                        <div
+                          className="field"
+                        >
+                          <textarea
+                            name="company"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="Company"
+                            rows={3}
+                            value=""
+                          />
+                        </div>
+                      </FormField>
+                    </TextAreaInput>
+                  </Field>
+                  <Field
+                    component={[Function]}
+                    name="replication"
+                    options={
+                      Array [
+                        Object {
+                          "key": "zerto",
+                          "text": "Zerto",
+                          "value": "zerto",
+                        },
+                        Object {
+                          "key": "vmware srm",
+                          "text": "Vmware srm",
+                          "value": "vmware srm",
+                        },
+                        Object {
+                          "key": "netapp",
+                          "text": "Netapp",
+                          "value": "netapp",
+                        },
+                        Object {
+                          "key": "doubletake",
+                          "text": "Doubletake",
+                          "value": "doubletake",
+                        },
+                        Object {
+                          "key": "recoverpoint",
+                          "text": "Recoverpoint",
+                          "value": "recoverpoint",
+                        },
+                        Object {
+                          "key": "generic",
+                          "text": "Generic",
+                          "value": "generic",
+                        },
+                      ]
+                    }
+                    placeholder="Replication"
+                    value=""
+                  >
+                    <SelectInput
+                      input={
+                        Object {
+                          "name": "replication",
+                          "onBlur": [Function],
+                          "onChange": [Function],
+                          "onFocus": [Function],
+                          "type": undefined,
+                          "value": "",
+                        }
+                      }
+                      meta={
+                        Object {
+                          "active": false,
+                          "data": Object {},
+                          "dirty": false,
+                          "dirtySinceLastSubmit": false,
+                          "error": "Replication is required",
+                          "initial": "",
+                          "invalid": true,
+                          "length": undefined,
+                          "modified": false,
+                          "pristine": true,
+                          "submitError": undefined,
+                          "submitFailed": false,
+                          "submitSucceeded": false,
+                          "submitting": false,
+                          "touched": false,
+                          "valid": false,
+                          "validating": false,
+                          "visited": false,
+                        }
+                      }
+                      options={
+                        Array [
+                          Object {
+                            "key": "zerto",
+                            "text": "Zerto",
+                            "value": "zerto",
+                          },
+                          Object {
+                            "key": "vmware srm",
+                            "text": "Vmware srm",
+                            "value": "vmware srm",
+                          },
+                          Object {
+                            "key": "netapp",
+                            "text": "Netapp",
+                            "value": "netapp",
+                          },
+                          Object {
+                            "key": "doubletake",
+                            "text": "Doubletake",
+                            "value": "doubletake",
+                          },
+                          Object {
+                            "key": "recoverpoint",
+                            "text": "Recoverpoint",
+                            "value": "recoverpoint",
+                          },
+                          Object {
+                            "key": "generic",
+                            "text": "Generic",
+                            "value": "generic",
+                          },
+                        ]
+                      }
+                      placeholder="Replication"
+                    >
+                      <FormField
+                        error={false}
+                      >
+                        <div
+                          className="field"
+                        >
+                          <Select
+                            onChange={[Function]}
+                            options={
+                              Array [
+                                Object {
+                                  "key": "zerto",
+                                  "text": "Zerto",
+                                  "value": "zerto",
+                                },
+                                Object {
+                                  "key": "vmware srm",
+                                  "text": "Vmware srm",
+                                  "value": "vmware srm",
+                                },
+                                Object {
+                                  "key": "netapp",
+                                  "text": "Netapp",
+                                  "value": "netapp",
+                                },
+                                Object {
+                                  "key": "doubletake",
+                                  "text": "Doubletake",
+                                  "value": "doubletake",
+                                },
+                                Object {
+                                  "key": "recoverpoint",
+                                  "text": "Recoverpoint",
+                                  "value": "recoverpoint",
+                                },
+                                Object {
+                                  "key": "generic",
+                                  "text": "Generic",
+                                  "value": "generic",
+                                },
+                              ]
+                            }
+                            placeholder="Replication"
+                            value=""
+                          >
+                            <Dropdown
+                              additionLabel="Add "
+                              additionPosition="top"
+                              closeOnBlur={true}
+                              closeOnEscape={true}
+                              deburr={false}
+                              icon="dropdown"
+                              minCharacters={1}
+                              noResultsMessage="No results found."
+                              onChange={[Function]}
+                              openOnFocus={true}
+                              options={
+                                Array [
+                                  Object {
+                                    "key": "zerto",
+                                    "text": "Zerto",
+                                    "value": "zerto",
+                                  },
+                                  Object {
+                                    "key": "vmware srm",
+                                    "text": "Vmware srm",
+                                    "value": "vmware srm",
+                                  },
+                                  Object {
+                                    "key": "netapp",
+                                    "text": "Netapp",
+                                    "value": "netapp",
+                                  },
+                                  Object {
+                                    "key": "doubletake",
+                                    "text": "Doubletake",
+                                    "value": "doubletake",
+                                  },
+                                  Object {
+                                    "key": "recoverpoint",
+                                    "text": "Recoverpoint",
+                                    "value": "recoverpoint",
+                                  },
+                                  Object {
+                                    "key": "generic",
+                                    "text": "Generic",
+                                    "value": "generic",
+                                  },
+                                ]
+                              }
+                              placeholder="Replication"
+                              renderLabel={[Function]}
+                              searchInput="text"
+                              selectOnBlur={true}
+                              selectOnNavigation={true}
+                              selection={true}
+                              value=""
+                              wrapSelection={true}
+                            >
+                              <Ref
+                                innerRef={
+                                  Object {
+                                    "current": <div
+                                      aria-expanded="false"
+                                      class="ui selection dropdown"
+                                      role="listbox"
+                                      tabindex="0"
+                                    >
+                                      <div
+                                        aria-atomic="true"
+                                        aria-live="polite"
+                                        class="default text"
+                                        role="alert"
+                                      >
+                                        Replication
+                                      </div>
+                                      <i
+                                        aria-hidden="true"
+                                        class="dropdown icon"
+                                      />
+                                      <div
+                                        class="menu transition"
+                                      >
+                                        <div
+                                          aria-checked="false"
+                                          aria-selected="true"
+                                          class="selected item"
+                                          role="option"
+                                          style="pointer-events: all;"
+                                        >
+                                          <span
+                                            class="text"
+                                          >
+                                            Zerto
+                                          </span>
+                                        </div>
+                                        <div
+                                          aria-checked="false"
+                                          aria-selected="false"
+                                          class="item"
+                                          role="option"
+                                          style="pointer-events: all;"
+                                        >
+                                          <span
+                                            class="text"
+                                          >
+                                            Vmware srm
+                                          </span>
+                                        </div>
+                                        <div
+                                          aria-checked="false"
+                                          aria-selected="false"
+                                          class="item"
+                                          role="option"
+                                          style="pointer-events: all;"
+                                        >
+                                          <span
+                                            class="text"
+                                          >
+                                            Netapp
+                                          </span>
+                                        </div>
+                                        <div
+                                          aria-checked="false"
+                                          aria-selected="false"
+                                          class="item"
+                                          role="option"
+                                          style="pointer-events: all;"
+                                        >
+                                          <span
+                                            class="text"
+                                          >
+                                            Doubletake
+                                          </span>
+                                        </div>
+                                        <div
+                                          aria-checked="false"
+                                          aria-selected="false"
+                                          class="item"
+                                          role="option"
+                                          style="pointer-events: all;"
+                                        >
+                                          <span
+                                            class="text"
+                                          >
+                                            Recoverpoint
+                                          </span>
+                                        </div>
+                                        <div
+                                          aria-checked="false"
+                                          aria-selected="false"
+                                          class="item"
+                                          role="option"
+                                          style="pointer-events: all;"
+                                        >
+                                          <span
+                                            class="text"
+                                          >
+                                            Generic
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>,
+                                  }
+                                }
+                              >
+                                <RefFindNode
+                                  innerRef={
+                                    Object {
+                                      "current": <div
+                                        aria-expanded="false"
+                                        class="ui selection dropdown"
+                                        role="listbox"
+                                        tabindex="0"
+                                      >
+                                        <div
+                                          aria-atomic="true"
+                                          aria-live="polite"
+                                          class="default text"
+                                          role="alert"
+                                        >
+                                          Replication
+                                        </div>
+                                        <i
+                                          aria-hidden="true"
+                                          class="dropdown icon"
+                                        />
+                                        <div
+                                          class="menu transition"
+                                        >
+                                          <div
+                                            aria-checked="false"
+                                            aria-selected="true"
+                                            class="selected item"
+                                            role="option"
+                                            style="pointer-events: all;"
+                                          >
+                                            <span
+                                              class="text"
+                                            >
+                                              Zerto
+                                            </span>
+                                          </div>
+                                          <div
+                                            aria-checked="false"
+                                            aria-selected="false"
+                                            class="item"
+                                            role="option"
+                                            style="pointer-events: all;"
+                                          >
+                                            <span
+                                              class="text"
+                                            >
+                                              Vmware srm
+                                            </span>
+                                          </div>
+                                          <div
+                                            aria-checked="false"
+                                            aria-selected="false"
+                                            class="item"
+                                            role="option"
+                                            style="pointer-events: all;"
+                                          >
+                                            <span
+                                              class="text"
+                                            >
+                                              Netapp
+                                            </span>
+                                          </div>
+                                          <div
+                                            aria-checked="false"
+                                            aria-selected="false"
+                                            class="item"
+                                            role="option"
+                                            style="pointer-events: all;"
+                                          >
+                                            <span
+                                              class="text"
+                                            >
+                                              Doubletake
+                                            </span>
+                                          </div>
+                                          <div
+                                            aria-checked="false"
+                                            aria-selected="false"
+                                            class="item"
+                                            role="option"
+                                            style="pointer-events: all;"
+                                          >
+                                            <span
+                                              class="text"
+                                            >
+                                              Recoverpoint
+                                            </span>
+                                          </div>
+                                          <div
+                                            aria-checked="false"
+                                            aria-selected="false"
+                                            class="item"
+                                            role="option"
+                                            style="pointer-events: all;"
+                                          >
+                                            <span
+                                              class="text"
+                                            >
+                                              Generic
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>,
+                                    }
+                                  }
+                                >
+                                  <div
+                                    aria-expanded={false}
+                                    className="ui selection dropdown"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onClick={[Function]}
+                                    onFocus={[Function]}
+                                    onMouseDown={[Function]}
+                                    role="listbox"
+                                    tabIndex={0}
+                                  >
+                                    <div
+                                      aria-atomic={true}
+                                      aria-live="polite"
+                                      className="default text"
+                                      role="alert"
+                                    >
+                                      Replication
+                                    </div>
+                                    <Icon
+                                      as="i"
+                                      className=""
+                                      name="dropdown"
+                                      onClick={[Function]}
+                                    >
+                                      <i
+                                        aria-hidden="true"
+                                        className="dropdown icon"
+                                        onClick={[Function]}
+                                      />
+                                    </Icon>
+                                    <DropdownMenu>
+                                      <div
+                                        className="menu transition"
+                                      >
+                                        <DropdownItem
+                                          active={false}
+                                          key="zerto"
+                                          onClick={[Function]}
+                                          selected={true}
+                                          style={
+                                            Object {
+                                              "pointerEvents": "all",
+                                            }
+                                          }
+                                          text="Zerto"
+                                          value="zerto"
+                                        >
+                                          <div
+                                            aria-checked={false}
+                                            aria-selected={true}
+                                            className="selected item"
+                                            onClick={[Function]}
+                                            role="option"
+                                            style={
+                                              Object {
+                                                "pointerEvents": "all",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="text"
+                                            >
+                                              Zerto
+                                            </span>
+                                          </div>
+                                        </DropdownItem>
+                                        <DropdownItem
+                                          active={false}
+                                          key="vmware srm"
+                                          onClick={[Function]}
+                                          selected={false}
+                                          style={
+                                            Object {
+                                              "pointerEvents": "all",
+                                            }
+                                          }
+                                          text="Vmware srm"
+                                          value="vmware srm"
+                                        >
+                                          <div
+                                            aria-checked={false}
+                                            aria-selected={false}
+                                            className="item"
+                                            onClick={[Function]}
+                                            role="option"
+                                            style={
+                                              Object {
+                                                "pointerEvents": "all",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="text"
+                                            >
+                                              Vmware srm
+                                            </span>
+                                          </div>
+                                        </DropdownItem>
+                                        <DropdownItem
+                                          active={false}
+                                          key="netapp"
+                                          onClick={[Function]}
+                                          selected={false}
+                                          style={
+                                            Object {
+                                              "pointerEvents": "all",
+                                            }
+                                          }
+                                          text="Netapp"
+                                          value="netapp"
+                                        >
+                                          <div
+                                            aria-checked={false}
+                                            aria-selected={false}
+                                            className="item"
+                                            onClick={[Function]}
+                                            role="option"
+                                            style={
+                                              Object {
+                                                "pointerEvents": "all",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="text"
+                                            >
+                                              Netapp
+                                            </span>
+                                          </div>
+                                        </DropdownItem>
+                                        <DropdownItem
+                                          active={false}
+                                          key="doubletake"
+                                          onClick={[Function]}
+                                          selected={false}
+                                          style={
+                                            Object {
+                                              "pointerEvents": "all",
+                                            }
+                                          }
+                                          text="Doubletake"
+                                          value="doubletake"
+                                        >
+                                          <div
+                                            aria-checked={false}
+                                            aria-selected={false}
+                                            className="item"
+                                            onClick={[Function]}
+                                            role="option"
+                                            style={
+                                              Object {
+                                                "pointerEvents": "all",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="text"
+                                            >
+                                              Doubletake
+                                            </span>
+                                          </div>
+                                        </DropdownItem>
+                                        <DropdownItem
+                                          active={false}
+                                          key="recoverpoint"
+                                          onClick={[Function]}
+                                          selected={false}
+                                          style={
+                                            Object {
+                                              "pointerEvents": "all",
+                                            }
+                                          }
+                                          text="Recoverpoint"
+                                          value="recoverpoint"
+                                        >
+                                          <div
+                                            aria-checked={false}
+                                            aria-selected={false}
+                                            className="item"
+                                            onClick={[Function]}
+                                            role="option"
+                                            style={
+                                              Object {
+                                                "pointerEvents": "all",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="text"
+                                            >
+                                              Recoverpoint
+                                            </span>
+                                          </div>
+                                        </DropdownItem>
+                                        <DropdownItem
+                                          active={false}
+                                          key="generic"
+                                          onClick={[Function]}
+                                          selected={false}
+                                          style={
+                                            Object {
+                                              "pointerEvents": "all",
+                                            }
+                                          }
+                                          text="Generic"
+                                          value="generic"
+                                        >
+                                          <div
+                                            aria-checked={false}
+                                            aria-selected={false}
+                                            className="item"
+                                            onClick={[Function]}
+                                            role="option"
+                                            style={
+                                              Object {
+                                                "pointerEvents": "all",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="text"
+                                            >
+                                              Generic
+                                            </span>
+                                          </div>
+                                        </DropdownItem>
+                                      </div>
+                                    </DropdownMenu>
+                                  </div>
+                                </RefFindNode>
+                              </Ref>
+                            </Dropdown>
+                          </Select>
+                        </div>
+                      </FormField>
+                    </SelectInput>
+                  </Field>
+                  <FormGroup
+                    width="equal"
+                  >
+                    <div
+                      className="fields"
+                      width="equal"
+                    >
+                      <Field
+                        component={[Function]}
+                        date={true}
+                        name="date"
+                        placeholder="Date"
+                        type="datetime-local"
+                      >
+                        <DateInput
+                          date={true}
+                          input={
+                            Object {
+                              "name": "date",
+                              "onBlur": [Function],
+                              "onChange": [Function],
+                              "onFocus": [Function],
+                              "type": "datetime-local",
+                              "value": "",
+                            }
+                          }
+                          meta={
+                            Object {
+                              "active": false,
+                              "data": Object {},
+                              "dirty": false,
+                              "dirtySinceLastSubmit": false,
+                              "error": undefined,
+                              "initial": undefined,
+                              "invalid": false,
+                              "length": undefined,
+                              "modified": false,
+                              "pristine": true,
+                              "submitError": undefined,
+                              "submitFailed": false,
+                              "submitSucceeded": false,
+                              "submitting": false,
+                              "touched": false,
+                              "valid": true,
+                              "validating": false,
+                              "visited": false,
+                            }
+                          }
+                          placeholder="Date"
+                        >
+                          <FormField
+                            error={false}
+                          >
+                            <div
+                              className="field"
+                            >
+                              <Uncontrolled(DateTimePicker)
+                                date={true}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="Date"
+                                time={false}
+                                value={null}
+                              >
+                                <DateTimePicker
+                                  date={true}
+                                  dateIcon={
+                                    <Icon
+                                      icon="calendar"
+                                    />
+                                  }
+                                  footer={true}
+                                  max={2099-12-30T22:00:00.000Z}
+                                  min={1899-12-31T21:39:20.000Z}
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onCurrentDateChange={[Function]}
+                                  onKeyDown={[Function]}
+                                  onToggle={[Function]}
+                                  open={false}
+                                  placeholder="Date"
+                                  tabIndex="0"
+                                  time={false}
+                                  timeIcon={
+                                    <Icon
+                                      icon="clock-o"
+                                    />
+                                  }
+                                  value={null}
+                                  views={
+                                    Array [
+                                      "month",
+                                      "year",
+                                      "decade",
+                                      "century",
+                                    ]
+                                  }
+                                >
+                                  <Widget
+                                    className="rw-datetime-picker"
+                                    focused={false}
+                                    onBlur={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    onKeyPress={[Function]}
+                                    open={false}
+                                  >
+                                    <div
+                                      className="rw-datetime-picker rw-widget"
+                                      onBlur={[Function]}
+                                      onFocus={[Function]}
+                                      onKeyDown={[Function]}
+                                      onKeyPress={[Function]}
+                                      tabIndex="-1"
+                                    >
+                                      <WidgetPicker>
+                                        <div
+                                          className="rw-widget-picker rw-widget-container"
+                                        >
+                                          <DateTimePickerInput
+                                            aria-activedescendant={null}
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            aria-owns=""
+                                            editing={false}
+                                            format="P"
+                                            id="rw_3_input"
+                                            onChange={[Function]}
+                                            parse={[Function]}
+                                            placeholder="Date"
+                                            role="combobox"
+                                            tabIndex="0"
+                                            value={null}
+                                          >
+                                            <Input
+                                              aria-activedescendant={null}
+                                              aria-expanded={false}
+                                              aria-haspopup={true}
+                                              aria-owns=""
+                                              className="rw-widget-input"
+                                              id="rw_3_input"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              placeholder="Date"
+                                              role="combobox"
+                                              tabIndex="0"
+                                              type="text"
+                                              value=""
+                                            >
+                                              <input
+                                                aria-activedescendant={null}
+                                                aria-expanded={false}
+                                                aria-haspopup={true}
+                                                aria-owns=""
+                                                autoComplete="off"
+                                                className="rw-widget-input rw-input"
+                                                id="rw_3_input"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                placeholder="Date"
+                                                role="combobox"
+                                                tabIndex="0"
+                                                type="text"
+                                                value=""
+                                              />
+                                            </Input>
+                                          </DateTimePickerInput>
+                                          <Select
+                                            bordered={true}
+                                          >
+                                            <span
+                                              className="rw-select rw-select-bordered"
+                                            >
+                                              <Button
+                                                icon={
+                                                  <Icon
+                                                    icon="calendar"
+                                                  />
+                                                }
+                                                key=".0"
+                                                label="Select date"
+                                                onClick={[Function]}
+                                                variant="select"
+                                              >
+                                                <button
+                                                  aria-label="Select date"
+                                                  className="rw-btn rw-btn-select"
+                                                  onClick={[Function]}
+                                                  tabIndex="-1"
+                                                  title="Select date"
+                                                  type="button"
+                                                >
+                                                  <Icon
+                                                    icon="calendar"
+                                                  >
+                                                    <span
+                                                      aria-hidden="true"
+                                                      className="rw-i rw-i-calendar"
+                                                    />
+                                                  </Icon>
+                                                </button>
+                                              </Button>
+                                            </span>
+                                          </Select>
+                                        </div>
+                                      </WidgetPicker>
+                                    </div>
+                                  </Widget>
+                                </DateTimePicker>
+                              </Uncontrolled(DateTimePicker)>
+                            </div>
+                          </FormField>
+                        </DateInput>
+                      </Field>
+                      <Field
+                        component={[Function]}
+                        name="time"
+                        placeholder="Time"
+                        time={true}
+                        type="datetime-local"
+                      >
+                        <DateInput
+                          input={
+                            Object {
+                              "name": "time",
+                              "onBlur": [Function],
+                              "onChange": [Function],
+                              "onFocus": [Function],
+                              "type": "datetime-local",
+                              "value": "",
+                            }
+                          }
+                          meta={
+                            Object {
+                              "active": false,
+                              "data": Object {},
+                              "dirty": false,
+                              "dirtySinceLastSubmit": false,
+                              "error": undefined,
+                              "initial": undefined,
+                              "invalid": false,
+                              "length": undefined,
+                              "modified": false,
+                              "pristine": true,
+                              "submitError": undefined,
+                              "submitFailed": false,
+                              "submitSucceeded": false,
+                              "submitting": false,
+                              "touched": false,
+                              "valid": true,
+                              "validating": false,
+                              "visited": false,
+                            }
+                          }
+                          placeholder="Time"
+                          time={true}
+                        >
+                          <FormField
+                            error={false}
+                          >
+                            <div
+                              className="field"
+                            >
+                              <Uncontrolled(DateTimePicker)
+                                date={false}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                placeholder="Time"
+                                time={true}
+                                value={null}
+                              >
+                                <DateTimePicker
+                                  date={false}
+                                  dateIcon={
+                                    <Icon
+                                      icon="calendar"
+                                    />
+                                  }
+                                  footer={true}
+                                  max={2099-12-30T22:00:00.000Z}
+                                  min={1899-12-31T21:39:20.000Z}
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onCurrentDateChange={[Function]}
+                                  onKeyDown={[Function]}
+                                  onToggle={[Function]}
+                                  open={false}
+                                  placeholder="Time"
+                                  tabIndex="0"
+                                  time={true}
+                                  timeIcon={
+                                    <Icon
+                                      icon="clock-o"
+                                    />
+                                  }
+                                  value={null}
+                                  views={
+                                    Array [
+                                      "month",
+                                      "year",
+                                      "decade",
+                                      "century",
+                                    ]
+                                  }
+                                >
+                                  <Widget
+                                    className="rw-datetime-picker"
+                                    focused={false}
+                                    onBlur={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyDown={[Function]}
+                                    onKeyPress={[Function]}
+                                    open={false}
+                                  >
+                                    <div
+                                      className="rw-datetime-picker rw-widget"
+                                      onBlur={[Function]}
+                                      onFocus={[Function]}
+                                      onKeyDown={[Function]}
+                                      onKeyPress={[Function]}
+                                      tabIndex="-1"
+                                    >
+                                      <WidgetPicker>
+                                        <div
+                                          className="rw-widget-picker rw-widget-container"
+                                        >
+                                          <DateTimePickerInput
+                                            aria-activedescendant={null}
+                                            aria-expanded={false}
+                                            aria-haspopup={true}
+                                            aria-owns=""
+                                            editing={false}
+                                            format="pp"
+                                            id="rw_4_input"
+                                            onChange={[Function]}
+                                            parse={[Function]}
+                                            placeholder="Time"
+                                            role="combobox"
+                                            tabIndex="0"
+                                            value={null}
+                                          >
+                                            <Input
+                                              aria-activedescendant={null}
+                                              aria-expanded={false}
+                                              aria-haspopup={true}
+                                              aria-owns=""
+                                              className="rw-widget-input"
+                                              id="rw_4_input"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              placeholder="Time"
+                                              role="combobox"
+                                              tabIndex="0"
+                                              type="text"
+                                              value=""
+                                            >
+                                              <input
+                                                aria-activedescendant={null}
+                                                aria-expanded={false}
+                                                aria-haspopup={true}
+                                                aria-owns=""
+                                                autoComplete="off"
+                                                className="rw-widget-input rw-input"
+                                                id="rw_4_input"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                placeholder="Time"
+                                                role="combobox"
+                                                tabIndex="0"
+                                                type="text"
+                                                value=""
+                                              />
+                                            </Input>
+                                          </DateTimePickerInput>
+                                          <Select
+                                            bordered={true}
+                                          >
+                                            <span
+                                              className="rw-select rw-select-bordered"
+                                            >
+                                              <Button
+                                                icon={
+                                                  <Icon
+                                                    icon="clock-o"
+                                                  />
+                                                }
+                                                key=".1"
+                                                label="Select time"
+                                                onClick={[Function]}
+                                                variant="select"
+                                              >
+                                                <button
+                                                  aria-label="Select time"
+                                                  className="rw-btn rw-btn-select"
+                                                  onClick={[Function]}
+                                                  tabIndex="-1"
+                                                  title="Select time"
+                                                  type="button"
+                                                >
+                                                  <Icon
+                                                    icon="clock-o"
+                                                  >
+                                                    <span
+                                                      aria-hidden="true"
+                                                      className="rw-i rw-i-clock-o"
+                                                    />
+                                                  </Icon>
+                                                </button>
+                                              </Button>
+                                            </span>
+                                          </Select>
+                                        </div>
+                                      </WidgetPicker>
+                                    </div>
+                                  </Widget>
+                                </DateTimePicker>
+                              </Uncontrolled(DateTimePicker)>
+                            </div>
+                          </FormField>
+                        </DateInput>
+                      </Field>
+                    </div>
+                  </FormGroup>
+                  <Field
+                    component={[Function]}
+                    name="servers"
+                    placeholder="Servers"
+                    value=""
+                  >
+                    <TextInput
+                      input={
+                        Object {
+                          "name": "servers",
+                          "onBlur": [Function],
+                          "onChange": [Function],
+                          "onFocus": [Function],
+                          "type": undefined,
+                          "value": "",
+                        }
+                      }
+                      meta={
+                        Object {
+                          "active": false,
+                          "data": Object {},
+                          "dirty": false,
+                          "dirtySinceLastSubmit": false,
+                          "error": "Servers is required",
+                          "initial": "",
+                          "invalid": true,
+                          "length": undefined,
+                          "modified": false,
+                          "pristine": true,
+                          "submitError": undefined,
+                          "submitFailed": false,
+                          "submitSucceeded": false,
+                          "submitting": false,
+                          "touched": false,
+                          "valid": false,
+                          "validating": false,
+                          "visited": false,
+                        }
+                      }
+                      placeholder="Servers"
+                    >
+                      <FormField
+                        error={false}
+                      >
+                        <div
+                          className="field"
+                        >
+                          <input
+                            name="servers"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="Servers"
+                            value=""
+                          />
+                        </div>
+                      </FormField>
+                    </TextInput>
+                  </Field>
+                  <Field
+                    component={[Function]}
+                    name="rtoNeeded"
+                    placeholder="RtoNeeded"
+                    value=""
+                  >
+                    <TextInput
+                      input={
+                        Object {
+                          "name": "rtoNeeded",
+                          "onBlur": [Function],
+                          "onChange": [Function],
+                          "onFocus": [Function],
+                          "type": undefined,
+                          "value": "",
+                        }
+                      }
+                      meta={
+                        Object {
+                          "active": false,
+                          "data": Object {},
+                          "dirty": false,
+                          "dirtySinceLastSubmit": false,
+                          "error": "rtoNeeded is required",
+                          "initial": "",
+                          "invalid": true,
+                          "length": undefined,
+                          "modified": false,
+                          "pristine": true,
+                          "submitError": undefined,
+                          "submitFailed": false,
+                          "submitSucceeded": false,
+                          "submitting": false,
+                          "touched": false,
+                          "valid": false,
+                          "validating": false,
+                          "visited": false,
+                        }
+                      }
+                      placeholder="RtoNeeded"
+                    >
+                      <FormField
+                        error={false}
+                      >
+                        <div
+                          className="field"
+                        >
+                          <input
+                            name="rtoNeeded"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            placeholder="RtoNeeded"
+                            value=""
+                          />
+                        </div>
+                      </FormField>
+                    </TextInput>
+                  </Field>
+                  <Button
+                    as="button"
+                    content="Submit"
+                    disabled={true}
+                    floated="right"
+                    loading={false}
+                    positive={true}
+                    type="submit"
+                  >
+                    <Ref
+                      innerRef={
+                        Object {
+                          "current": <button
+                            class="ui positive disabled right floated button"
+                            disabled=""
+                            tabindex="-1"
+                            type="submit"
+                          >
+                            Submit
+                          </button>,
+                        }
+                      }
+                    >
+                      <RefFindNode
+                        innerRef={
+                          Object {
+                            "current": <button
+                              class="ui positive disabled right floated button"
+                              disabled=""
+                              tabindex="-1"
+                              type="submit"
+                            >
+                              Submit
+                            </button>,
+                          }
+                        }
+                      >
+                        <button
+                          className="ui positive disabled right floated button"
+                          disabled={true}
+                          onClick={[Function]}
+                          tabIndex={-1}
+                          type="submit"
+                        >
+                          Submit
+                        </button>
+                      </RefFindNode>
+                    </Ref>
+                  </Button>
+                  <Button
+                    as="button"
+                    content="Cancel"
+                    disabled={false}
+                    floated="right"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <Ref
+                      innerRef={
+                        Object {
+                          "current": <button
+                            class="ui right floated button"
+                            type="button"
+                          >
+                            Cancel
+                          </button>,
+                        }
+                      }
+                    >
+                      <RefFindNode
+                        innerRef={
+                          Object {
+                            "current": <button
+                              class="ui right floated button"
+                              type="button"
+                            >
+                              Cancel
+                            </button>,
+                          }
+                        }
+                      >
+                        <button
+                          className="ui right floated button"
+                          onClick={[Function]}
+                          type="button"
+                        >
+                          Cancel
+                        </button>
+                      </RefFindNode>
+                    </Ref>
+                  </Button>
+                </form>
+              </Form>
+            </ReactFinalForm>
+          </div>
+        </Segment>
+      </div>
+    </GridColumn>
+  </div>
+</Grid>
+`;

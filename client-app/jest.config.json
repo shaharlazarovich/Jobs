@@ -10,5 +10,8 @@
     ],
     "moduleNameMapper": {
         "\\.(css|scss)$": "<rootDir>/styleMock.js"
-    }
+    },
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "collectCoverage": true,
+    "coverageReporters": ["text", "html"]
 }

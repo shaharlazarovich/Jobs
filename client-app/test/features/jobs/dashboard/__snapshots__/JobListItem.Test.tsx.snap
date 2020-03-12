@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Job List Item UniTest should match the snapshot 1`] = `
+<SegmentGroup
+  data-test="component-job-list-item"
+>
+  <div
+    className="ui segments"
+    data-test="component-job-list-item"
+  >
+    <Segment>
+      <div
+        className="ui segment"
+      >
+        <ItemGroup>
+          <div
+            className="ui items"
+          >
+            <Item>
+              <div
+                className="item"
+              >
+                <ItemImage
+                  circular={true}
+                  size="tiny"
+                  src="/assets/user.png"
+                  style={
+                    Object {
+                      "marginBottom": 3,
+                    }
+                  }
+                >
+                  <Image
+                    as="img"
+                    circular={true}
+                    size="tiny"
+                    src="/assets/user.png"
+                    style={
+                      Object {
+                        "marginBottom": 3,
+                      }
+                    }
+                    ui={true}
+                    wrapped={true}
+                  >
+                    <div
+                      className="ui tiny circular image"
+                      style={
+                        Object {
+                          "marginBottom": 3,
+                        }
+                      }
+                    >
+                      <img
+                        src="/assets/user.png"
+                      />
+                    </div>
+                  </Image>
+                </ItemImage>
+                <ItemContent>
+                  <div
+                    className="content"
+                  >
+                    <ItemHeader
+                      as={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "displayName": "Link",
+                          "propTypes": Object {
+                            "innerRef": [Function],
+                            "onClick": [Function],
+                            "replace": [Function],
+                            "target": [Function],
+                            "to": [Function],
+                          },
+                          "render": [Function],
+                        }
+                      }
+                      to="/jobs/4"
+                    >
+                      <Link
+                        className="header"
+                        to="/jobs/4"
+                      >
+                        <LinkAnchor
+                          className="header"
+                          href="/jobs/4"
+                          navigate={[Function]}
+                        >
+                          <a
+                            className="header"
+                            href="/jobs/4"
+                            onClick={[Function]}
+                          >
+                            test1
+                          </a>
+                        </LinkAnchor>
+                      </Link>
+                    </ItemHeader>
+                    <ItemDescription>
+                      <div
+                        className="description"
+                      >
+                        Created by 
+                        <Link
+                          to="/profile/Fake Username"
+                        >
+                          <LinkAnchor
+                            href="/profile/Fake Username"
+                            navigate={[Function]}
+                          >
+                            <a
+                              href="/profile/Fake Username"
+                              onClick={[Function]}
+                            >
+                               
+                              Fake Username
+                            </a>
+                          </LinkAnchor>
+                        </Link>
+                      </div>
+                    </ItemDescription>
+                  </div>
+                </ItemContent>
+              </div>
+            </Item>
+          </div>
+        </ItemGroup>
+      </div>
+    </Segment>
+    <Segment>
+      <div
+        className="ui segment"
+      >
+        <Icon
+          as="i"
+          name="clock"
+        >
+          <i
+            aria-hidden="true"
+            className="clock icon"
+            onClick={[Function]}
+          />
+        </Icon>
+        11:00 PM
+        <Icon
+          as="i"
+          name="marker"
+        >
+          <i
+            aria-hidden="true"
+            className="marker icon"
+            onClick={[Function]}
+          />
+        </Icon>
+        10
+         , 
+        10
+      </div>
+    </Segment>
+    <Segment
+      clearing={true}
+    >
+      <div
+        className="ui clearing segment"
+      >
+        <span>
+          OK
+        </span>
+        <Button
+          as={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "displayName": "Link",
+              "propTypes": Object {
+                "innerRef": [Function],
+                "onClick": [Function],
+                "replace": [Function],
+                "target": [Function],
+                "to": [Function],
+              },
+              "render": [Function],
+            }
+          }
+          color="blue"
+          content="View"
+          floated="right"
+          to="/jobs/4"
+        >
+          <Ref
+            innerRef={
+              Object {
+                "current": <a
+                  class="ui blue right floated button"
+                  href="/jobs/4"
+                  role="button"
+                >
+                  View
+                </a>,
+              }
+            }
+          >
+            <RefForward
+              innerRef={
+                Object {
+                  "current": <a
+                    class="ui blue right floated button"
+                    href="/jobs/4"
+                    role="button"
+                  >
+                    View
+                  </a>,
+                }
+              }
+            >
+              <Link
+                className="ui blue right floated button"
+                onClick={[Function]}
+                role="button"
+                to="/jobs/4"
+              >
+                <LinkAnchor
+                  className="ui blue right floated button"
+                  href="/jobs/4"
+                  navigate={[Function]}
+                  onClick={[Function]}
+                  role="button"
+                >
+                  <a
+                    className="ui blue right floated button"
+                    href="/jobs/4"
+                    onClick={[Function]}
+                    role="button"
+                  >
+                    View
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </RefForward>
+          </Ref>
+        </Button>
+        <Button
+          as="button"
+          color="blue"
+          content="Run"
+          floated="right"
+          onClick={[Function]}
+        >
+          <Ref
+            innerRef={
+              Object {
+                "current": <button
+                  class="ui blue right floated button"
+                >
+                  Run
+                </button>,
+              }
+            }
+          >
+            <RefFindNode
+              innerRef={
+                Object {
+                  "current": <button
+                    class="ui blue right floated button"
+                  >
+                    Run
+                  </button>,
+                }
+              }
+            >
+              <button
+                className="ui blue right floated button"
+                onClick={[Function]}
+              >
+                Run
+              </button>
+            </RefFindNode>
+          </Ref>
+        </Button>
+      </div>
+    </Segment>
+  </div>
+</SegmentGroup>
+`;

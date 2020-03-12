@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Description UniTest should match the snapshot 1`] = `
+<TabPane
+  active={true}
+  as={[Function]}
+  data-test="component-profile-description"
+>
+  <Segment
+    attached="bottom"
+    className="active tab"
+    data-test="component-profile-description"
+  >
+    <div
+      className="ui bottom attached segment active tab"
+      data-test="component-profile-description"
+    >
+      <Grid>
+        <div
+          className="ui grid"
+        >
+          <GridColumn
+            width={16}
+          >
+            <div
+              className="sixteen wide column"
+            >
+              <Header
+                content="About Fake Username"
+                floated="left"
+                icon="user"
+              >
+                <div
+                  className="ui left floated header"
+                >
+                  <Icon
+                    as="i"
+                    name="user"
+                  >
+                    <i
+                      aria-hidden="true"
+                      className="user icon"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                  <HeaderContent>
+                    <div
+                      className="content"
+                    >
+                      About Fake Username
+                    </div>
+                  </HeaderContent>
+                </div>
+              </Header>
+            </div>
+          </GridColumn>
+          <GridColumn
+            width={16}
+          >
+            <div
+              className="sixteen wide column"
+            >
+              <span />
+            </div>
+          </GridColumn>
+        </div>
+      </Grid>
+    </div>
+  </Segment>
+</TabPane>
+`;

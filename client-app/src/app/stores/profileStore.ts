@@ -1,6 +1,6 @@
 import {RootStore} from './rootStore'
 import { observable, runInAction, action, computed, reaction } from 'mobx';
-import agent from '../api/agent';
+import agent from '../api/agentBase';
 import { IProfile } from '../models/profile';
 import { toast } from 'react-toastify';
 
