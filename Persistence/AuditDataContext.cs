@@ -74,15 +74,17 @@ namespace Persistence
                 var mType = item.ModType.ToString();
                 var tName = item.EntityEntry.Entity.GetType().Name;
                 var r = JsonConvert.SerializeObject(item.EntityEntry.Entity, new JsonSerializerSettings { Formatting = Formatting.None, ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
-                this.Audits.Add(new Audit
-                {
-                    Login = user,
-                    ModType = mType,
-                    EntityName = tName,
-                    EntityId = id,
-                    Time = DateTime.Now,
-                    RowAfter = r
-                });
+                if (tName!="Audit"){
+                    this.Audits.Add(new Audit
+                    {
+                        Login = user,
+                        ModType = mType,
+                        EntityName = tName,
+                        EntityId = id,
+                        Time = DateTime.Now,
+                        RowAfter = r
+                    });
+                }
             }
 
             int logResult = await base.SaveChangesAsync(true, cancellationToken).ConfigureAwait(false);

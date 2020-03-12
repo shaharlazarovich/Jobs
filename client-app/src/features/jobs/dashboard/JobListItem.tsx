@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Item, Button, Segment, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { IJob } from '../../../app/models/job'
@@ -8,6 +8,7 @@ import { RootStoreContext } from '../../../app/stores/rootStore'
 import moment from 'moment'
 import {v4 as uuid} from 'uuid'
 import { useMatomo } from '@datapunt/matomo-tracker-react'
+
 
 const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
   const rootStore = useContext(RootStoreContext);
@@ -47,7 +48,21 @@ const JobListItem: React.FC<{ job: IJob }> = ({ job }) => {
         },
       ],  
     });
-}
+  }
+
+    useEffect(() => {
+      //trackService(trackEvent);
+      trackPageView({
+        documentTitle: 'JobDashboard', 
+        href: 'https://localhost/jobs', 
+        customDimensions: [
+          {
+            id: 1,
+            value: 'loggedIn',
+          },
+        ], 
+      })
+    });
 
   return (
     <Segment.Group data-test="component-job-list-item">

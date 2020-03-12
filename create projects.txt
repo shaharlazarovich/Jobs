@@ -103,7 +103,7 @@ git push -f origin Development #now we are done! we can remove the permission fr
 git tag [new tag name] [old tag name] #renaming the tag locally
 git tag -d [old tag name] #to delete the old tag locally
 git push origin :refs/tags/[old tag name] #deleting the old tag remotely (otherwise - we'll keep getting it when we pull)
-git push [new tag name] #pushing the new tag to origin
+git push origin [new tag name] #pushing the new tag to origin
 #cloning a git repo - point the terminal to where the root folder of the repo will be (not the internal folders) and type:
 git clone [link to repo - for example: https://shaharlazarovich@bitbucket.org/ensuredr/edr_dashboard-service.git ]
 #changing a remote URL link (if repo name was changed for example):
