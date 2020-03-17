@@ -274,6 +274,10 @@ dotnet user-secrets list -p API/ #for viewing our existing secrets
 dotnet run
 #for running in test mode (running the Nunit) use:
 dotnet test
+#for building the app only use:
+dotnet build
+#to publish the app before going to production:
+dotnet publish -c Release -o publish --self-contained false EDRM.sln
 #########################################################################################################################################
 ###################### REACT APP ########################################################################################################
 #########################################################################################################################################
@@ -384,24 +388,6 @@ npm install @types/enzyme
 npm install enzyme-adapter-react-16
 npm install @types/enzyme-adapter-react-16
 npm install enzyme-to-json
-#since during react testing we are adding temp properties to our code, we'd like to remove
-#them on production, so we'll use the following package:
-npm install babel-plugin-react-remove-properties
-#then we need to type (this is supported only for create-react-app) we must not have un-commited changes before we do this:
-#it will make hidden react config files available for us to edit:
-npm run eject #and type "yes"
-#once the eject is done- we'll go to our package.json, which now got much bigger, with a lot
-#of hidden properties and scroll down to the "babel" property. we then pase this inside the babel property:
-"env": {
-    "production": {
-      "plugins": [
-        ["react-remove-properties", {"properties": ["data-test"]}]
-      ]
-    }
-  },
-#then we can run:
-npm run build #to create the production build
-#now when we run - the data-test attribute will be gone
 #now we'll add a package to test properties types instead of returning an error - good for our unittest:
 npm install check-prop-types
 #now we will add a package to mock axios when we test
@@ -432,6 +418,25 @@ rafc + press tab
 #the way to know to which html element in react to add a style
 #select the ui in chrome and in the developer tools click the "+"
 #icon for "new style rule" - and it will show you the generated id of the element
+############################### MOVING OUR REACT TO PROD ######################################################################
+#since during react testing we are adding temp properties to our code, we'd like to remove
+#them on production, so we'll use the following package:
+npm install babel-plugin-react-remove-properties
+#then we need to type (this is supported only for create-react-app) we must not have un-commited changes before we do this:
+#it will make hidden react config files available for us to edit:
+npm run eject #and type "yes"
+#once the eject is done- we'll go to our package.json, which now got much bigger, with a lot
+#of hidden properties and scroll down to the "babel" property. we then paste this inside the babel property:
+"env": {
+    "production": {
+      "plugins": [
+        ["react-remove-properties", {"properties": ["data-test"]}]
+      ]
+    }
+  },
+#then we can run:
+npm run build #to create the production build
+#now when we run - the data-test attribute will be gone
 ################################################################################################################################################################
 ########ADDING A NEW ENTITY ACROSS SERVER AND CLIENT LAYERS#####################################################################################################
 ################################################################################################################################################################
