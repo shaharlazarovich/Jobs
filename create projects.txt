@@ -279,6 +279,15 @@ dotnet build
 #to publish the app before going to production:
 dotnet publish -c Release -o publish --self-contained false EDRM.sln
 #########################################################################################################################################
+###################### SERVICE ACTIONS ##################################################################################################
+#########################################################################################################################################
+#installing service after publish
+sc create EDR.Runner binPath=D:\Source\EnsureDR\EDRRunnerOutput\edr.runner.exe
+#starting a service
+sc start edr.runner
+#deleting a service
+sc delete edr.runner
+#########################################################################################################################################
 ###################### REACT APP ########################################################################################################
 #########################################################################################################################################
 #first, we need to make sure we have npm installed on our machine - and if not - download and install it from https://www.npmjs.com/get-npm. we can accept the
