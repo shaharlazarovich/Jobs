@@ -1,36 +1,77 @@
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading;
+using Application.Jobs;
+using AutoMapper;
+using MediatR;
 using NUnit.Framework;
-using Persistence;
 
-namespace Test.Job
+namespace Test.Jobs
 {
     [TestFixture]
-    public class Edit_Test
+    public class Edit_Test: TestBase
     {
-        [Test]
-        public async Task TestMethod_WithFactory()
+        public Edit_Test()
         {
-            using (var factory = new SampleDbContextFactory())
+            var mockMapper = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); });
+            testMapper = mockMapper.CreateMapper();
+        }
+
+        private Edit.Command _jobEditCommand;
+        
+        [OneTimeSetUp]
+        public void SetUp(){
+            var jobCommand = new Create.Command
             {
-            // Get a context
-                using (var context = factory.CreateContext())
-                {
-                    //var user = new User() { Email = "test@sample.com" };
-                    //context.Users.Add(user);
-                    await context.SaveChangesAsync();
-                }
+                JobName = "TestJob1",
+                Company = "Netapp",
+                Replication = "Zerto",
+                Servers = "7",
+                LastRun = DateTime.Now,
+                RTA = "10",
+                Results = "OK",
+                Key = "AAAA-BBBB-CCCC-DDDD",
+                RTONeeded = "20",
+            };
+            
+            var handler = new Create.Handler(testContext);
+            var result = handler.Handle(jobCommand, CancellationToken.None).Result;
 
-            // Get another context using the same connection
-                using (var context = factory.CreateContext())
-                {
-                    var count = await context.Users.CountAsync();
-                    Assert.AreEqual(1, count);
+            _jobEditCommand = new Edit.Command
+            {
+                JobName = "TestJob1",
+                Company = "Netapp",
+                Replication = "Zerto",
+                Servers = "7",
+                LastRun = DateTime.Now,
+                RTA = "10",
+                Results = "OK",
+                Key = "AAAA-BBBB-CCCC-DDDD",
+                RTONeeded = "20",
+            };
+           
+        }
+        [Test]
+        public void EditJob_WithValidInput_ShouldEditJob()
+        {   
+            //Arrange
+            var handler = new Edit.Handler(testContext);
+            //Act
+            var result = handler.Handle(_jobEditCommand, CancellationToken.None).Result;
+            //Assert
+            Assert.NotNull(result);
+            Assert.That(result.Equals(Unit.Value));
+        }
 
-                    var u = await context.Users.FirstOrDefaultAsync(user => user.Email == "test@sample.com");
-                    Assert.IsNotNull(u);
-                }
-            }
-        }       
+        [Ignore("Ignore test")]
+        public void EditJob_WithEmptyJobId_ShouldThrowException()
+        {
+            //Arrange
+            _jobEditCommand.Id = 0;
+            var handler = new Edit.Handler(testContext);   
+            //Act+Assert
+            var ex = Assert.CatchAsync<Exception>(() => handler.Handle(_jobEditCommand, CancellationToken.None));
+            if (ex.Equals(typeof(Exception)))
+                Assert.That(ex.Message, Is.EqualTo("problem saving changes"));
+        }
     }
 }

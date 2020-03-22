@@ -62,7 +62,7 @@ const handleFinalFormSubmit = (values: any) => {
     if (!job.id){
         let newJob = {
             ...job,
-            id: uuid(),
+            //id: uuid(),
             rta: '10',
             results: 'OK',
             key: 'aaaa-bbbb-cccc-dddd',

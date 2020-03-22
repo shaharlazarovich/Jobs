@@ -3,7 +3,7 @@ import { IProfile } from "../../src/app/models/profile";
 import { routerTestProps } from "./routeUtil";
 
 export const jobMock: IJob = { 
-    id:"4", 
+    id: 1, 
     replication:"VMware SRM",
     jobName:"test1",
     company: 'Shomera',  

@@ -12,7 +12,7 @@ namespace Application.Jobs
     {
         public class Command : IRequest
         {
-            public Guid Id { get; set; }
+            public long Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -31,8 +31,9 @@ namespace Application.Jobs
 
                 if (job==null)
                     throw new RestException(HttpStatusCode.NotFound, new {job= "Not Found"});
-                
-                _context.Remove(job);
+
+                job.jobStatus = Domain.Enums.JobStatus.Deleted;
+                _context.Update(job);
 
                 var success = await _context.SaveChangesAsync() > 0;
 

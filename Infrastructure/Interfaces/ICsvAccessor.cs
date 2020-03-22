@@ -1,7 +1,7 @@
 using Domain;
 using System.Collections.Generic;
 
-namespace Application.Interfaces
+namespace Infrastructure.Interfaces
 {
     public interface ICsvAccessor
     {

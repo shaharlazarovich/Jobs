@@ -1,7 +1,7 @@
 using System;
 using System.Threading;
 using Confluent.Kafka;
-using Application.Interfaces;
+using Infrastructure.Interfaces;
 using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Kafka

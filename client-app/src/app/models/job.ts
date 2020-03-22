@@ -1,13 +1,13 @@
 //we are adding this interface to mimic what we do on the server for paging -
-//which is to have an entity around our activity array, in order to add a count
-//of activities - which then, we could device in the number of pages
+//which is to have an entity around our jobs array, in order to add a count
+//of jobs - which then, we could device in the number of pages
 export interface IJobsEnvelope {
     jobs: IJob[];
     jobsCount: number
 }
 
 export interface IJob {
-    id: string;
+    id: number;
     jobName: string;
     company: string;
     replication: string;
@@ -28,7 +28,7 @@ export interface IJobFormValues extends Partial<IJob> {
 }
 
 export class JobFormValues implements IJobFormValues {
-    id?: string = undefined;
+    id?: number = 0;
     jobName: string = '';
     company: string = '';
     replication: string = '';

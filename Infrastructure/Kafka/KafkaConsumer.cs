@@ -1,6 +1,6 @@
 using System;
 using System.Threading;
-using Application.Interfaces;
+using Infrastructure.Interfaces;
 using Confluent.Kafka;
 using Microsoft.Extensions.Options;
 

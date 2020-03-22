@@ -1,6 +1,6 @@
 using System;
-using Application.Interfaces;
-using Application.Photos;
+using Infrastructure.Interfaces;
+using Domain;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;

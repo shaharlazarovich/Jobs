@@ -5,6 +5,7 @@ using Domain;
 using FluentValidation;
 using MediatR;
 using Persistence;
+using static Application.Jobs.Enums;
 
 namespace Application.Jobs
 {
@@ -12,7 +13,7 @@ namespace Application.Jobs
     {
         public class Command : IRequest
         {
-            public Guid Id { get; set; }
+            public long Id { get; set; }
             public string JobName { get; set; }
             public string Company { get; set; }
             public string Replication { get; set; }
@@ -23,14 +24,14 @@ namespace Application.Jobs
             public string Key { get; set; }
             public string RTONeeded { get; set; }
             public string JobIP { get; set; }
-            
+            public JobStatus JobStatus { get; set; }
+        
         }
 
         public class CommandValidator : AbstractValidator<Command>
         {
             public CommandValidator()
             {
-                RuleFor(x => x.Id).NotEmpty();
                 RuleFor(x => x.RTONeeded).NotEmpty();
                 RuleFor(x => x.Company).NotEmpty();
                 RuleFor(x => x.Replication).NotEmpty();
@@ -59,7 +60,6 @@ namespace Application.Jobs
 
                 var job = new Job
                 {
-                    Id = request.Id,
                     JobName = request.JobName,
                     Company = request.Company,
                     Replication = request.Replication,
@@ -70,6 +70,7 @@ namespace Application.Jobs
                     Key = request.Key,
                     RTONeeded = request.RTONeeded,
                     JobIP = request.JobIP,
+                    jobStatus = Domain.Enums.JobStatus.Active
                 };
                 
                 _context.Jobs.Add(job);

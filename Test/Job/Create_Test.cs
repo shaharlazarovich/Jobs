@@ -1,45 +1,22 @@
 using System;
-using System.Linq;
 using System.Threading;
 using Application.Jobs;
-using Application.Interfaces;
-using AutoMapper;
-using Domain;
-using Moq;
 using NUnit.Framework;
- 
-namespace Application.Tests.Jobs
+using MediatR;
+
+namespace Test.Jobs
 {
     [TestFixture]
-    public class CreateTest : TestBase
+    public class Create_Test : TestBase
     {
-        private readonly IMapper _mapper;
+        public Create_Test() {}
  
-        public CreateTest()
-        {
-            var mockMapper = new MapperConfiguration(cfg => { cfg.AddProfile(new MappingProfile()); });
-            _mapper = mockMapper.CreateMapper();
-        }
- 
-        [Test]
-        public void Should_Create_Activity()
-        {
-            var userAccessor = new Mock<IUserAccessor>();
-            userAccessor.Setup(u => u.GetCurrentUsername()).Returns("test");
-            
-            var context = GetDbContext();
- 
-            context.Users.AddAsync(new AppUser
+        private Create.Command _jobCommand;
+
+        [SetUp]
+        public void SetUp() {
+            _jobCommand = new Create.Command
             {
-                Id = "1",
-                Email = "test@test.com",
-                UserName = "test"
-            });
-            context.SaveChangesAsync();
- 
-            var jobCommand = new Create.Command
-            {
-                Id = new Guid(),
                 JobName = "TestJob1",
                 Company = "Netapp",
                 Replication = "Zerto",
@@ -50,12 +27,38 @@ namespace Application.Tests.Jobs
                 Key = "AAAA-BBBB-CCCC-DDDD",
                 RTONeeded = "20",
             };
-            
-            var sut = new Create.Handler(context);
-            var result = sut.Handle(jobCommand, CancellationToken.None).Result;
-            
-            Assert.NotNull(result);
-            Assert.That(result,Is.EqualTo("TestJob1"));
         }
+
+        [TearDown]
+        public void tearDown(){
+            _jobCommand = null;
+        }
+
+        [Test]
+        public void CreateJob_WithValidInput_ShouldCreateJob()
+        {
+            
+            //Arrange
+            var handler = new Create.Handler(testContext);
+            //Act
+            var result = handler.Handle(_jobCommand, CancellationToken.None).Result;
+            //Assert
+            Assert.NotNull(result);
+            Assert.That(result.Equals(Unit.Value));
+        }
+
+        [Ignore("Ignore test")]
+        public void CreateJob_WhenJobIdExists_ShouldThrowException()
+        {
+            //Arrange
+           var handler = new Create.Handler(testContext);
+           //Act
+           var result = handler.Handle(_jobCommand, CancellationToken.None).Result;
+           //Assert
+           var ex = Assert.CatchAsync<Exception>(() => handler.Handle(_jobCommand, CancellationToken.None));
+           if (ex.Equals(typeof(Exception)))
+               Assert.That(ex.Message, Is.EqualTo("problem saving changes"));
+        }
+
     }
 }

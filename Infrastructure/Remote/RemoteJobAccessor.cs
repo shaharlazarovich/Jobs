@@ -1,7 +1,8 @@
 using System.Net.Http;
 using System.Threading.Tasks;
-using Application.Interfaces;
+using Infrastructure.Interfaces;
 using Microsoft.Extensions.Options;
+
 
 namespace Infrastructure.Remote
 {
@@ -18,7 +19,7 @@ namespace Infrastructure.Remote
 
         public async Task<string> PostRemote(string URL, string remoteCommand, string remoteParam)
         {
-            string remoteURL = $"{URL}{remoteCommand}?jobname={remoteParam}";
+            string remoteURL = $"http://{URL}:5876/api/Jobs/{remoteCommand}?jobName={remoteParam}";
             var request = new HttpRequestMessage(
             HttpMethod.Post,
             remoteURL);
