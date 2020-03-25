@@ -282,11 +282,14 @@ dotnet publish -c Release -o publish --self-contained false EDRM.sln
 ###################### SERVICE ACTIONS ##################################################################################################
 #########################################################################################################################################
 #installing service after publish (use Administrator CMD rather than vscode terminal)
-sc create EDR.Runner binPath=D:\Source\EnsureDR\EDRRunnerOutput\edr.runner.exe
+#sc create EDR.Runner binPath=D:\Source\EnsureDR\EDRRunnerOutput\edr.runner.exe
+sc create EDRM binPath=D:\Source\EnsureDR\EDRM\Publish\API.exe
 #starting a service
-sc start edr.runner
+#sc start edr.runner
+sc start EDRM
 #deleting a service
-sc delete edr.runner
+#sc delete edr.runner
+sc delete EDRM
 #########################################################################################################################################
 ###################### REACT APP ########################################################################################################
 #########################################################################################################################################
