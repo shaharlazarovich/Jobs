@@ -108,6 +108,25 @@ git push origin [new tag name] #pushing the new tag to origin
 git clone [link to repo - for example: https://shaharlazarovich@bitbucket.org/ensuredr/edr_dashboard-service.git ]
 #changing a remote URL link (if repo name was changed for example):
 git remote set-url origin [name of remote repo for example https://shaharlazarovich@bitbucket.org/ensuredr/edrms.git]
+#using git lfs: first download and install the lfs client from github. then, open your empty repo and type:
+git init #as usual
+git add * #as usual
+git lfs install #this only sets up a hook to git lfs and not actually convert files. copy all files into the new repo. and then:
+git lfs track * #will now connect your local repo to the lfs client. this will add a .gitattribute folder which you need to commit:
+git add .gitattributes
+git commit -m "add Git LFS to the repo" #now create the remote repo before pushing to it. make sure it supports lfs (bitbucket cloud support by default)
+git remote add origin https://shaharlazarovich@bitbucket.org/ensuredr/ensuredr-dependencies-lfs.git #replace this example with actual repo link
+git push origin master #there will be a long upload of all big files - you need to wait for a success message at the end
+#you can either do a regular pull from lfs , or specifically refer to the lfs:
+git lfs pull
+#to speed up pulls, you have a very long command that increases speed:
+git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
+#you can use a shortcut in the git.config so not to write this long command everytime
+git config --global alias.plfs "\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull"
+git plfs
+#git commit and push for lfs are regular.
+
+
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
 ##############################################################################
