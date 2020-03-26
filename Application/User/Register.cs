@@ -4,7 +4,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Application.Errors;
-using Application.Interfaces;
+using Infrastructure.Interfaces;
 using Application.Validators;
 using Domain;
 using FluentValidation;

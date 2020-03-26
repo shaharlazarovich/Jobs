@@ -2,7 +2,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Application.Errors;
-using Application.Interfaces;
+using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 

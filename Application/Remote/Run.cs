@@ -5,7 +5,7 @@ using Domain;
 using FluentValidation;
 using MediatR;
 using Persistence;
-using Application.Interfaces;
+using Infrastructure.Interfaces;
 using System.Net;
 using Application.Errors;
 

@@ -13,7 +13,7 @@ namespace Application.Jobs
     {
         public class Query : IRequest<JobDto>
         {
-            public Guid Id { get; set; }
+            public long Id { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, JobDto>

@@ -1,6 +1,6 @@
 using API.Middleware;
 using Application.Jobs;
-using Application.Interfaces;
+using Infrastructure.Interfaces;
 using Domain;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -32,6 +32,8 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Polly;
 using Polly.Extensions.Http;
 using Microsoft.Extensions.Http;
+using Microsoft.OpenApi.Models;
+using Npgsql;
 
 namespace API
 {
@@ -48,29 +50,51 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureDevelopmentServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(opt =>
-            {
-                opt.UseLazyLoadingProxies();
-                opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
-                //opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-                //opt.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
-                //opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
-            });
+            var ConnectionStringBuilder = new NpgsqlConnectionStringBuilder(Configuration.GetSection("EDRM:dbConnectionString").Value)
+                {
+                    Password = Configuration.GetSection("EDRM:dbConnectionPassword").Value
+                };
+                services.AddDbContext<DataContext>(options => {
+                    options.UseNpgsql(ConnectionStringBuilder.ConnectionString);
+                    // options.UseLazyLoadingProxies();
+                });
 
-            ConfigureServices(services);
+                ConfigureServices(services);
+                
+            // services.AddDbContext<DataContext>(opt =>
+            // {
+            //     opt.UseLazyLoadingProxies();
+            //     opt.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+            //     //opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //     //opt.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
+            //     //opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+            // });
+
+            // ConfigureServices(services);
         }
 
         public void ConfigureProductionServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(opt =>
+            var ConnectionStringBuilder = new NpgsqlConnectionStringBuilder(Configuration.GetSection("EDRM:dbConnectionString").Value)
             {
-                opt.UseLazyLoadingProxies();
-                //opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-                //opt.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
-                opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+                Password = Configuration.GetSection("EDRM:dbConnectionPassword").Value
+            };
+            services.AddDbContext<DataContext>(options => {
+                options.UseNpgsql(ConnectionStringBuilder.ConnectionString);
+                //options.UseLazyLoadingProxies();
             });
 
             ConfigureServices(services);
+            
+            // services.AddDbContext<DataContext>(opt =>
+            // {
+            //     opt.UseLazyLoadingProxies();
+            //     //opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //     //opt.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
+            //     opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+            // });
+
+            // ConfigureServices(services);
         }
         public void ConfigureServices(IServiceCollection services)
         {
@@ -146,7 +170,10 @@ namespace API
             services.Configure<CloudinarySettings>(Configuration.GetSection("Cloudinary"));
             services.Configure<KafkaSettings>(Configuration.GetSection("Kafka"));
             services.Configure<RemoteJobSettings>(Configuration.GetSection("RemoteJob"));
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Jobs Management API", Version = "v1" });
+            });
             services.AddTransient<TimingHandler>();
             services.AddTransient<ValidateHeaderHandler>();
 
@@ -205,7 +232,7 @@ namespace API
                     .CustomSources("https://res.cloudinary.com", "blob:", "data:") //we are adding exception for external sources embedded in our code
                 )
                 .ScriptSources(s => s.Self()
-                    .CustomSources("sha256-zTmokOtDNMlBIULqs//ZgFtzokerG72Q30ccMjdGbSA=") //we are adding exception for external sources embedded in our code
+                    .CustomSources("sha256-zTmokOtDNMlBIULqs//ZgFtzokerG72Q30ccMjdGbSA=").UnsafeInline() //we are adding exception for external sources embedded in our code
                 )
             );
             app.UseDefaultFiles(); //this will look in wwwroot folder for files like index.html, default.html etc.

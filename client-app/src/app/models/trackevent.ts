@@ -8,7 +8,7 @@ export interface ITrackEventsEnvelope {
 
 export interface ITrackEvent {
     id: string;
-    jobId?: string;
+    jobId?: number;
     jobName?: string;
     userId?: string;
     actionDate: Date;
@@ -21,7 +21,7 @@ export interface ITrackEvent {
 
 export class TrackEvent implements ITrackEvent {
     id: string = '';
-    jobId?: string = '';
+    jobId?: number = 0;
     jobName?: string = '';
     userId?: string = '';
     actionDate: Date = new Date();

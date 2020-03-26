@@ -1,10 +1,11 @@
 using System;
+using static Application.Jobs.Enums;
 
 namespace Application.Jobs
 {
     public class JobDto
     {
-        public Guid Id { get; set; }
+        public long Id { get; set; }
         public string JobName { get; set; }
         public string Company { get; set; }
         public string Replication { get; set; }
@@ -15,6 +16,7 @@ namespace Application.Jobs
         public string Key { get; set; }
         public string RTONeeded { get; set; }
         public string JobIP { get; set; }
+        public JobStatus JobStatus { get; set; }
 
     }
 }

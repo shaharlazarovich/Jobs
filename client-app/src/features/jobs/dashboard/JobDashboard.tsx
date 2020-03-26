@@ -36,16 +36,16 @@ const JobDashboard: React.FC = () => {
     //useEffect is a React hook that build our jobs list
     useEffect(() => {
       //trackService(trackEvent);
-      trackPageView({
-        documentTitle: 'JobDashboard', 
-        href: 'https://localhost/jobs', 
-        customDimensions: [
-          {
-            id: 1,
-            value: 'loggedIn',
-          },
-        ], 
-      })
+      // trackPageView({
+      //   documentTitle: 'JobDashboard', 
+      //   href: 'https://localhost/jobs', 
+      //   customDimensions: [
+      //     {
+      //       id: 1,
+      //       value: 'loggedIn',
+      //     },
+      //   ], 
+      // })
       loadJobs();
     }, [loadJobs]); //now, instead of leaving this empty, we need to declare here every dependency useEffect has
 
