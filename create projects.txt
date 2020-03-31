@@ -297,6 +297,8 @@ dotnet test
 dotnet build
 #to publish the app before going to production:
 dotnet publish -c Release -o publish --self-contained false EDRM.sln
+dotnet publish -c Release -r win-x64 --self-contained -o C:\Repos\ensuredr-dependencies\EDRM
+dotnet publish EDR.Runner.csproj -c Release -r win-x64 --self-contained -o C:\Repos\ensuredr-dependencies\EDRRunner
 #########################################################################################################################################
 ###################### SERVICE ACTIONS ##################################################################################################
 #########################################################################################################################################
