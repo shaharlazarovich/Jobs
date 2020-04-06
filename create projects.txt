@@ -257,7 +257,9 @@ dotnet run -p API/
 #in order to create a database (sqlite) out of our code
 #if we'd like to run the app with re-compile every change we can use:
 cd API
-dotnet watch run
+dotnet run watch
+#when our app is running as a service we need to add this option when we run:
+dotnet run watch --console
 #but it only works within the startup project context - nowhere else
 #now inside the info we should see "create database" instructions each time our app starts
 #when we're writing our c# classes, we have shortcuts to build
