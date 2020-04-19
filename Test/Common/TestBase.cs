@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Identity;
 using Domain;
 using Microsoft.Extensions.Options;
 using System.Collections.Generic;
+using Application.Profiles;
 
 namespace Test
 {
