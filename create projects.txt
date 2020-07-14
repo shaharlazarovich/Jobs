@@ -125,7 +125,8 @@ git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull
 git config --global alias.plfs "\!git -c filter.lfs.smudge= -c filter.lfs.required=false pull && git lfs pull"
 git plfs
 #git commit and push for lfs are regular.
-
+#to compare two branches
+git diff Development..master #will output to the console the names of different files
 
 ##############################################################################
 ################### NUGET PACKAGES ###########################################
