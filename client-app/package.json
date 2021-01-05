@@ -21,7 +21,7 @@
     "@types/react-widgets": "^4.3.3",
     "@types/revalidate": "^1.1.2",
     "@types/uuid": "^3.4.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "axios-debug-log": "^0.6.2",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "chart.js": "^2.9.3",
